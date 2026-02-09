@@ -574,11 +574,17 @@
                 <pre><code>-- Open the ScriptSense Terminal (Toolbar > Terminal)
 
 > scan
-[Info] Scanning 154 scripts...
-[Success] Scan Complete! No broken paths found.
+[Info] Running scan...
+[Success] [████████████████████] 100% Complete.
+[Warning] Found 108 issues.
 
-> rename ReplicatedStorage.Utils SharedUtils
-[Warning] This will update 12 script references. Continue? (y/n)
+> rename OldName NewName
+[Info] Scanning references for 'ModuleX'...
+[Info] Found 1 references in code.
+    PENDING CHANGES:
+    > Rename: ModuleX -> ModuleY
+    > Update: 1 scripts
+[Info] >> Type '-y' to confirm.
 > y</code></pre>
             </section>
 
@@ -685,16 +691,16 @@
                             <span class="cmd-usage">report [message]</span>
                         </div>
                     </div>
-                     <!-- Command Block 5: Cls -->
+                     <!-- Command Block 5: Clear -->
                      <div class="command-block">
                         <div class="cmd-meta">
-                            <code>cls</code>
+                            <code>clear</code>
                             <span class="cmd-type">Utility</span>
                         </div>
                         <div class="cmd-details">
                             <p>Clears the terminal output history.</p>
                             <strong>Usage:</strong><br>
-                            <span class="cmd-usage">cls</span>
+                            <span class="cmd-usage">clear</span>
                         </div>
                     </div>
                 </div>
@@ -714,7 +720,7 @@
             </section>
 
             <footer>
-                <p>Built with ❤️ by the ScriptSense Team | <a href="https://github.com/<your-username>/scriptsense">GitHub</a></p>
+                <p>Built with ❤️ by Kel (@GudEveningBois) | <a href="https://github.com/<Scottts>/scriptsense">GitHub</a></p>
                 <p>Last updated: February 2026</p>
             </footer>
         </main>
