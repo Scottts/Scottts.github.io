@@ -4,294 +4,213 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ScriptSense is a project-aware static analysis and workflow tool for Roblox Studio.">
-    <title>ScriptSense Documentation</title>
+    <title>Introduction | ScriptSense Docs</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Icons (Phosphor Icons for a clean look) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
     <style>
+        /* * CSS VARIABLES 
+         * Easy to customize for your brand colors
+         */
         :root {
-            /* Light Mode (Default) */
-            --primary: #1a1a2e;
-            --accent: #d4772f;
-            --text: #2d2d3a;
-            --text-light: #6b6b7d;
-            --bg: #fafaf9;
-            --surface: #ffffff;
-            --border: #e5e5e0;
-            --code-bg: #f5f5f0;
-            --code-text: #c7254e;
-            --heading-font: 'Crimson Pro', serif;
-            --body-font: 'Work Sans', sans-serif;
-            --shadow: rgba(0, 0, 0, 0.05);
+            /* Light Mode */
+            --color-primary: #d4772f;      /* Brand Orange */
+            --color-primary-dark: #b85e1f; /* Darker Orange */
+            --color-bg: #ffffff;           /* Main Background */
+            --color-bg-sidebar: #f8f9fa;   /* Left Sidebar Background */
+            --color-text: #24292f;         /* Main Text */
+            --color-text-muted: #57606a;   /* Secondary Text */
+            --color-border: #d0d7de;       /* Borders */
+            --color-code-bg: #f6f8fa;      /* Code Block Background */
+            --color-header-bg: #ffffff;    /* Mobile Header Background */
+            
+            /* Dimensions */
+            --sidebar-width: 280px;
+            --toc-width: 240px;
+            --header-height: 60px;
+            
+            /* Fonts */
+            --font-body: 'Work Sans', sans-serif;
+            --font-heading: 'Crimson Pro', serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
-        /* Dark Mode Override */
+        /* Dark Mode Overrides */
         [data-theme="dark"] {
-            --primary: #e0e0e0;
-            --accent: #f08a3e; /* Slightly lighter orange for dark mode */
-            --text: #c9d1d9;
-            --text-light: #8b949e;
-            --bg: #0d1117;
-            --surface: #161b22;
-            --border: #30363d;
-            --code-bg: #21262d;
-            --code-text: #ff7b72;
-            --shadow: rgba(0, 0, 0, 0.5);
+            --color-primary: #f08a3e;
+            --color-primary-dark: #ff9b5e;
+            --color-bg: #0d1117;
+            --color-bg-sidebar: #161b22; /* Slightly lighter than bg */
+            --color-text: #c9d1d9;
+            --color-text-muted: #8b949e;
+            --color-border: #30363d;
+            --color-code-bg: #161b22;
+            --color-header-bg: #0d1117;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* RESET & BASE */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        
         body {
-            font-family: var(--body-font);
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
-            transition: background 0.3s ease, color 0.3s ease;
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
         }
 
-        /* --- Layout Grid --- */
-        .layout-wrapper {
-            display: flex;
-            width: 100%;
+        a { text-decoration: none; color: var(--color-primary); transition: 0.2s; }
+        a:hover { color: var(--color-primary-dark); }
+
+        /* --- LAYOUT GRID --- */
+        .app-layout {
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr var(--toc-width);
+            min-height: 100vh;
         }
 
-        /* --- Sidebar Navigation (Left) --- */
-        .sidebar {
-            width: 280px;
-            height: 100vh;
-            background: #1a1a2e; /* Always dark sidebar looks professional */
-            color: white;
-            padding: 3rem 2rem;
-            position: fixed;
-            left: 0;
-            top: 0;
-            overflow-y: auto;
-            z-index: 1000;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .logo {
-            font-family: var(--heading-font);
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: white;
-            letter-spacing: -0.02em;
-        }
-
-        .tagline {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 3rem;
-            font-weight: 400;
-        }
-
-        .nav-section { margin-bottom: 2.5rem; }
-
-        .nav-title {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .nav-links { list-style: none; }
-        .nav-links li { margin-bottom: 0.75rem; }
-
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            display: block;
-            padding: 0.25rem 0;
-            border-left: 2px solid transparent;
-            padding-left: 1rem;
-            margin-left: -1rem;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: white;
-            border-left-color: var(--accent);
-            transform: translateX(4px);
-        }
-
-        /* --- Main Content Area --- */
-        .main-content-wrapper {
-            margin-left: 280px;
-            width: calc(100% - 280px);
-            display: flex;
-            justify-content: center;
-        }
-
-        .main {
-            padding: 4rem 2rem 8rem 4rem; /* Right padding reduced to make room for TOC */
-            max-width: 900px; /* Content width */
-            width: 100%;
-            animation: fadeIn 0.6s ease;
-        }
-
-        /* --- Right Sidebar (Table of Contents) --- */
-        .toc-sidebar {
-            width: 240px;
-            position: fixed;
-            right: 0;
+        /* --- 1. LEFT SIDEBAR (Site Navigation) --- */
+        .site-sidebar {
+            background: var(--color-bg-sidebar);
+            border-right: 1px solid var(--color-border);
+            position: sticky;
             top: 0;
             height: 100vh;
-            padding: 4rem 2rem;
-            border-left: 1px solid var(--border);
-            display: none; /* Hidden on small screens */
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
         }
 
-        @media (min-width: 1200px) {
-            .toc-sidebar { display: block; }
-            .main { max-width: 800px; padding-right: 2rem; }
-            .main-content-wrapper { width: calc(100% - 280px - 240px); margin-right: 240px; }
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .toc-title {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .toc-links a {
-            display: block;
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-            border-left: 2px solid transparent;
-            padding-left: 10px;
-            transition: color 0.2s;
-        }
-
-        .toc-links a:hover, .toc-links a.active {
-            color: var(--accent);
-            border-left-color: var(--accent);
-        }
-
-        /* --- Theme Toggle --- */
-        .theme-toggle {
-            position: fixed;
-            top: 1.5rem;
-            right: 2rem;
-            z-index: 2000;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 8px;
-            border-radius: 50%;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
+        .logo-placeholder {
+            width: 32px;
+            height: 32px;
+            background: var(--color-primary);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 10px var(--shadow);
-            transition: all 0.3s ease;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
         }
 
-        .theme-toggle:hover {
-            transform: scale(1.1);
-            border-color: var(--accent);
-        }
-
-        /* --- Typography & Elements --- */
-        h1 {
-            font-family: var(--heading-font);
-            font-size: 3.5rem;
+        .brand-name {
+            font-family: var(--font-heading);
             font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--color-text);
+        }
+
+        .sidebar-nav {
+            padding: 1.5rem;
+        }
+
+        .nav-group { margin-bottom: 2rem; }
+        
+        .nav-group-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 0.75rem;
+            color: var(--color-text-muted);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .nav-link:hover {
+            background: rgba(0,0,0,0.05);
+            color: var(--color-text);
+        }
+        
+        [data-theme="dark"] .nav-link:hover { background: rgba(255,255,255,0.05); }
+
+        /* Active State for Site Pages */
+        .nav-link.active {
+            background: rgba(212, 119, 47, 0.1); /* Low opacity orange */
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        /* --- 2. MAIN CONTENT --- */
+        .main-content {
+            padding: 4rem 3rem 6rem;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Typography */
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            margin-bottom: 1rem;
             line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            letter-spacing: -0.03em;
+            color: var(--color-text);
         }
 
         h2 {
-            font-family: var(--heading-font);
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-top: 4rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            position: relative;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -1px;
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5rem;
+            color: var(--color-text);
         }
 
         h3 {
-            font-family: var(--heading-font);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1.0625rem;
-            color: var(--text);
-        }
-
-        .lead {
             font-size: 1.25rem;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            line-height: 1.6;
-        }
-
-        .version-badge {
-            display: inline-block;
-            background: rgba(212, 119, 47, 0.1);
-            color: var(--accent);
-            padding: 4px 12px;
-            border-radius: 99px;
-            font-size: 0.875rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            color: var(--color-text);
         }
 
-        a { color: var(--accent); text-decoration: none; transition: color 0.2s ease; }
-        a:hover { color: #b85e1f; text-decoration: underline; }
+        p { margin-bottom: 1.25rem; color: var(--color-text); }
+        
+        .lead { font-size: 1.2rem; color: var(--color-text-muted); margin-bottom: 2rem; }
 
         code {
-            font-family: 'Monaco', 'Menlo', monospace;
-            background: var(--code-bg);
+            font-family: var(--font-mono);
+            background: var(--color-code-bg);
             padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-size: 0.9em;
-            color: var(--code-text);
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
         }
 
         pre {
-            background: var(--code-bg);
-            border: 1px solid var(--border);
-            border-radius: 6px;
+            background: var(--color-code-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
             padding: 1.5rem;
             overflow-x: auto;
             margin: 1.5rem 0;
@@ -300,296 +219,243 @@
         pre code {
             background: none;
             padding: 0;
-            color: var(--text);
-            font-size: 0.875rem;
+            border: none;
+            color: inherit;
         }
 
-        /* Lists */
-        ul, ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
-        li { margin-bottom: 0.5rem; color: var(--text); }
-
-        /* Callouts */
-        .callout {
-            background: var(--surface);
-            border-left: 4px solid var(--accent);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 4px 4px 0;
-            box-shadow: 0 2px 8px var(--shadow);
-        }
-
-        .callout.info { border-left-color: #3498db; }
-        .callout.info h4 { color: #3498db; margin-top: 0; }
-
-        /* Tables */
+        /* Features Table */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 2rem 0;
-            background: var(--surface);
+            margin: 1.5rem 0;
+            border: 1px solid var(--color-border);
             border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 2px 8px var(--shadow);
-            border: 1px solid var(--border);
         }
+        
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--color-border); }
+        th { background: var(--color-code-bg); font-size: 0.85rem; text-transform: uppercase; color: var(--color-text-muted); }
 
-        thead { background: var(--code-bg); color: var(--text); }
-        th { padding: 1rem; text-align: left; font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        td { padding: 1rem; border-bottom: 1px solid var(--border); color: var(--text); }
-        tr:last-child td { border-bottom: none; }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            background: var(--accent);
-            color: white;
-            border-radius: 6px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background: #b85e1f;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(212, 119, 47, 0.3);
-            color: white;
-            text-decoration: none;
-        }
-        .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
-        .btn-outline:hover { background: var(--accent); color: white; }
-
-        /* --- COMMANDS SECTION LAYOUT (New) --- */
-        .command-reference {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .command-block {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
+        /* Command Cards */
+        .command-card {
+            border: 1px solid var(--color-border);
             border-radius: 8px;
-            padding: 0;
-            overflow: hidden;
-            transition: box-shadow 0.2s;
-        }
-
-        .command-block:hover {
-            box-shadow: 0 4px 12px var(--shadow);
-        }
-
-        @media (min-width: 768px) {
-            .command-block {
-                grid-template-columns: 200px 1fr;
-            }
-        }
-
-        .cmd-meta {
-            background: var(--code-bg);
             padding: 1.5rem;
-            border-right: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--color-bg);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .command-card:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        .cmd-meta code {
-            font-size: 1.1rem;
-            color: var(--accent);
-            background: none;
-            padding: 0;
+        .cmd-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 0.5rem; }
+        .cmd-name { font-family: var(--font-mono); font-weight: bold; color: var(--color-primary); font-size: 1.1rem; }
+        .cmd-tag { font-size: 0.7rem; text-transform: uppercase; padding: 2px 6px; background: var(--color-code-bg); border-radius: 4px; color: var(--color-text-muted); }
+
+        /* Callouts */
+        .callout {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: var(--color-code-bg);
+            border-left: 4px solid var(--color-primary);
+            margin: 1.5rem 0;
         }
 
-        .cmd-type {
-            font-size: 0.75rem;
+        /* --- 3. RIGHT SIDEBAR (Table of Contents) --- */
+        .toc-sidebar {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            padding: 4rem 1.5rem;
+            border-left: 1px solid var(--color-border);
+            overflow-y: auto;
+            font-size: 0.85rem;
+        }
+
+        .toc-title {
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: var(--text-light);
-            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-text-muted);
+            font-size: 0.75rem;
         }
 
-        .cmd-details {
-            padding: 1.5rem;
+        .toc-list { list-style: none; }
+        
+        .toc-link {
+            display: block;
+            color: var(--color-text-muted);
+            padding: 4px 0;
+            padding-left: 0;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
         }
 
-        .cmd-details p { margin-bottom: 1rem; font-size: 1rem; }
-        .cmd-usage {
-            font-family: 'Monaco', monospace;
-            font-size: 0.85rem;
-            background: var(--code-bg);
-            padding: 0.5rem;
-            border-radius: 4px;
-            display: inline-block;
-            margin-top: 0.5rem;
-            color: var(--text);
-        }
+        /* Indentation for H3s */
+        .toc-link.depth-3 { padding-left: 1rem; }
 
-        /* Mobile Menu Toggle */
-        .menu-toggle {
+        .toc-link:hover { color: var(--color-primary); }
+        
+        .toc-link.active {
+            color: var(--color-primary);
+            border-left-color: var(--color-primary);
+            padding-left: 0.75rem; /* Slide effect */
+            font-weight: 500;
+        }
+        .toc-link.active.depth-3 { padding-left: 1.75rem; }
+
+        /* --- MOBILE ELEMENTS --- */
+        .mobile-header {
             display: none;
             position: fixed;
-            top: 1.5rem;
-            left: 1.5rem;
-            z-index: 2000;
-            background: var(--primary);
-            border: none;
-            width: 44px;
-            height: 44px;
-            border-radius: 6px;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: center;
+            top: 0; left: 0; right: 0;
+            height: var(--header-height);
+            background: var(--color-header-bg);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: 0 1rem;
             align-items: center;
-            gap: 4px;
+            justify-content: space-between;
         }
-        .menu-toggle span { width: 20px; height: 2px; background: white; transition: all 0.3s ease; }
+
+        .menu-btn, .theme-btn {
+            background: none;
+            border: none;
+            color: var(--color-text);
+            cursor: pointer;
+            padding: 8px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 1200px) {
+            .app-layout { grid-template-columns: var(--sidebar-width) 1fr; }
+            .toc-sidebar { display: none; } /* Hide TOC on medium screens */
+        }
 
         @media (max-width: 768px) {
-            .sidebar { transform: translateX(-100%); }
-            .sidebar.open { transform: translateX(0); }
-            .main-content-wrapper { margin-left: 0; width: 100%; }
-            .main { padding: 5rem 1.5rem 4rem; }
-            .menu-toggle { display: flex; }
-            .toc-sidebar { display: none; }
-            .theme-toggle { top: 1rem; right: 1rem; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        footer {
-            margin-top: 6rem;
-            padding-top: 3rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-light);
-            font-size: 0.875rem;
+            .app-layout { grid-template-columns: 1fr; }
+            .site-sidebar {
+                position: fixed;
+                left: -100%;
+                top: var(--header-height);
+                height: calc(100vh - var(--header-height));
+                width: 100%;
+                transition: left 0.3s ease;
+                border-right: none;
+            }
+            .site-sidebar.open { left: 0; }
+            .main-content { padding: calc(var(--header-height) + 2rem) 1.5rem 4rem; }
+            .mobile-header { display: flex; }
+            
+            /* Hide Desktop Sidebar elements inside mobile menu if needed */
+            .sidebar-header { display: none; } 
         }
     </style>
 </head>
 <body>
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
-        <!-- Sun Icon -->
-        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        <!-- Moon Icon -->
-        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-    </button>
 
-    <!-- Mobile Menu Toggle -->
-    <button class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <!-- Mobile Header (Visible only on small screens) -->
+    <header class="mobile-header">
+        <button class="menu-btn" id="menuToggle" aria-label="Toggle Menu">
+            <i class="ph ph-list"></i>
+        </button>
+        <div class="brand-name">ScriptSense</div>
+        <button class="theme-btn" id="themeToggleMobile" aria-label="Toggle Theme">
+            <i class="ph ph-moon"></i>
+        </button>
+    </header>
 
-    <!-- Sidebar Navigation -->
-    <nav class="sidebar" id="sidebar">
-        <div class="logo">ScriptSense</div>
-        <div class="tagline">Project-aware code analysis for Roblox.</div>
+    <div class="app-layout">
         
-        <div class="nav-section">
-            <div class="nav-title">Getting Started</div>
-            <ul class="nav-links">
-                <li><a href="#introduction" class="active">Introduction</a></li>
-                <li><a href="#installation">Installation</a></li>
-                <li><a href="#quick-start">Quick Start</a></li>
-            </ul>
-        </div>
+        <!-- 1. LEFT SIDEBAR: Site Navigation (Cross-Page) -->
+        <nav class="site-sidebar" id="siteSidebar">
+            <div class="sidebar-header">
+                <!-- Replace this SVG with your actual logo image -->
+                <div class="logo-placeholder">
+                    <i class="ph ph-code"></i>
+                </div>
+                <div class="brand-name">ScriptSense</div>
+            </div>
 
-        <div class="nav-section">
-            <div class="nav-title">Guide</div>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#core-concepts">Core Concepts</a></li>
-            </ul>
-        </div>
-
-        <div class="nav-section">
-            <div class="nav-title">Reference</div>
-            <ul class="nav-links">
-                <li><a href="#commands">Command Reference</a></li>
-                <li><a href="#contributing">Contributing</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Content Wrapper -->
-    <div class="main-content-wrapper">
-        <!-- Main Content -->
-        <main class="main">
-            <section id="introduction">
-                <div class="version-badge">ScriptSense — v2.6.43</div>
-                <h1>Welcome to ScriptSense</h1>
-                <p class="lead">ScriptSense is a project-aware static analysis and workflow tool for Roblox Studio. It watches your place as a system — not just individual scripts — and helps you prevent broken paths, perform safe refactors, maintain code health, and preserve developer context.</p>
-                
-                <div class="callout">
-                    <strong>Core promise:</strong> <em>Prevent broken scripts and unsafe refactors in Roblox projects.</em>
+            <div class="sidebar-nav">
+                <!-- Toggle for Desktop Sidebar -->
+                <div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+                   <span style="font-size: 0.8rem; color: var(--color-text-muted);">v2.6.43</span>
+                   <!-- Desktop Theme Toggle -->
+                   <button class="theme-btn" id="themeToggleDesktop" style="font-size: 1rem;">
+                       <i class="ph ph-moon"></i>
+                   </button>
                 </div>
 
-                <div style="margin-top: 2rem;">
-                    <a href="#installation" class="btn">Get Started</a>
-                    <a href="#commands" class="btn btn-outline" style="margin-left: 1rem;">View Commands</a>
+                <div class="nav-group">
+                    <div class="nav-group-title">Getting Started</div>
+                    <!-- 'active' class denotes the current HTML file -->
+                    <a href="#" class="nav-link active"><i class="ph ph-house"></i> Introduction</a>
+                    <a href="#installation" class="nav-link"><i class="ph ph-download-simple"></i> Installation</a>
+                    <a href="#quick-start" class="nav-link"><i class="ph ph-lightning"></i> Quick Start</a>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-group-title">Reference</div>
+                    <a href="#commands" class="nav-link"><i class="ph ph-terminal-window"></i> CLI Commands</a>
+                    <a href="#api" class="nav-link"><i class="ph ph-brackets-curly"></i> API Reference</a>
+                    <a href="#config" class="nav-link"><i class="ph ph-gear"></i> Configuration</a>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-group-title">Community</div>
+                    <a href="https://github.com" target="_blank" class="nav-link"><i class="ph ph-github-logo"></i> GitHub</a>
+                    <a href="https://roblox.com" target="_blank" class="nav-link"><i class="ph ph-discord-logo"></i> Support</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 2. MAIN CONTENT AREA -->
+        <main class="main-content">
+            <!-- Content Section -->
+            <section id="introduction">
+                <h1>Welcome to ScriptSense</h1>
+                <p class="lead">ScriptSense is a project-aware static analysis and workflow tool for Roblox Studio. It watches your place as a system—not just individual scripts.</p>
+                
+                <div class="callout">
+                    <p style="margin:0;"><strong>Core Promise:</strong> Prevent broken references and perform safe refactors across your entire project universe.</p>
                 </div>
             </section>
 
             <section id="installation">
                 <h2>Installation</h2>
-                <p>Install the ScriptSense plugin from the Roblox Marketplace or download releases from GitHub.</p>
+                <p>ScriptSense works best when installed directly via the Plugin Marketplace, but can also be built from source using Rojo.</p>
+                
+                <h3>Plugin Marketplace</h3>
+                <p>The easiest way to get started. Updates are handled automatically by Studio.</p>
+                <a href="#" style="display:inline-block; background:var(--color-primary); color:white; padding:0.6rem 1.2rem; border-radius:6px; font-weight:500;">Get Plugin</a>
 
-                <h3>Using Roblox Plugin Marketplace</h3>
-                <p>Install directly into Studio for the easiest setup:</p>
-                <p><a href="https://create.roblox.com/marketplace/asset/<plugin-id>" target="_blank">Install from the Roblox Plugin Marketplace</a></p>
-
-                <h3>Using GitHub Releases</h3>
-                <p>For manual installation or specific versions:</p>
-                <p><a href="https://github.com/<your-username>/scriptsense/releases" target="_blank">Download prebuilt releases from GitHub</a></p>
-
-                <div class="callout info">
-                    <h4>💡 Tip</h4>
-                    <p>ScriptSense works inside Studio. You don't need any external tools to get value — but teams often pair ScriptSense with Rojo for advanced workflows.</p>
-                </div>
+                <h3>Manual Build</h3>
+                <p>For advanced users who want to modify the source code:</p>
+                <pre><code>rojo build -o "ScriptSense.rbxmx"
+# Then drag the file into Studio's plugins folder</code></pre>
             </section>
 
             <section id="quick-start">
                 <h2>Quick Start</h2>
-                <p>A minimal flow to get immediate value from ScriptSense.</p>
-
-                <ol>
-                    <li>Install ScriptSense in Roblox Studio.</li>
-                    <li>Open any script — the live analysis widget appears automatically.</li>
-                    <li>Run <code>scan</code> from the terminal (optional) to scan the whole place.</li>
-                    <li>Use <code>rename</code> to safely rename instances.</li>
+                <p>Once installed, open the ScriptSense widget from the Plugins tab.</p>
+                <ol style="padding-left: 1.5rem; margin-bottom: 1.5rem; color: var(--color-text);">
+                    <li style="margin-bottom:0.5rem;">Select an Instance in the Explorer.</li>
+                    <li style="margin-bottom:0.5rem;">Right-click and select <strong>"Scan References"</strong>.</li>
+                    <li style="margin-bottom:0.5rem;">Review the output in the ScriptSense terminal.</li>
                 </ol>
-
-                <h3>Example Workflow</h3>
-                <pre><code>-- Open the ScriptSense Terminal (Toolbar > Terminal)
-
-> scan
-[Info] Running scan...
-[Success] [████████████████████] 100% Complete.
-[Warning] Found 108 issues.
-
-> rename OldName NewName
-[Info] Scanning references for 'ModuleX'...
-[Info] Found 1 references in code.
-    PENDING CHANGES:
-    > Rename: ModuleX -> ModuleY
-    > Update: 1 scripts
-[Info] >> Type '-y' to confirm.
-> y</code></pre>
             </section>
 
             <section id="features">
-                <h2>Features</h2>
+                <h2>Key Features</h2>
                 <table>
                     <thead>
                         <tr>
@@ -601,238 +467,181 @@
                     <tbody>
                         <tr>
                             <td><strong>Path Doctor</strong></td>
-                            <td>Detects broken object references and paths</td>
-                            <td>✓ Stable</td>
+                            <td>Detects broken object references (e.g., <code>workspace.Part</code>)</td>
+                            <td>Stable</td>
                         </tr>
                         <tr>
                             <td><strong>Safe Refactor</strong></td>
-                            <td>Rename instances and automatically update scripts</td>
-                            <td>✓ Stable</td>
+                            <td>Renames instances and updates all script references automatically</td>
+                            <td>Beta</td>
                         </tr>
                         <tr>
-                            <td><strong>Dependency Graph</strong></td>
-                            <td>Visualizes module connections and cycles</td>
-                            <td>✓ Stable</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Smart Widget</strong></td>
-                            <td>Context-aware suggestions while editing</td>
-                            <td>✓ Stable</td>
+                            <td><strong>Dep Graph</strong></td>
+                            <td>Visualizes module require cycles</td>
+                            <td>Stable</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
 
-            <section id="core-concepts">
-                <h2>Core Concepts</h2>
-                <p>Understanding how ScriptSense views your project.</p>
-                <ul>
-                    <li><strong>The Project Graph:</strong> ScriptSense maps dependencies between ModuleScripts to detect cycles and architectural issues.</li>
-                    <li><strong>Live Analysis:</strong> As you type, the plugin checks for valid object paths (e.g., <code>workspace.Part.Child</code>) and alerts you if they don't exist.</li>
-                    <li><strong>Crash Proofing:</strong> Background snapshots ensure you never lose work during a Studio crash.</li>
-                </ul>
-            </section>
-
-            <!-- COMMANDS SECTION REDESIGN -->
             <section id="commands">
                 <h2>Command Reference</h2>
-                <p>Access these commands via the ScriptSense Terminal inside Roblox Studio.</p>
+                <p>Use these commands in the custom terminal window.</p>
 
-                <div class="command-reference">
-                    
-                    <!-- Command Block 1: Scan -->
-                    <div class="command-block">
-                        <div class="cmd-meta">
-                            <code>scan</code>
-                            <span class="cmd-type">Analysis</span>
-                        </div>
-                        <div class="cmd-details">
-                            <p>Runs the Path Doctor on the entire project or a specific target. Detects broken references and missing instances.</p>
-                            <strong>Usage:</strong><br>
-                            <span class="cmd-usage">scan [Optional: TargetName]</span>
-                        </div>
+                <div class="command-card">
+                    <div class="cmd-header">
+                        <span class="cmd-name">scan</span>
+                        <span class="cmd-tag">Analysis</span>
                     </div>
+                    <p>Runs the Path Doctor on the entire project or specific target.</p>
+                    <code>scan [TargetName]</code>
+                </div>
 
-                    <!-- Command Block 2: Rename -->
-                    <div class="command-block">
-                        <div class="cmd-meta">
-                            <code>rename</code>
-                            <span class="cmd-type">Refactor</span>
-                        </div>
-                        <div class="cmd-details">
-                            <p>Safely renames an Instance. ScriptSense will scan your entire codebase and update any <code>require()</code> or path references to match the new name.</p>
-                            <strong>Usage:</strong><br>
-                            <span class="cmd-usage">rename [OldName] [NewName]</span>
-                        </div>
+                <div class="command-card">
+                    <div class="cmd-header">
+                        <span class="cmd-name">rename</span>
+                        <span class="cmd-tag">Refactor</span>
                     </div>
-
-                    <!-- Command Block 3: Test -->
-                    <div class="command-block">
-                        <div class="cmd-meta">
-                            <code>test</code>
-                            <span class="cmd-type">Utility</span>
-                        </div>
-                        <div class="cmd-details">
-                            <p>Generates a TestEZ-compatible <code>.spec</code> file for the target module. Scaffolds tests for all exported functions.</p>
-                            <strong>Usage:</strong><br>
-                            <span class="cmd-usage">test [ModuleName]</span>
-                        </div>
+                    <p>Safely renames an Instance and updates all Lua source files.</p>
+                    <code>rename [OldName] [NewName]</code>
+                </div>
+                
+                 <div class="command-card">
+                    <div class="cmd-header">
+                        <span class="cmd-name">test</span>
+                        <span class="cmd-tag">Utility</span>
                     </div>
-
-                    <!-- Command Block 4: Report -->
-                    <div class="command-block">
-                        <div class="cmd-meta">
-                            <code>report</code>
-                            <span class="cmd-type">Feedback</span>
-                        </div>
-                        <div class="cmd-details">
-                            <p>Opens the Feedback GUI to send bug reports or suggestions directly to the developers.</p>
-                            <strong>Usage:</strong><br>
-                            <span class="cmd-usage">report [message]</span>
-                        </div>
-                    </div>
-                     <!-- Command Block 5: Clear -->
-                     <div class="command-block">
-                        <div class="cmd-meta">
-                            <code>clear</code>
-                            <span class="cmd-type">Utility</span>
-                        </div>
-                        <div class="cmd-details">
-                            <p>Clears the terminal output history.</p>
-                            <strong>Usage:</strong><br>
-                            <span class="cmd-usage">clear</span>
-                        </div>
-                    </div>
+                    <p>Generates a TestEZ-compatible .spec file for the target module.</p>
+                    <code>test [ModuleName]</code>
                 </div>
             </section>
-
-            <section id="contributing">
-                <h2>Contributing</h2>
-                <p>We welcome contributions from the community! Here's how you can help:</p>
-
-                <ol>
-                    <li>Fork the repository on GitHub</li>
-                    <li>Clone your fork locally</li>
-                    <li>Create a new branch for your feature</li>
-                    <li>Make your changes and write tests</li>
-                    <li>Push to your fork and submit a pull request</li>
-                </ol>
-            </section>
-
-            <footer>
-                <p>Built with ❤️ by Kel (@GudEveningBois) | <a href="https://github.com/<Scottts>/scriptsense">GitHub</a></p>
-                <p>Last updated: February 2026</p>
+            
+            <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border); color: var(--color-text-muted); font-size: 0.9rem;">
+                © 2026 ScriptSense Team. Documentation built for Roblox developers.
             </footer>
         </main>
 
-        <!-- Right Sidebar (Table of Contents) -->
+        <!-- 3. RIGHT SIDEBAR: Table of Contents (Auto-Generated) -->
         <aside class="toc-sidebar">
             <div class="toc-title">On This Page</div>
-            <div class="toc-links">
-                <a href="#introduction">Introduction</a>
-                <a href="#installation">Installation</a>
-                <a href="#quick-start">Quick Start</a>
-                <a href="#features">Features</a>
-                <a href="#core-concepts">Core Concepts</a>
-                <a href="#commands">Command Reference</a>
-                <a href="#contributing">Contributing</a>
-            </div>
+            <ul class="toc-list" id="tocList">
+                <!-- Javascript will populate this -->
+            </ul>
         </aside>
+
     </div>
 
     <script>
-        // --- Theme Toggle Logic ---
-        const themeToggle = document.getElementById('themeToggle');
-        const sunIcon = document.querySelector('.sun-icon');
-        const moonIcon = document.querySelector('.moon-icon');
-        const root = document.documentElement;
+        /**
+         * 1. AUTO-GENERATED TABLE OF CONTENTS
+         * Scans the <main> area for h2 and h3 tags and builds the sidebar.
+         */
+        const mainContent = document.querySelector('.main-content');
+        const tocList = document.getElementById('tocList');
+        const headings = mainContent.querySelectorAll('h2, h3');
 
-        function setTheme(isDark) {
-            if (isDark) {
-                root.setAttribute('data-theme', 'dark');
-                moonIcon.style.display = 'none';
-                sunIcon.style.display = 'block';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                root.removeAttribute('data-theme');
-                moonIcon.style.display = 'block';
-                sunIcon.style.display = 'none';
-                localStorage.setItem('theme', 'light');
+        headings.forEach(heading => {
+            // Ensure id exists
+            if (!heading.id) {
+                heading.id = heading.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-');
             }
-        }
 
-        // Check Local Storage or System Preference
-        const savedTheme = localStorage.getItem('theme');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#' + heading.id;
+            a.textContent = heading.textContent;
+            a.className = 'toc-link';
+            
+            // Indent h3
+            if (heading.tagName === 'H3') {
+                a.classList.add('depth-3');
+            }
 
-        if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
-            setTheme(true);
-        }
-
-        themeToggle.addEventListener('click', () => {
-            const isDark = root.getAttribute('data-theme') === 'dark';
-            setTheme(!isDark);
+            li.appendChild(a);
+            tocList.appendChild(li);
         });
 
-        // --- Mobile Menu Toggle ---
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebar = document.getElementById('sidebar');
+        /**
+         * 2. SCROLL SPY (Active State for Right Sidebar)
+         * Highlights the current section in the TOC as you scroll.
+         */
+        const observerOptions = {
+            root: null,
+            rootMargin: '-100px 0px -60% 0px', // Active when element is near top
+            threshold: 0
+        };
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Remove active class from all
+                    document.querySelectorAll('.toc-link').forEach(link => link.classList.remove('active'));
+                    
+                    // Add active class to corresponding link
+                    const id = entry.target.getAttribute('id');
+                    const link = document.querySelector(`.toc-link[href="#${id}"]`);
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        headings.forEach(heading => observer.observe(heading));
+
+        /**
+         * 3. THEME TOGGLE
+         */
+        const themeBtns = document.querySelectorAll('.theme-btn');
+        const html = document.documentElement;
+        
+        // Check saved preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        updateIcons(savedTheme);
+
+        themeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const current = html.getAttribute('data-theme');
+                const next = current === 'dark' ? 'light' : 'dark';
+                
+                html.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                updateIcons(next);
+            });
+        });
+
+        function updateIcons(theme) {
+            const iconClass = theme === 'dark' ? 'ph-sun' : 'ph-moon';
+            themeBtns.forEach(btn => {
+                const icon = btn.querySelector('i');
+                icon.className = `ph ${iconClass}`;
+            });
+        }
+
+        /**
+         * 4. MOBILE MENU
+         */
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('siteSidebar');
+        
         menuToggle.addEventListener('click', () => {
             sidebar.classList.toggle('open');
+            // Change icon
+            const icon = menuToggle.querySelector('i');
+            if (sidebar.classList.contains('open')) {
+                icon.classList.replace('ph-list', 'ph-x');
+            } else {
+                icon.classList.replace('ph-x', 'ph-list');
+            }
         });
-
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768) {
-                if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-                    sidebar.classList.remove('open');
-                }
+        
+        // Close sidebar when clicking main content
+        mainContent.addEventListener('click', () => {
+            if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                menuToggle.querySelector('i').classList.replace('ph-x', 'ph-list');
             }
         });
 
-        // --- Active Nav Logic (Left Sidebar) ---
-        const navLinks = document.querySelectorAll('.nav-links a');
-        const sections = document.querySelectorAll('section');
-
-        // --- Active TOC Logic (Right Sidebar) ---
-        const tocLinks = document.querySelectorAll('.toc-links a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            // Update Left Sidebar
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-
-            // Update Right Sidebar (TOC)
-            tocLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Smooth scroll for nav links
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    sidebar.classList.remove('open');
-                }
-            });
-        });
     </script>
 </body>
 </html>
