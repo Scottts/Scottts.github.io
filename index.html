@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #d4772f;
+            --text: #2d2d3a;
+            --text-light: #6b6b7d;
+            --bg: #fafaf9;
+            --surface: #ffffff;
+            --border: #e5e5e0;
+            --code-bg: #f5f5f0;
+            --heading-font: 'Crimson Pro', serif;
+            --body-font: 'Work Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .nav-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .nav-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            display: block;
+            padding: 0.25rem 0;
+            border-left: 2px solid transparent;
+            padding-left: 1rem;
+            margin-left: -1rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+            border-left-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        /* Main Content */
+        .main {
+            margin-left: 280px;
+            padding: 4rem 4rem 8rem;
+            max-width: 900px;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Typography */
+        h1 {
+            font-family: var(--heading-font);
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            font-family: var(--heading-font);
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        h3 {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        h4 {
+            font-family: var(--body-font);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.0625rem;
+            color: var(--text);
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #b85e1f;
+            text-decoration: underline;
+        }
+
+        /* Code Blocks */
+        code {
+            font-family: 'Monaco', 'Menlo', monospace;
+            background: var(--code-bg);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: var(--text);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        /* Callout Boxes */
+        .callout {
+            background: var(--surface);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .callout h4 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+
+        .callout.info {
+            border-left-color: #3498db;
+        }
+
+        .callout.info h4 {
+            color: #3498db;
+        }
+
+        .callout.warning {
+            border-left-color: #f39c12;
+        }
+
+        .callout.warning h4 {
+            color: #f39c12;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--surface);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        thead {
+            background: var(--primary);
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: rgba(212, 119, 47, 0.05);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-family: var(--body-font);
+        }
+
+        .btn:hover {
+            background: #b85e1f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 119, 47, 0.3);
+            text-decoration: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 2000;
+            background: var(--primary);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 6px;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 20px;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main {
+                margin-left: 0;
+                padding: 5rem 1.5rem 4rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            pre {
+                padding: 1rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section spacing */
+        section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: sectionFadeIn 0.6s ease forwards;
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes sectionFadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 6rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="logo">ProjectName</div>
+        <div class="tagline">Beautiful Documentation</div>
+        
+        <div class="nav-section">
+            <div class="nav-title">Getting Started</div>
+            <ul class="nav-links">
+                <li><a href="#introduction" class="active">Introduction</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#quick-start">Quick Start</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-title">Guide</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#configuration">Configuration</a></li>
+                <li><a href="#examples">Examples</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-title">Reference</div>
+            <ul class="nav-links">
+                <li><a href="#api">API Reference</a></li>
+                <li><a href="#contributing">Contributing</a></li>
+                <li><a href="#license">License</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <section id="introduction">
+            <h1>Welcome to ProjectName</h1>
+            <p class="lead">A modern, powerful solution for building amazing applications. This documentation will guide you through everything you need to know to get started and become productive.</p>
+            
+            <p>ProjectName is designed with simplicity and power in mind. Whether you're building a small prototype or a large-scale application, our tools provide the flexibility and performance you need.</p>
+
+            <div style="margin-top: 2rem;">
+                <a href="#installation" class="btn">Get Started</a>
+                <a href="#examples" class="btn btn-outline" style="margin-left: 1rem;">View Examples</a>
+            </div>
+        </section>
+
+        <section id="installation">
+            <h2>Installation</h2>
+            <p>Get up and running in minutes with your preferred package manager.</p>
+
+            <h3>Using npm</h3>
+            <pre><code>npm install projectname</code></pre>
+
+            <h3>Using yarn</h3>
+            <pre><code>yarn add projectname</code></pre>
+
+            <h3>Using pnpm</h3>
+            <pre><code>pnpm add projectname</code></pre>
+
+            <div class="callout info">
+                <h4>💡 Tip</h4>
+                <p>Make sure you have Node.js version 16 or higher installed on your system before proceeding with the installation.</p>
+            </div>
+        </section>
+
+        <section id="quick-start">
+            <h2>Quick Start</h2>
+            <p>Here's a minimal example to get you started with ProjectName.</p>
+
+            <h3>Basic Setup</h3>
+            <pre><code>import { ProjectName } from 'projectname';
+
+const app = new ProjectName({
+  config: {
+    theme: 'dark',
+    verbose: true
+  }
+});
+
+app.initialize();</code></pre>
+
+            <h3>First Steps</h3>
+            <p>Once you've initialized your project, you can start building:</p>
+
+            <ol>
+                <li>Configure your project settings</li>
+                <li>Create your first component</li>
+                <li>Run the development server</li>
+                <li>Build for production</li>
+            </ol>
+        </section>
+
+        <section id="features">
+            <h2>Features</h2>
+            <p>ProjectName comes packed with powerful features designed to streamline your development workflow.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Fast Performance</strong></td>
+                        <td>Optimized for speed and efficiency</td>
+                        <td>✓ Stable</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TypeScript Support</strong></td>
+                        <td>First-class TypeScript integration</td>
+                        <td>✓ Stable</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Plugin System</strong></td>
+                        <td>Extensible architecture</td>
+                        <td>✓ Stable</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hot Reload</strong></td>
+                        <td>Instant feedback during development</td>
+                        <td>⚠ Beta</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Key Highlights</h3>
+            <ul>
+                <li><strong>Zero Configuration:</strong> Works out of the box with sensible defaults</li>
+                <li><strong>Flexible Architecture:</strong> Adapts to your project structure</li>
+                <li><strong>Developer Experience:</strong> Built with DX in mind</li>
+                <li><strong>Production Ready:</strong> Battle-tested in production environments</li>
+            </ul>
+        </section>
+
+        <section id="configuration">
+            <h2>Configuration</h2>
+            <p>Customize ProjectName to fit your specific needs.</p>
+
+            <h3>Configuration File</h3>
+            <p>Create a <code>projectname.config.js</code> file in your project root:</p>
+
+            <pre><code>module.exports = {
+  // Base configuration
+  mode: 'production',
+  
+  // Build options
+  build: {
+    outDir: 'dist',
+    minify: true,
+    sourcemap: true
+  },
+  
+  // Plugin configuration
+  plugins: [
+    // Add your plugins here
+  ]
+};</code></pre>
+
+            <div class="callout warning">
+                <h4>⚠ Important</h4>
+                <p>Always validate your configuration before deploying to production. Invalid configurations can lead to unexpected behavior.</p>
+            </div>
+        </section>
+
+        <section id="examples">
+            <h2>Examples</h2>
+            <p>Learn by example with these common use cases.</p>
+
+            <h3>Example 1: Basic Usage</h3>
+            <pre><code>import { createApp } from 'projectname';
+
+const app = createApp();
+app.mount('#app');</code></pre>
+
+            <h3>Example 2: With Options</h3>
+            <pre><code>import { createApp } from 'projectname';
+
+const app = createApp({
+  router: true,
+  state: {
+    theme: 'dark',
+    locale: 'en-US'
+  }
+});
+
+app.mount('#app');</code></pre>
+
+            <h3>Example 3: Advanced Configuration</h3>
+            <pre><code>import { createApp, defineConfig } from 'projectname';
+
+const config = defineConfig({
+  middleware: [
+    logger(),
+    errorHandler(),
+    analytics()
+  ],
+  modules: {
+    ui: true,
+    data: true
+  }
+});
+
+const app = createApp(config);
+app.mount('#app');</code></pre>
+        </section>
+
+        <section id="api">
+            <h2>API Reference</h2>
+            <p>Comprehensive API documentation for all available methods and properties.</p>
+
+            <h3>Core Methods</h3>
+            
+            <h4>createApp(options)</h4>
+            <p>Creates a new application instance.</p>
+            <pre><code>const app = createApp({
+  mode: 'development',
+  debug: true
+});</code></pre>
+
+            <h4>app.mount(selector)</h4>
+            <p>Mounts the application to a DOM element.</p>
+            <pre><code>app.mount('#app');</code></pre>
+
+            <h4>app.use(plugin, options)</h4>
+            <p>Registers a plugin with optional configuration.</p>
+            <pre><code>app.use(RouterPlugin, {
+  routes: [...],
+  mode: 'history'
+});</code></pre>
+        </section>
+
+        <section id="contributing">
+            <h2>Contributing</h2>
+            <p>We welcome contributions from the community! Here's how you can help:</p>
+
+            <h3>Getting Started</h3>
+            <ol>
+                <li>Fork the repository on GitHub</li>
+                <li>Clone your fork locally</li>
+                <li>Create a new branch for your feature</li>
+                <li>Make your changes and write tests</li>
+                <li>Push to your fork and submit a pull request</li>
+            </ol>
+
+            <h3>Development Setup</h3>
+            <pre><code># Clone the repository
+git clone https://github.com/username/projectname.git
+
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+
+# Start development server
+npm run dev</code></pre>
+
+            <div class="callout">
+                <h4>📝 Code of Conduct</h4>
+                <p>Please read our Code of Conduct before contributing. We expect all contributors to follow these guidelines to ensure a welcoming community.</p>
+            </div>
+        </section>
+
+        <section id="license">
+            <h2>License</h2>
+            <p>ProjectName is open source software licensed under the MIT License.</p>
+            
+            <pre><code>MIT License
+
+Copyright (c) 2024 ProjectName
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software...</code></pre>
+        </section>
+
+        <footer>
+            <p>Built with ❤️ by the ProjectName Team | <a href="https://github.com/username/projectname">GitHub</a> | <a href="https://twitter.com/projectname">Twitter</a></p>
+            <p>Last updated: February 2026</p>
+        </footer>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                    sidebar.classList.remove('open');
+                }
+            }
+        });
+
+        // Active nav link on scroll
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
