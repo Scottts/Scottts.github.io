@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ScriptSense is a project-aware static analysis and workflow tool for Roblox Studio.">
-    <title>Introduction | ScriptSense Docs</title>
+    <title>Homepage | ScriptSense</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -379,9 +380,7 @@
         <nav class="site-sidebar" id="siteSidebar">
             <div class="sidebar-header">
                 <!-- Replace this SVG with your actual logo image -->
-                <div class="logo-placeholder">
-                    <i class="ph ph-code"></i>
-                </div>
+                <img src="assets/logo.png" alt="ScriptSense logo" class="site-logo" width="32" height="32" loading="lazy">
                 <div class="brand-name">ScriptSense</div>
             </div>
 
@@ -413,7 +412,7 @@
                 <div class="nav-group">
                     <div class="nav-group-title">Community</div>
                     <a href="https://github.com/Scottts/scriptsense" target="_blank" class="nav-link"><i class="ph ph-github-logo"></i> GitHub</a>
-                    <a href="https://create.roblox.com/store/asset/75708311511053/ScriptSense" target="_blank" class="nav-link"><i class="ph ph-discord-logo"></i> Support</a>
+                    <a href="https://discord.gg/WyXU6XcSK" target="_blank" class="nav-link"><i class="ph ph-discord-logo"></i> Support</a>
                 </div>
             </div>
         </nav>
@@ -436,8 +435,12 @@
                 
                 <h3>Plugin Marketplace</h3>
                 <p>The easiest way to get started. Updates are handled automatically by Studio.</p>
-                <a href="#" style="display:inline-block; background:var(--color-primary); color:white; padding:0.6rem 1.2rem; border-radius:6px; font-weight:500;">Get Plugin</a>
-
+                <a id="getPlugin"
+   href="https://create.roblox.com/store/asset/75708311511053/ScriptSense"
+   target="_blank" rel="noopener noreferrer"
+   class="btn-primary">
+   Get Plugin
+                </a>
 
             <section id="quick-start">
                 <h2>Quick Start</h2>
@@ -467,7 +470,7 @@
                         <tr>
                             <td><strong>Safe Refactor</strong></td>
                             <td>Renames instances and updates all script references automatically</td>
-                            <td>Beta</td>
+                            <td>Stable</td>
                         </tr>
                         <tr>
                             <td><strong>Dep Graph</strong></td>
@@ -511,7 +514,7 @@
             </section>
             
             <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border); color: var(--color-text-muted); font-size: 0.9rem;">
-                © 2026 ScriptSense Team. Documentation built for Roblox developers.
+                © 2026 Kel (@GudEveningBois). Documentation built for Roblox developers.
             </footer>
         </main>
 
