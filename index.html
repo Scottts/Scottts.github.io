@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Documentation</title>
+    <meta name="description" content="ScriptSense is a project-aware static analysis and workflow tool for Roblox Studio.">
+    <title>ScriptSense Documentation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
+            /* Light Mode (Default) */
             --primary: #1a1a2e;
             --accent: #d4772f;
             --text: #2d2d3a;
@@ -18,8 +20,24 @@
             --surface: #ffffff;
             --border: #e5e5e0;
             --code-bg: #f5f5f0;
+            --code-text: #c7254e;
             --heading-font: 'Crimson Pro', serif;
             --body-font: 'Work Sans', sans-serif;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Dark Mode Override */
+        [data-theme="dark"] {
+            --primary: #e0e0e0;
+            --accent: #f08a3e; /* Slightly lighter orange for dark mode */
+            --text: #c9d1d9;
+            --text-light: #8b949e;
+            --bg: #0d1117;
+            --surface: #161b22;
+            --border: #30363d;
+            --code-bg: #21262d;
+            --code-text: #ff7b72;
+            --shadow: rgba(0, 0, 0, 0.5);
         }
 
         * {
@@ -34,34 +52,28 @@
             color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
-        /* Navigation Sidebar */
+        /* --- Layout Grid --- */
+        .layout-wrapper {
+            display: flex;
+            width: 100%;
+        }
+
+        /* --- Sidebar Navigation (Left) --- */
         .sidebar {
+            width: 280px;
+            height: 100vh;
+            background: #1a1a2e; /* Always dark sidebar looks professional */
+            color: white;
+            padding: 3rem 2rem;
             position: fixed;
             left: 0;
             top: 0;
-            width: 280px;
-            height: 100vh;
-            background: var(--primary);
-            color: white;
-            padding: 3rem 2rem;
             overflow-y: auto;
             z-index: 1000;
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .sidebar::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .sidebar::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .sidebar::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 2px;
         }
 
         .logo {
@@ -80,9 +92,7 @@
             font-weight: 400;
         }
 
-        .nav-section {
-            margin-bottom: 2.5rem;
-        }
+        .nav-section { margin-bottom: 2.5rem; }
 
         .nav-title {
             font-size: 0.75rem;
@@ -93,13 +103,8 @@
             font-weight: 600;
         }
 
-        .nav-links {
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-bottom: 0.75rem;
-        }
+        .nav-links { list-style: none; }
+        .nav-links li { margin-bottom: 0.75rem; }
 
         .nav-links a {
             color: rgba(255, 255, 255, 0.7);
@@ -120,26 +125,92 @@
             transform: translateX(4px);
         }
 
-        /* Main Content */
-        .main {
+        /* --- Main Content Area --- */
+        .main-content-wrapper {
             margin-left: 280px;
-            padding: 4rem 4rem 8rem;
-            max-width: 900px;
+            width: calc(100% - 280px);
+            display: flex;
+            justify-content: center;
+        }
+
+        .main {
+            padding: 4rem 2rem 8rem 4rem; /* Right padding reduced to make room for TOC */
+            max-width: 900px; /* Content width */
+            width: 100%;
             animation: fadeIn 0.6s ease;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* --- Right Sidebar (Table of Contents) --- */
+        .toc-sidebar {
+            width: 240px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            padding: 4rem 2rem;
+            border-left: 1px solid var(--border);
+            display: none; /* Hidden on small screens */
+            overflow-y: auto;
         }
 
-        /* Typography */
+        @media (min-width: 1200px) {
+            .toc-sidebar { display: block; }
+            .main { max-width: 800px; padding-right: 2rem; }
+            .main-content-wrapper { width: calc(100% - 280px - 240px); margin-right: 240px; }
+        }
+
+        .toc-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .toc-links a {
+            display: block;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            border-left: 2px solid transparent;
+            padding-left: 10px;
+            transition: color 0.2s;
+        }
+
+        .toc-links a:hover, .toc-links a.active {
+            color: var(--accent);
+            border-left-color: var(--accent);
+        }
+
+        /* --- Theme Toggle --- */
+        .theme-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 2rem;
+            z-index: 2000;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            border-color: var(--accent);
+        }
+
+        /* --- Typography & Elements --- */
         h1 {
             font-family: var(--heading-font);
             font-size: 3.5rem;
@@ -157,16 +228,16 @@
             margin-top: 4rem;
             margin-bottom: 1.5rem;
             color: var(--primary);
-            letter-spacing: -0.02em;
             position: relative;
             padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
         }
 
         h2::after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: 0;
+            bottom: -1px;
             width: 60px;
             height: 3px;
             background: var(--accent);
@@ -179,15 +250,6 @@
             margin-top: 2.5rem;
             margin-bottom: 1rem;
             color: var(--primary);
-        }
-
-        h4 {
-            font-family: var(--body-font);
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
-            color: var(--text);
         }
 
         p {
@@ -203,26 +265,27 @@
             line-height: 1.6;
         }
 
-        /* Links */
-        a {
+        .version-badge {
+            display: inline-block;
+            background: rgba(212, 119, 47, 0.1);
             color: var(--accent);
-            text-decoration: none;
-            transition: color 0.2s ease;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
         }
 
-        a:hover {
-            color: #b85e1f;
-            text-decoration: underline;
-        }
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s ease; }
+        a:hover { color: #b85e1f; text-decoration: underline; }
 
-        /* Code Blocks */
         code {
             font-family: 'Monaco', 'Menlo', monospace;
             background: var(--code-bg);
             padding: 0.2em 0.4em;
             border-radius: 3px;
             font-size: 0.9em;
-            color: #c7254e;
+            color: var(--code-text);
         }
 
         pre {
@@ -232,7 +295,6 @@
             padding: 1.5rem;
             overflow-x: auto;
             margin: 1.5rem 0;
-            position: relative;
         }
 
         pre code {
@@ -240,50 +302,24 @@
             padding: 0;
             color: var(--text);
             font-size: 0.875rem;
-            line-height: 1.6;
         }
 
         /* Lists */
-        ul, ol {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-        }
+        ul, ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; color: var(--text); }
 
-        li {
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-
-        /* Callout Boxes */
+        /* Callouts */
         .callout {
             background: var(--surface);
             border-left: 4px solid var(--accent);
             padding: 1.5rem;
             margin: 2rem 0;
             border-radius: 0 4px 4px 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px var(--shadow);
         }
 
-        .callout h4 {
-            margin-top: 0;
-            color: var(--accent);
-        }
-
-        .callout.info {
-            border-left-color: #3498db;
-        }
-
-        .callout.info h4 {
-            color: #3498db;
-        }
-
-        .callout.warning {
-            border-left-color: #f39c12;
-        }
-
-        .callout.warning h4 {
-            color: #f39c12;
-        }
+        .callout.info { border-left-color: #3498db; }
+        .callout.info h4 { color: #3498db; margin-top: 0; }
 
         /* Tables */
         table {
@@ -293,35 +329,14 @@
             background: var(--surface);
             border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px var(--shadow);
+            border: 1px solid var(--border);
         }
 
-        thead {
-            background: var(--primary);
-            color: white;
-        }
-
-        th {
-            padding: 1rem;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tbody tr:hover {
-            background: rgba(212, 119, 47, 0.05);
-        }
+        thead { background: var(--code-bg); color: var(--text); }
+        th { padding: 1rem; text-align: left; font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        td { padding: 1rem; border-bottom: 1px solid var(--border); color: var(--text); }
+        tr:last-child td { border-bottom: none; }
 
         /* Buttons */
         .btn {
@@ -335,25 +350,85 @@
             transition: all 0.2s ease;
             border: none;
             cursor: pointer;
-            font-family: var(--body-font);
         }
-
         .btn:hover {
             background: #b85e1f;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(212, 119, 47, 0.3);
+            color: white;
             text-decoration: none;
         }
+        .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
+        .btn-outline:hover { background: var(--accent); color: white; }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
+        /* --- COMMANDS SECTION LAYOUT (New) --- */
+        .command-reference {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .btn-outline:hover {
-            background: var(--accent);
-            color: white;
+        .command-block {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .command-block:hover {
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        @media (min-width: 768px) {
+            .command-block {
+                grid-template-columns: 200px 1fr;
+            }
+        }
+
+        .cmd-meta {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .cmd-meta code {
+            font-size: 1.1rem;
+            color: var(--accent);
+            background: none;
+            padding: 0;
+        }
+
+        .cmd-type {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .cmd-details {
+            padding: 1.5rem;
+        }
+
+        .cmd-details p { margin-bottom: 1rem; font-size: 1rem; }
+        .cmd-usage {
+            font-family: 'Monaco', monospace;
+            font-size: 0.85rem;
+            background: var(--code-bg);
+            padding: 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: var(--text);
         }
 
         /* Mobile Menu Toggle */
@@ -374,74 +449,23 @@
             align-items: center;
             gap: 4px;
         }
+        .menu-toggle span { width: 20px; height: 2px; background: white; transition: all 0.3s ease; }
 
-        .menu-toggle span {
-            width: 20px;
-            height: 2px;
-            background: white;
-            transition: all 0.3s ease;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .main {
-                margin-left: 0;
-                padding: 5rem 1.5rem 4rem;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 1.75rem;
-            }
-
-            h3 {
-                font-size: 1.25rem;
-            }
-
-            pre {
-                padding: 1rem;
-            }
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(0); }
+            .main-content-wrapper { margin-left: 0; width: 100%; }
+            .main { padding: 5rem 1.5rem 4rem; }
+            .menu-toggle { display: flex; }
+            .toc-sidebar { display: none; }
+            .theme-toggle { top: 1rem; right: 1rem; }
         }
 
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Section spacing */
-        section {
-            margin-bottom: 4rem;
-            opacity: 0;
-            animation: sectionFadeIn 0.6s ease forwards;
-        }
-
-        section:nth-child(1) { animation-delay: 0.1s; }
-        section:nth-child(2) { animation-delay: 0.2s; }
-        section:nth-child(3) { animation-delay: 0.3s; }
-        section:nth-child(4) { animation-delay: 0.4s; }
-
-        @keyframes sectionFadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Footer */
         footer {
             margin-top: 6rem;
             padding-top: 3rem;
@@ -452,6 +476,14 @@
     </style>
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+        <!-- Sun Icon -->
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <!-- Moon Icon -->
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
     <!-- Mobile Menu Toggle -->
     <button class="menu-toggle" id="menuToggle">
         <span></span>
@@ -461,8 +493,8 @@
 
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
-        <div class="logo">ProjectName</div>
-        <div class="tagline">Beautiful Documentation</div>
+        <div class="logo">ScriptSense</div>
+        <div class="tagline">Project-aware code analysis for Roblox.</div>
         
         <div class="nav-section">
             <div class="nav-title">Getting Started</div>
@@ -477,278 +509,266 @@
             <div class="nav-title">Guide</div>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
-                <li><a href="#configuration">Configuration</a></li>
-                <li><a href="#examples">Examples</a></li>
+                <li><a href="#core-concepts">Core Concepts</a></li>
             </ul>
         </div>
 
         <div class="nav-section">
             <div class="nav-title">Reference</div>
             <ul class="nav-links">
-                <li><a href="#api">API Reference</a></li>
+                <li><a href="#commands">Command Reference</a></li>
                 <li><a href="#contributing">Contributing</a></li>
-                <li><a href="#license">License</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main">
-        <section id="introduction">
-            <h1>Welcome to ProjectName</h1>
-            <p class="lead">A modern, powerful solution for building amazing applications. This documentation will guide you through everything you need to know to get started and become productive.</p>
-            
-            <p>ProjectName is designed with simplicity and power in mind. Whether you're building a small prototype or a large-scale application, our tools provide the flexibility and performance you need.</p>
+    <!-- Content Wrapper -->
+    <div class="main-content-wrapper">
+        <!-- Main Content -->
+        <main class="main">
+            <section id="introduction">
+                <div class="version-badge">ScriptSense — v2.6.43</div>
+                <h1>Welcome to ScriptSense</h1>
+                <p class="lead">ScriptSense is a project-aware static analysis and workflow tool for Roblox Studio. It watches your place as a system — not just individual scripts — and helps you prevent broken paths, perform safe refactors, maintain code health, and preserve developer context.</p>
+                
+                <div class="callout">
+                    <strong>Core promise:</strong> <em>Prevent broken scripts and unsafe refactors in Roblox projects.</em>
+                </div>
 
-            <div style="margin-top: 2rem;">
-                <a href="#installation" class="btn">Get Started</a>
-                <a href="#examples" class="btn btn-outline" style="margin-left: 1rem;">View Examples</a>
+                <div style="margin-top: 2rem;">
+                    <a href="#installation" class="btn">Get Started</a>
+                    <a href="#commands" class="btn btn-outline" style="margin-left: 1rem;">View Commands</a>
+                </div>
+            </section>
+
+            <section id="installation">
+                <h2>Installation</h2>
+                <p>Install the ScriptSense plugin from the Roblox Marketplace or download releases from GitHub.</p>
+
+                <h3>Using Roblox Plugin Marketplace</h3>
+                <p>Install directly into Studio for the easiest setup:</p>
+                <p><a href="https://create.roblox.com/marketplace/asset/<plugin-id>" target="_blank">Install from the Roblox Plugin Marketplace</a></p>
+
+                <h3>Using GitHub Releases</h3>
+                <p>For manual installation or specific versions:</p>
+                <p><a href="https://github.com/<your-username>/scriptsense/releases" target="_blank">Download prebuilt releases from GitHub</a></p>
+
+                <div class="callout info">
+                    <h4>💡 Tip</h4>
+                    <p>ScriptSense works inside Studio. You don't need any external tools to get value — but teams often pair ScriptSense with Rojo for advanced workflows.</p>
+                </div>
+            </section>
+
+            <section id="quick-start">
+                <h2>Quick Start</h2>
+                <p>A minimal flow to get immediate value from ScriptSense.</p>
+
+                <ol>
+                    <li>Install ScriptSense in Roblox Studio.</li>
+                    <li>Open any script — the live analysis widget appears automatically.</li>
+                    <li>Run <code>scan</code> from the terminal (optional) to scan the whole place.</li>
+                    <li>Use <code>rename</code> to safely rename instances.</li>
+                </ol>
+
+                <h3>Example Workflow</h3>
+                <pre><code>-- Open the ScriptSense Terminal (Toolbar > Terminal)
+
+> scan
+[Info] Scanning 154 scripts...
+[Success] Scan Complete! No broken paths found.
+
+> rename ReplicatedStorage.Utils SharedUtils
+[Warning] This will update 12 script references. Continue? (y/n)
+> y</code></pre>
+            </section>
+
+            <section id="features">
+                <h2>Features</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Path Doctor</strong></td>
+                            <td>Detects broken object references and paths</td>
+                            <td>✓ Stable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Safe Refactor</strong></td>
+                            <td>Rename instances and automatically update scripts</td>
+                            <td>✓ Stable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dependency Graph</strong></td>
+                            <td>Visualizes module connections and cycles</td>
+                            <td>✓ Stable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Smart Widget</strong></td>
+                            <td>Context-aware suggestions while editing</td>
+                            <td>✓ Stable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="core-concepts">
+                <h2>Core Concepts</h2>
+                <p>Understanding how ScriptSense views your project.</p>
+                <ul>
+                    <li><strong>The Project Graph:</strong> ScriptSense maps dependencies between ModuleScripts to detect cycles and architectural issues.</li>
+                    <li><strong>Live Analysis:</strong> As you type, the plugin checks for valid object paths (e.g., <code>workspace.Part.Child</code>) and alerts you if they don't exist.</li>
+                    <li><strong>Crash Proofing:</strong> Background snapshots ensure you never lose work during a Studio crash.</li>
+                </ul>
+            </section>
+
+            <!-- COMMANDS SECTION REDESIGN -->
+            <section id="commands">
+                <h2>Command Reference</h2>
+                <p>Access these commands via the ScriptSense Terminal inside Roblox Studio.</p>
+
+                <div class="command-reference">
+                    
+                    <!-- Command Block 1: Scan -->
+                    <div class="command-block">
+                        <div class="cmd-meta">
+                            <code>scan</code>
+                            <span class="cmd-type">Analysis</span>
+                        </div>
+                        <div class="cmd-details">
+                            <p>Runs the Path Doctor on the entire project or a specific target. Detects broken references and missing instances.</p>
+                            <strong>Usage:</strong><br>
+                            <span class="cmd-usage">scan [Optional: TargetName]</span>
+                        </div>
+                    </div>
+
+                    <!-- Command Block 2: Rename -->
+                    <div class="command-block">
+                        <div class="cmd-meta">
+                            <code>rename</code>
+                            <span class="cmd-type">Refactor</span>
+                        </div>
+                        <div class="cmd-details">
+                            <p>Safely renames an Instance. ScriptSense will scan your entire codebase and update any <code>require()</code> or path references to match the new name.</p>
+                            <strong>Usage:</strong><br>
+                            <span class="cmd-usage">rename [OldName] [NewName]</span>
+                        </div>
+                    </div>
+
+                    <!-- Command Block 3: Test -->
+                    <div class="command-block">
+                        <div class="cmd-meta">
+                            <code>test</code>
+                            <span class="cmd-type">Utility</span>
+                        </div>
+                        <div class="cmd-details">
+                            <p>Generates a TestEZ-compatible <code>.spec</code> file for the target module. Scaffolds tests for all exported functions.</p>
+                            <strong>Usage:</strong><br>
+                            <span class="cmd-usage">test [ModuleName]</span>
+                        </div>
+                    </div>
+
+                    <!-- Command Block 4: Report -->
+                    <div class="command-block">
+                        <div class="cmd-meta">
+                            <code>report</code>
+                            <span class="cmd-type">Feedback</span>
+                        </div>
+                        <div class="cmd-details">
+                            <p>Opens the Feedback GUI to send bug reports or suggestions directly to the developers.</p>
+                            <strong>Usage:</strong><br>
+                            <span class="cmd-usage">report [message]</span>
+                        </div>
+                    </div>
+                     <!-- Command Block 5: Cls -->
+                     <div class="command-block">
+                        <div class="cmd-meta">
+                            <code>cls</code>
+                            <span class="cmd-type">Utility</span>
+                        </div>
+                        <div class="cmd-details">
+                            <p>Clears the terminal output history.</p>
+                            <strong>Usage:</strong><br>
+                            <span class="cmd-usage">cls</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contributing">
+                <h2>Contributing</h2>
+                <p>We welcome contributions from the community! Here's how you can help:</p>
+
+                <ol>
+                    <li>Fork the repository on GitHub</li>
+                    <li>Clone your fork locally</li>
+                    <li>Create a new branch for your feature</li>
+                    <li>Make your changes and write tests</li>
+                    <li>Push to your fork and submit a pull request</li>
+                </ol>
+            </section>
+
+            <footer>
+                <p>Built with ❤️ by the ScriptSense Team | <a href="https://github.com/<your-username>/scriptsense">GitHub</a></p>
+                <p>Last updated: February 2026</p>
+            </footer>
+        </main>
+
+        <!-- Right Sidebar (Table of Contents) -->
+        <aside class="toc-sidebar">
+            <div class="toc-title">On This Page</div>
+            <div class="toc-links">
+                <a href="#introduction">Introduction</a>
+                <a href="#installation">Installation</a>
+                <a href="#quick-start">Quick Start</a>
+                <a href="#features">Features</a>
+                <a href="#core-concepts">Core Concepts</a>
+                <a href="#commands">Command Reference</a>
+                <a href="#contributing">Contributing</a>
             </div>
-        </section>
-
-        <section id="installation">
-            <h2>Installation</h2>
-            <p>Get up and running in minutes with your preferred package manager.</p>
-
-            <h3>Using npm</h3>
-            <pre><code>npm install projectname</code></pre>
-
-            <h3>Using yarn</h3>
-            <pre><code>yarn add projectname</code></pre>
-
-            <h3>Using pnpm</h3>
-            <pre><code>pnpm add projectname</code></pre>
-
-            <div class="callout info">
-                <h4>💡 Tip</h4>
-                <p>Make sure you have Node.js version 16 or higher installed on your system before proceeding with the installation.</p>
-            </div>
-        </section>
-
-        <section id="quick-start">
-            <h2>Quick Start</h2>
-            <p>Here's a minimal example to get you started with ProjectName.</p>
-
-            <h3>Basic Setup</h3>
-            <pre><code>import { ProjectName } from 'projectname';
-
-const app = new ProjectName({
-  config: {
-    theme: 'dark',
-    verbose: true
-  }
-});
-
-app.initialize();</code></pre>
-
-            <h3>First Steps</h3>
-            <p>Once you've initialized your project, you can start building:</p>
-
-            <ol>
-                <li>Configure your project settings</li>
-                <li>Create your first component</li>
-                <li>Run the development server</li>
-                <li>Build for production</li>
-            </ol>
-        </section>
-
-        <section id="features">
-            <h2>Features</h2>
-            <p>ProjectName comes packed with powerful features designed to streamline your development workflow.</p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Description</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Fast Performance</strong></td>
-                        <td>Optimized for speed and efficiency</td>
-                        <td>✓ Stable</td>
-                    </tr>
-                    <tr>
-                        <td><strong>TypeScript Support</strong></td>
-                        <td>First-class TypeScript integration</td>
-                        <td>✓ Stable</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Plugin System</strong></td>
-                        <td>Extensible architecture</td>
-                        <td>✓ Stable</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Hot Reload</strong></td>
-                        <td>Instant feedback during development</td>
-                        <td>⚠ Beta</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>Key Highlights</h3>
-            <ul>
-                <li><strong>Zero Configuration:</strong> Works out of the box with sensible defaults</li>
-                <li><strong>Flexible Architecture:</strong> Adapts to your project structure</li>
-                <li><strong>Developer Experience:</strong> Built with DX in mind</li>
-                <li><strong>Production Ready:</strong> Battle-tested in production environments</li>
-            </ul>
-        </section>
-
-        <section id="configuration">
-            <h2>Configuration</h2>
-            <p>Customize ProjectName to fit your specific needs.</p>
-
-            <h3>Configuration File</h3>
-            <p>Create a <code>projectname.config.js</code> file in your project root:</p>
-
-            <pre><code>module.exports = {
-  // Base configuration
-  mode: 'production',
-  
-  // Build options
-  build: {
-    outDir: 'dist',
-    minify: true,
-    sourcemap: true
-  },
-  
-  // Plugin configuration
-  plugins: [
-    // Add your plugins here
-  ]
-};</code></pre>
-
-            <div class="callout warning">
-                <h4>⚠ Important</h4>
-                <p>Always validate your configuration before deploying to production. Invalid configurations can lead to unexpected behavior.</p>
-            </div>
-        </section>
-
-        <section id="examples">
-            <h2>Examples</h2>
-            <p>Learn by example with these common use cases.</p>
-
-            <h3>Example 1: Basic Usage</h3>
-            <pre><code>import { createApp } from 'projectname';
-
-const app = createApp();
-app.mount('#app');</code></pre>
-
-            <h3>Example 2: With Options</h3>
-            <pre><code>import { createApp } from 'projectname';
-
-const app = createApp({
-  router: true,
-  state: {
-    theme: 'dark',
-    locale: 'en-US'
-  }
-});
-
-app.mount('#app');</code></pre>
-
-            <h3>Example 3: Advanced Configuration</h3>
-            <pre><code>import { createApp, defineConfig } from 'projectname';
-
-const config = defineConfig({
-  middleware: [
-    logger(),
-    errorHandler(),
-    analytics()
-  ],
-  modules: {
-    ui: true,
-    data: true
-  }
-});
-
-const app = createApp(config);
-app.mount('#app');</code></pre>
-        </section>
-
-        <section id="api">
-            <h2>API Reference</h2>
-            <p>Comprehensive API documentation for all available methods and properties.</p>
-
-            <h3>Core Methods</h3>
-            
-            <h4>createApp(options)</h4>
-            <p>Creates a new application instance.</p>
-            <pre><code>const app = createApp({
-  mode: 'development',
-  debug: true
-});</code></pre>
-
-            <h4>app.mount(selector)</h4>
-            <p>Mounts the application to a DOM element.</p>
-            <pre><code>app.mount('#app');</code></pre>
-
-            <h4>app.use(plugin, options)</h4>
-            <p>Registers a plugin with optional configuration.</p>
-            <pre><code>app.use(RouterPlugin, {
-  routes: [...],
-  mode: 'history'
-});</code></pre>
-        </section>
-
-        <section id="contributing">
-            <h2>Contributing</h2>
-            <p>We welcome contributions from the community! Here's how you can help:</p>
-
-            <h3>Getting Started</h3>
-            <ol>
-                <li>Fork the repository on GitHub</li>
-                <li>Clone your fork locally</li>
-                <li>Create a new branch for your feature</li>
-                <li>Make your changes and write tests</li>
-                <li>Push to your fork and submit a pull request</li>
-            </ol>
-
-            <h3>Development Setup</h3>
-            <pre><code># Clone the repository
-git clone https://github.com/username/projectname.git
-
-# Install dependencies
-npm install
-
-# Run tests
-npm test
-
-# Start development server
-npm run dev</code></pre>
-
-            <div class="callout">
-                <h4>📝 Code of Conduct</h4>
-                <p>Please read our Code of Conduct before contributing. We expect all contributors to follow these guidelines to ensure a welcoming community.</p>
-            </div>
-        </section>
-
-        <section id="license">
-            <h2>License</h2>
-            <p>ProjectName is open source software licensed under the MIT License.</p>
-            
-            <pre><code>MIT License
-
-Copyright (c) 2024 ProjectName
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software...</code></pre>
-        </section>
-
-        <footer>
-            <p>Built with ❤️ by the ProjectName Team | <a href="https://github.com/username/projectname">GitHub</a> | <a href="https://twitter.com/projectname">Twitter</a></p>
-            <p>Last updated: February 2026</p>
-        </footer>
-    </main>
+        </aside>
+    </div>
 
     <script>
-        // Mobile menu toggle
+        // --- Theme Toggle Logic ---
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.querySelector('.sun-icon');
+        const moonIcon = document.querySelector('.moon-icon');
+        const root = document.documentElement;
+
+        function setTheme(isDark) {
+            if (isDark) {
+                root.setAttribute('data-theme', 'dark');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                root.removeAttribute('data-theme');
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Check Local Storage or System Preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+            setTheme(true);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = root.getAttribute('data-theme') === 'dark';
+            setTheme(!isDark);
+        });
+
+        // --- Mobile Menu Toggle ---
         const menuToggle = document.getElementById('menuToggle');
         const sidebar = document.getElementById('sidebar');
 
@@ -756,7 +776,6 @@ copies of the Software...</code></pre>
             sidebar.classList.toggle('open');
         });
 
-        // Close sidebar when clicking outside on mobile
         document.addEventListener('click', (e) => {
             if (window.innerWidth <= 768) {
                 if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
@@ -765,9 +784,12 @@ copies of the Software...</code></pre>
             }
         });
 
-        // Active nav link on scroll
+        // --- Active Nav Logic (Left Sidebar) ---
         const navLinks = document.querySelectorAll('.nav-links a');
         const sections = document.querySelectorAll('section');
+
+        // --- Active TOC Logic (Right Sidebar) ---
+        const tocLinks = document.querySelectorAll('.toc-links a');
 
         window.addEventListener('scroll', () => {
             let current = '';
@@ -780,7 +802,16 @@ copies of the Software...</code></pre>
                 }
             });
 
+            // Update Left Sidebar
             navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Update Right Sidebar (TOC)
+            tocLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
