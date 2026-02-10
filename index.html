@@ -169,6 +169,96 @@
             width: 100%;
         }
 
+		/* --- HERO SPLASH STYLES --- */
+.hero-splash {
+    text-align: center;
+    padding: 2rem 0 4rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.splash-logo {
+    /* Adjust these dimensions to fit your logo */
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.splash-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+    line-height: 1.1;
+}
+
+.splash-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    border-bottom: none; /* Override default H2 border */
+}
+
+.splash-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-hero {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
+
+/* Primary Button (Filled) */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border: 2px solid var(--color-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(38, 171, 232, 0.3);
+}
+
+/* Secondary Button (Outline) */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-text-muted);
+    background-color: var(--color-code-bg);
+    color: var(--color-text);
+    transform: translateY(-2px);
+				}
+
         /* Typography */
         h1 {
             font-family: var(--font-heading);
@@ -448,6 +538,26 @@
         <!-- 2. MAIN CONTENT AREA -->
         <main class="main-content">
             <!-- Content Section -->
+			<section class="hero-splash">
+    <div class="splash-logo-container">
+        <img src="assets/logo2.png" alt="Project Logo" class="splash-logo">
+    </div>
+    
+    <h1 class="splash-title">ScriptSense</h1>
+    
+    <h2 class="splash-subtitle">
+        Professional Development Tools for Roblox
+    </h2>
+    
+    <div class="splash-buttons">
+        <a href="#installation" class="btn btn-hero btn-primary">
+            Get Started
+        </a>
+        <a href="https://github.com/your-repo/releases" target="_blank" class="btn btn-hero btn-secondary">
+            Releases
+        </a>
+    </div>
+			</section>
             <section id="introduction">
                 <h1>Welcome to ScriptSense</h1>
                 <p class="lead">ScriptSense is a project-aware static analysis and workflow tool for Roblox Studio. It watches your place as a system—not just individual scripts.</p>
@@ -521,38 +631,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </section>
-
-            <section id="commands">
-                <h2>Command Reference</h2>
-                <p>Use these commands in the custom terminal window.</p>
-
-                <div class="command-card">
-                    <div class="cmd-header">
-                        <span class="cmd-name">scan</span>
-                        <span class="cmd-tag">Analysis</span>
-                    </div>
-                    <p>Runs the Path Doctor on the entire project or specific target.</p>
-                    <code>scan [TargetName]</code>
-                </div>
-
-                <div class="command-card">
-                    <div class="cmd-header">
-                        <span class="cmd-name">rename</span>
-                        <span class="cmd-tag">Refactor</span>
-                    </div>
-                    <p>Safely renames an Instance and updates all Lua source files.</p>
-                    <code>rename [OldName] [NewName]</code>
-                </div>
-                
-                 <div class="command-card">
-                    <div class="cmd-header">
-                        <span class="cmd-name">test</span>
-                        <span class="cmd-tag">Utility</span>
-                    </div>
-                    <p>Generates a TestEZ-compatible .spec file for the target module.</p>
-                    <code>test [ModuleName]</code>
-                </div>
             </section>
             
             <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border); color: var(--color-text-muted); font-size: 0.9rem;">
