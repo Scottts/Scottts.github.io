@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Command Line Interface reference for ScriptSense.">
+    <title>Commands | ScriptSense</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Icons (Phosphor Icons for a clean look) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* * CSS VARIABLES 
+         * Easy to customize for your brand colors
+         */
+        :root {
+            /* Light Mode */
+            --color-primary: #26abe8;      /* Brand Blue */
+            --color-primary-dark: #1875b9; /* Darker Blue */
+            --color-bg: #ffffff;           /* Main Background */
+            --color-bg-sidebar: #f8f9fa;   /* Left Sidebar Background */
+            --color-text: #24292f;         /* Main Text */
+            --color-text-muted: #57606a;   /* Secondary Text */
+            --color-border: #d0d7de;       /* Borders */
+            --color-code-bg: #f6f8fa;      /* Code Block Background */
+            --color-header-bg: #ffffff;    /* Mobile Header Background */
+            
+            /* Dimensions */
+            --sidebar-width: 280px;
+            --toc-width: 240px;
+            --header-height: 60px;
+            
+            /* Fonts */
+			--font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+			--font-heading: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+			--font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+        }
+
+        /* Dark Mode Overrides */
+        [data-theme="dark"] {
+            --color-primary: #26abe8;
+            --color-primary-dark: #1875b9;
+            --color-bg: #0d1117;
+            --color-bg-sidebar: #161b22; /* Slightly lighter than bg */
+            --color-text: #c9d1d9;
+            --color-text-muted: #8b949e;
+            --color-border: #30363d;
+            --color-code-bg: #161b22;
+            --color-header-bg: #0d1117;
+        }
+
+        /* RESET & BASE */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        a { text-decoration: none; color: var(--color-primary); transition: 0.2s; }
+        a:hover { color: var(--color-primary-dark); }
+
+        /* --- LAYOUT GRID --- */
+        .app-layout {
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr var(--toc-width);
+            min-height: 100vh;
+        }
+
+        /* --- 1. LEFT SIDEBAR (Site Navigation) --- */
+        .site-sidebar {
+            background: var(--color-bg-sidebar);
+            border-right: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-placeholder {
+            width: 32px;
+            height: 32px;
+            background: var(--color-primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .brand-name {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--color-text);
+        }
+
+        .sidebar-nav {
+            padding: 1.5rem;
+        }
+
+        .nav-group { margin-bottom: 2rem; }
+        
+        .nav-group-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 0.75rem;
+            color: var(--color-text-muted);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .nav-link:hover {
+            background: rgba(0,0,0,0.05);
+            color: var(--color-text);
+        }
+        
+        [data-theme="dark"] .nav-link:hover { background: rgba(255,255,255,0.05); }
+
+        /* Active State for Site Pages */
+        .nav-link.active {
+            background: rgba(47, 138, 212, 0.1); /* Low opacity blue */
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        /* --- 2. MAIN CONTENT --- */
+        .main-content {
+            padding: 4rem 3rem 6rem;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Typography */
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            color: var(--color-text);
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        p { margin-bottom: 1.25rem; color: var(--color-text); }
+        
+        .lead { font-size: 1.2rem; color: var(--color-text-muted); margin-bottom: 2rem; }
+
+        code {
+            font-family: var(--font-mono);
+            background: var(--color-code-bg);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+        }
+
+        pre {
+            background: var(--color-code-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            border: none;
+            color: inherit;
+        }
+
+        /* Features Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--color-border); }
+        th { background: var(--color-code-bg); font-size: 0.85rem; text-transform: uppercase; color: var(--color-text-muted); }
+
+        /* Command Cards */
+        .command-card {
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--color-bg);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .command-card:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .cmd-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 0.5rem; }
+        .cmd-name { font-family: var(--font-mono); font-weight: bold; color: var(--color-primary); font-size: 1.1rem; }
+        .cmd-tag { font-size: 0.7rem; text-transform: uppercase; padding: 2px 6px; background: var(--color-code-bg); border-radius: 4px; color: var(--color-text-muted); }
+
+        /* Callouts */
+        .callout {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: var(--color-code-bg);
+            border-left: 4px solid var(--color-primary);
+            margin: 1.5rem 0;
+        }
+
+        /* --- 3. RIGHT SIDEBAR (Table of Contents) --- */
+        .toc-sidebar {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            padding: 4rem 1.5rem;
+            border-left: 1px solid var(--color-border);
+            overflow-y: auto;
+            font-size: 0.85rem;
+        }
+
+        .toc-title {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            color: var(--color-text-muted);
+            font-size: 0.75rem;
+        }
+
+        .toc-list { list-style: none; }
+        
+        .toc-link {
+            display: block;
+            color: var(--color-text-muted);
+            padding: 4px 0;
+            padding-left: 0;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        /* Indentation for H3s */
+        .toc-link.depth-3 { padding-left: 1rem; }
+
+        .toc-link:hover { color: var(--color-primary); }
+        
+        .toc-link.active {
+            color: var(--color-primary);
+            border-left-color: var(--color-primary);
+            padding-left: 0.75rem; /* Slide effect */
+            font-weight: 500;
+        }
+        .toc-link.active.depth-3 { padding-left: 1.75rem; }
+
+        /* --- MOBILE ELEMENTS --- */
+        .mobile-header {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--header-height);
+            background: var(--color-header-bg);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: 0 1rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .menu-btn, .theme-btn {
+            background: none;
+            border: none;
+            color: var(--color-text);
+            cursor: pointer;
+            padding: 8px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 1200px) {
+            .app-layout { grid-template-columns: var(--sidebar-width) 1fr; }
+            .toc-sidebar { display: none; } /* Hide TOC on medium screens */
+        }
+
+        @media (max-width: 768px) {
+            .app-layout { grid-template-columns: 1fr; }
+            .site-sidebar {
+                position: fixed;
+                left: -100%;
+                top: var(--header-height);
+                height: calc(100vh - var(--header-height));
+                width: 100%;
+                transition: left 0.3s ease;
+                border-right: none;
+            }
+            .site-sidebar.open { left: 0; }
+            .main-content { padding: calc(var(--header-height) + 2rem) 1.5rem 4rem; }
+            .mobile-header { display: flex; }
+            
+            /* Hide Desktop Sidebar elements inside mobile menu if needed */
+            .sidebar-header { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Header (Visible only on small screens) -->
+    <header class="mobile-header">
+        <button class="menu-btn" id="menuToggle" aria-label="Toggle Menu">
+            <i class="ph ph-list"></i>
+        </button>
+        <div class="brand-name">ScriptSense</div>
+        <button class="theme-btn" id="themeToggleMobile" aria-label="Toggle Theme">
+            <i class="ph ph-moon"></i>
+        </button>
+    </header>
+
+    <div class="app-layout">
+        
+        <!-- 1. LEFT SIDEBAR: Site Navigation (Cross-Page) -->
+        <nav class="site-sidebar" id="siteSidebar">
+            <div class="sidebar-header">
+                <!-- Replace this SVG with your actual logo image -->
+                <img src="assets/logo.png" alt="ScriptSense logo" class="site-logo" width="32" height="32" loading="lazy">
+                <div class="brand-name">ScriptSense</div>
+            </div>
+
+            <div class="sidebar-nav">
+                <!-- Toggle for Desktop Sidebar -->
+                <div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+                   <span style="font-size: 0.8rem; color: var(--color-text-muted);">v2.6.43</span>
+                   <!-- Desktop Theme Toggle -->
+                   <button class="theme-btn" id="themeToggleDesktop" style="font-size: 1rem;">
+                       <i class="ph ph-moon"></i>
+                   </button>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-group-title">Getting Started</div>
+                    <!-- Navigation links pointing back to index.html -->
+                    <a href="index.html" class="nav-link"><i class="ph ph-house"></i> Introduction</a>
+                    <a href="index.html#installation" class="nav-link"><i class="ph ph-download-simple"></i> Installation</a>
+                    <a href="index.html#quick-start" class="nav-link"><i class="ph ph-lightning"></i> Quick Start</a>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-group-title">Reference</div>
+                    <!-- Active class is here for this page -->
+                    <a href="#" class="nav-link active"><i class="ph ph-terminal-window"></i> CLI Commands</a>
+                    <a href="#api" class="nav-link"><i class="ph ph-brackets-curly"></i> API Reference</a>
+                    <a href="#config" class="nav-link"><i class="ph ph-gear"></i> Configuration</a>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-group-title">Community</div>
+                    <a href="https://github.com/Scottts/scriptsense" target="_blank" class="nav-link"><i class="ph ph-github-logo"></i> GitHub</a>
+                    <a href="https://discord.gg/WyXU6XcSK" target="_blank" class="nav-link"><i class="ph ph-discord-logo"></i> Support</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 2. MAIN CONTENT AREA -->
+        <main class="main-content">
+            <!-- Content Section -->
+            <section id="overview">
+                <h1>Command Reference</h1>
+                <p class="lead">A complete reference for all available CLI commands in ScriptSense.</p>
+                <p>All commands are executed via the dedicated ScriptSense terminal window within Roblox Studio. Arguments in <code>[brackets]</code> are required, while those in <code>(parentheses)</code> are optional.</p>
+            </section>
+
+            <!-- Template Section 1 -->
+            <section id="analysis-commands">
+                <h2>Analysis Commands</h2>
+                <p>Commands related to codebase health, static analysis, and error detection.</p>
+                
+                <!-- Template Card 1 -->
+                <div class="command-card">
+                    <div class="cmd-header">
+                        <span class="cmd-name">template_cmd_one</span>
+                        <span class="cmd-tag">Analysis</span>
+                    </div>
+                    <p>Description for this analysis command goes here.</p>
+                    <code>template_cmd_one [Target] (Option)</code>
+                </div>
+
+                <!-- Template Card 2 -->
+                <div class="command-card">
+                    <div class="cmd-header">
+                        <span class="cmd-name">template_cmd_two</span>
+                        <span class="cmd-tag">Analysis</span>
+                    </div>
+                    <p>Description for this analysis command goes here.</p>
+                    <code>template_cmd_two [Flag]</code>
+                </div>
+            </section>
+
+            <!-- Template Section 2 -->
+            <section id="refactor-commands">
+                <h2>Refactor Commands</h2>
+                <p>Utilities for safely modifying project structure and instance names.</p>
+
+                <!-- Template Card 3 -->
+                <div class="command-card">
+                    <div class="cmd-header">
+                        <span class="cmd-name">template_refactor</span>
+                        <span class="cmd-tag">Refactor</span>
+                    </div>
+                    <p>Description for this refactor command goes here.</p>
+                    <code>template_refactor [OldName] [NewName]</code>
+                </div>
+            </section>
+
+             <!-- Template Section 3 -->
+            <section id="utility-commands">
+                <h2>Utility Commands</h2>
+                <p>General purpose tools for workflow optimization.</p>
+
+                <div class="command-card">
+                    <div class="cmd-header">
+                        <span class="cmd-name">template_utility</span>
+                        <span class="cmd-tag">Utility</span>
+                    </div>
+                    <p>Description for this utility command goes here.</p>
+                    <code>template_utility --verbose</code>
+                </div>
+            </section>
+            
+            <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border); color: var(--color-text-muted); font-size: 0.9rem;">
+                © 2026 Kel (@GudEveningBois). Documentation built for Roblox developers.
+            </footer>
+        </main>
+
+        <!-- 3. RIGHT SIDEBAR: Table of Contents (Auto-Generated) -->
+        <aside class="toc-sidebar">
+            <div class="toc-title">On This Page</div>
+            <ul class="toc-list" id="tocList">
+                <!-- Javascript will populate this -->
+            </ul>
+        </aside>
+
+    </div>
+
+    <script>
+        /**
+         * 1. AUTO-GENERATED TABLE OF CONTENTS
+         * Scans the <main> area for h2 and h3 tags and builds the sidebar.
+         */
+        const mainContent = document.querySelector('.main-content');
+        const tocList = document.getElementById('tocList');
+        const headings = mainContent.querySelectorAll('h2, h3');
+
+        headings.forEach(heading => {
+            // Ensure id exists
+            if (!heading.id) {
+                heading.id = heading.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            }
+
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#' + heading.id;
+            a.textContent = heading.textContent;
+            a.className = 'toc-link';
+            
+            // Indent h3
+            if (heading.tagName === 'H3') {
+                a.classList.add('depth-3');
+            }
+
+            li.appendChild(a);
+            tocList.appendChild(li);
+        });
+
+        /**
+         * 2. SCROLL SPY (Active State for Right Sidebar)
+         * Highlights the current section in the TOC as you scroll.
+         */
+        const observerOptions = {
+            root: null,
+            rootMargin: '-100px 0px -60% 0px', // Active when element is near top
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Remove active class from all
+                    document.querySelectorAll('.toc-link').forEach(link => link.classList.remove('active'));
+                    
+                    // Add active class to corresponding link
+                    const id = entry.target.getAttribute('id');
+                    const link = document.querySelector(`.toc-link[href="#${id}"]`);
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        headings.forEach(heading => observer.observe(heading));
+
+        /**
+         * 3. THEME TOGGLE
+         */
+        const themeBtns = document.querySelectorAll('.theme-btn');
+        const html = document.documentElement;
+        
+        // Check saved preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        updateIcons(savedTheme);
+
+        themeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const current = html.getAttribute('data-theme');
+                const next = current === 'dark' ? 'light' : 'dark';
+                
+                html.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                updateIcons(next);
+            });
+        });
+
+        function updateIcons(theme) {
+            const iconClass = theme === 'dark' ? 'ph-sun' : 'ph-moon';
+            themeBtns.forEach(btn => {
+                const icon = btn.querySelector('i');
+                icon.className = `ph ${iconClass}`;
+            });
+        }
+
+        /**
+         * 4. MOBILE MENU
+         */
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('siteSidebar');
+        
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            // Change icon
+            const icon = menuToggle.querySelector('i');
+            if (sidebar.classList.contains('open')) {
+                icon.classList.replace('ph-list', 'ph-x');
+            } else {
+                icon.classList.replace('ph-x', 'ph-list');
+            }
+        });
+        
+        // Close sidebar when clicking main content
+        mainContent.addEventListener('click', () => {
+            if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                menuToggle.querySelector('i').classList.replace('ph-x', 'ph-list');
+            }
+        });
+
+    </script>
+</body>
+  </html>
