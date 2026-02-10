@@ -171,66 +171,67 @@
 
 		/* --- HERO SPLASH STYLES --- */
 .hero-splash {
+    position: relative;
     text-align: center;
-    padding: 2rem 0 4rem 0;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--color-border);
+    /* Extra padding to show off the banner image */
+    padding: 6rem 1.5rem; 
+    margin-bottom: 3rem;
+    border-radius: 12px;
+    overflow: hidden;
+    
+    /* Background Image with Dark Overlay */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('assets/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Ensure text is white on the dark banner */
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .splash-logo {
-    /* Adjust these dimensions to fit your logo */
-    max-width: 200px;
+    /* Much larger logo */
+    width: 100%;
+    max-width: 600px; 
     height: auto;
-    margin-bottom: 1rem;
+    margin: 0 auto 1.5rem auto;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.splash-title {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-    color: var(--color-text);
-    line-height: 1.1;
+    
+    /* Optional: Drop shadow if your logo is PNG with transparency */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
 }
 
 .splash-subtitle {
     font-family: var(--font-body);
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--color-text-muted);
+    font-size: 1.75rem;
+    font-weight: 500;
+    /* Force white text for contrast against banner */
+    color: rgba(255, 255, 255, 0.9); 
     margin-top: 0;
     margin-bottom: 2.5rem;
-    border-bottom: none; /* Override default H2 border */
+    border-bottom: none;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .splash-buttons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
 }
 
-/* Button Styles */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
-
+/* Button Styles - Specific for Hero */
 .btn-hero {
-    padding: 0.75rem 2rem;
+    padding: 0.8rem 2.5rem;
     font-size: 1.1rem;
     border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Primary Button (Filled) */
 .btn-primary {
     background-color: var(--color-primary);
     color: white;
@@ -240,25 +241,22 @@
 .btn-primary:hover {
     background-color: var(--color-primary-dark);
     border-color: var(--color-primary-dark);
-    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(38, 171, 232, 0.3);
 }
 
-/* Secondary Button (Outline) */
 .btn-secondary {
+    /* White border for the dark background */
     background-color: transparent;
-    color: var(--color-text);
-    border: 2px solid var(--color-border);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .btn-secondary:hover {
-    border-color: var(--color-text-muted);
-    background-color: var(--color-code-bg);
-    color: var(--color-text);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
     transform: translateY(-2px);
-				}
-
+}
         /* Typography */
         h1 {
             font-family: var(--font-heading);
@@ -539,23 +537,23 @@
         <main class="main-content">
             <!-- Content Section -->
 			<section class="hero-splash">
-    <div class="splash-logo-container">
-        <img src="assets/logo2.png" alt="Project Logo" class="splash-logo">
-    </div>
-    
-    <h1 class="splash-title">ScriptSense</h1>
-    
-    <h2 class="splash-subtitle">
-        Professional Development Tools for Roblox
-    </h2>
-    
-    <div class="splash-buttons">
-        <a href="#installation" class="btn btn-hero btn-primary">
-            Get Started
-        </a>
-        <a href="https://github.com/your-repo/releases" target="_blank" class="btn btn-hero btn-secondary">
-            Releases
-        </a>
+    <div class="splash-content">
+        <div class="splash-logo-container">
+            <img src="assets/logo2.png" alt="ScriptSense Logo" class="splash-logo">
+        </div>
+        
+        <h2 class="splash-subtitle">
+            Professional Development Tools for Roblox
+        </h2>
+        
+        <div class="splash-buttons">
+            <a href="#installation" class="btn btn-hero btn-primary">
+                Get Started
+            </a>
+            <a href="https://www.youtube.com/@KeIlllIl" target="_blank" class="btn btn-hero btn-secondary">
+                YouTube
+            </a>
+        </div>
     </div>
 			</section>
             <section id="introduction">
