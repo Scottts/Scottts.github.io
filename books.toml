@@ -1,0 +1,11 @@
+[book]
+authors = ["ScriptSense"]
+language = "en"
+multilingual = false
+src = "src"
+title = "ScriptSense Documentation"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/YOUR_USERNAME/YOUR_REPO"
