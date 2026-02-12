@@ -1,3 +1,5 @@
+# ![ScriptSense Banner](assets/banner.png)
+
 # ScriptSense
 
 **ScriptSense** is a project-aware static analysis and workflow tool for Roblox Studio, designed to bring professional-grade tooling to Luau development.
