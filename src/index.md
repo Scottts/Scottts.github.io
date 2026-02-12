@@ -1,7 +1,5 @@
 # ![ScriptSense Banner](assets/logo-large.png)
 
-# ScriptSense
-
 **ScriptSense** is a project-aware static analysis and workflow tool for Roblox Studio, designed to bring professional-grade tooling to Luau development. It enhances the Roblox Script Editor with intelligent automation and real-time safety tools. It understands what you type, prevents broken references, and keeps your workflow clean and fast without getting in the way.
 
 ## Why ScriptSense?
@@ -22,5 +20,6 @@ Built for speed, processing thousands of scripts in seconds.
 Write your own rules, macros, and commands to tailor ScriptSense to your, and your team's workflow.
 
 ---
+
 
 [Get Started](reference/commands.md)
