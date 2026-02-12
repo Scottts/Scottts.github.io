@@ -7,10 +7,11 @@ title = "ScriptSense Documentation"
 [output.html]
 additional-css = ["custom.css"]
 
-logo = "src/assets/logo.png"
-favicon = "src/assets/favicon.ico"
+logo = "assets/logo.png"
+favicon = "assets/favicon.ico"
 
 default-theme = "light"
 preferred-dark-theme = "navy"
 
 copy-fonts = true
+
