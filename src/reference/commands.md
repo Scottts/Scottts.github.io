@@ -15,15 +15,19 @@ Runs the Path Doctor to scan the project.
 ### `fix`
 Auto-fixes unused imports AND deprecated API calls.
 - **Usage**: `fix (Name)` *Defaults to active script*
-- **Example**: `add image here lol`
+- **Example**: `TODO: add image here lol`
 
 ### `ssense watch`
 Watches for file changes and re-runs analysis automatically.
 - **Usage**: `ssense watch`
+
+*TODO: Add more shit*
 
 ## Configuration
 
 ### `config`
 Manage your configuration settings.
 - **Usage**: `config (Setting)`
-- **Example**: `add image here too lol`
+- **Example**: `TODO: add image here too lol`
+
+*TODO: Add more shit*
