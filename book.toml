@@ -6,16 +6,11 @@ src = "src"
 title = "ScriptSense Documentation"
 
 [output.html]
-# Apply the custom CSS
-additional-css = ["src/custom.css"]
+additional-css = ["custom.css"]
 
-# Your assets
-logo = "src/assets/logo.png"
-favicon = "src/assets/favicon.ico"
+logo = "assets/logo.png"
+favicon = "assets/favicon.ico"
 
-# Default theme settings
 default-theme = "light"
 preferred-dark-theme = "navy"
-
-# This makes the "Rojo" style search and navigation smoother
 copy-fonts = true
