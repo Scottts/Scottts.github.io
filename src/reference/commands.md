@@ -1,19 +1,21 @@
 # CLI Commands
 
-ScriptSense comes with a powerful Command Line Interface (CLI) to manage your projects.
+ScriptSense comes with a Command Palette within the toolbar to manage your projects.
+Brackets, `[]` , indicate being **required**.
+Paranthesis, `()`, indicate being **optional**.
 
 ## Core Commands
 
-### `ssense init`
-Initializes a new ScriptSense project in the current directory.
-- **Usage**: `ssense init [options]`
+### `scan`
+Runs the Path Doctor to scan the project.
+- **Usage**: `scan (Name)`
 - **Options**:
-  - `--force`: Overwrite existing config files.
+  - `Name`: Scan a specific instance and its descendants.
 
-### `ssense check`
-Runs the static analyzer on your project.
-- **Usage**: `ssense check [path]`
-- **Example**: `ssense check src/`
+### `fix`
+Auto-fixes unused imports AND deprecated API calls.
+- **Usage**: `fix (Name)` *Defaults to active script*
+- **Example**: `add image here lol`
 
 ### `ssense watch`
 Watches for file changes and re-runs analysis automatically.
@@ -21,7 +23,7 @@ Watches for file changes and re-runs analysis automatically.
 
 ## Configuration
 
-### `ssense config`
+### `config`
 Manage your configuration settings.
-- **Usage**: `ssense config [key] [value]`
-- **Example**: `ssense config theme dark`
+- **Usage**: `config (Setting)`
+- **Example**: `add image here too lol`
