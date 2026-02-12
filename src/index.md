@@ -1,4 +1,4 @@
-# ![ScriptSense Banner](assets/banner.png)
+# ![ScriptSense Banner](assets/logo-large.png)
 
 # ScriptSense
 
