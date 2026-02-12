@@ -1,7 +1,6 @@
 [book]
 authors = ["ScriptSense"]
 language = "en"
-multilingual = false
 src = "src"
 title = "ScriptSense Documentation"
 
@@ -13,4 +12,5 @@ favicon = "assets/favicon.ico"
 
 default-theme = "light"
 preferred-dark-theme = "navy"
+
 copy-fonts = true
