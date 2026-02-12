@@ -17,11 +17,11 @@ Auto-fixes unused imports AND deprecated API calls.
 - **Usage**: `fix (Name)` *Defaults to active script*
 - **Example**: `TODO: add image here lol`
 
-### `ssense watch`
-Watches for file changes and re-runs analysis automatically.
-- **Usage**: `ssense watch`
+### `rename`
+Safely renames the specified script and its dependents.
+- **Usage**: `rename [OldName] [NewName]`
 
-*TODO: Add more shit*
+*TODO: Add more shit!*
 
 ## Configuration
 
@@ -30,4 +30,5 @@ Manage your configuration settings.
 - **Usage**: `config (Setting)`
 - **Example**: `TODO: add image here too lol`
 
-*TODO: Add more shit*
+
+*TODO: Add more shit!*
