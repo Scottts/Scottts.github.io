@@ -67,7 +67,7 @@ Auto-fixes unused imports AND deprecated API calls.
   * Name: Target script or module. Defaults to active script.  
   * -y: Auto-confirm all changes without preview.  
 * **Aliases**: clean, optimize, repair  
-* **Example**: ![Before fix command](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/fix-before.png) ![After fix command](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/fix-after.gif)
+* **Example**: ![Before fix command](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/fix-before.png) ![After fix command](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/fix-after.png)
 
 ### **rename**
 
@@ -348,3 +348,4 @@ Opens the DataStore Editor.
 * **Aliases**: ds, datastore  
 
 * **Example**: ![Data Editor/Surgeon UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/data-editor.png)
+
