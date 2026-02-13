@@ -19,13 +19,16 @@
 : Write your own rules, macros, and commands to tailor ScriptSense to your, and your team's workflow.
 
 ## Demo Video
-{% include youtube.html id="xvYV7LIr1SQ" %}
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/xvYV7LIr1SQ" allowfullscreen></iframe>
+</div>
 
 - *Note: This demo video is temporary and will be shortly replaced after formal publication.*
 ---
 
 
 [Get Started](reference/commands.md)
+
 
 
 
