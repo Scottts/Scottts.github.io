@@ -7,10 +7,11 @@ title = "ScriptSense Documentation"
 [output.html]
 additional-css = ["custom.css"]
 
-logo = "assets/logo.png"
-favicon = "assets/favicon.ico"
+logo = "https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/assets/logo.png"
+favicon = "https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/assets/favicon.ico"
 
 default-theme = "light"
 preferred-dark-theme = "navy"
 
 copy-fonts = true
+
