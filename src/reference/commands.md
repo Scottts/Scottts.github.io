@@ -52,7 +52,7 @@ Sends feedback, bug reports, or suggestions to the author.
   * If Message is omitted, opens the Feedback UI.  
   * You can prefix the message with bug, suggestion, or security.  
 * **Example**: report bug The terminal is flickering  
-* **Example**: TODO: Add GIF of Feedback UI
+* **Example**: ![Image of Report/Feedback UI](/src/assets/screenshots/feedback.png)
 
 ---
 
@@ -67,7 +67,7 @@ Auto-fixes unused imports AND deprecated API calls.
   * Name: Target script or module. Defaults to active script.  
   * -y: Auto-confirm all changes without preview.  
 * **Aliases**: clean, optimize, repair  
-* **Example**: TODO: Add before/after image of fix
+* **Example**: ![Image of before fix](/src/assets/screenshots/fix-before.png) ![Image of afterr fix](/src/assets/screenshots/fix-after.png)
 
 ### **rename**
 
@@ -91,7 +91,7 @@ Converts a nested if statement into a guard clause (inverts logic and un-nests).
 * **Usage**: guard  
 * **Aliases**: invert, unest  
 * **Note**: Highlight the if ... then line before running.  
-* **Example**: TODO: Add GIF of guard clause refactor
+* **Example**: ![Image of before fix](/src/assets/screenshots/guard-example.gif)
 
 ### **wrap**
 
@@ -175,7 +175,7 @@ Finds all scripts requiring a specific module.
 
 * **Usage**: refs [Name]  
 * **Aliases**: findrefs, usages  
-* **Example**: TODO: Add image of references output
+* **Example**: ![Image of references output](/src/assets/screenshots/refs-output.png)
 
 ### **tasks**
 
@@ -199,7 +199,7 @@ Visualizes function call flow as a node graph.
 
 * **Usage**: flow (Name)  
 * **Aliases**: graph, calls  
-* **Example**: TODO: Add image of Flow Graph
+* **Example**: ![Image of flow graph](/src/assets/screenshots/flow-graph.png)
 
 ### **tree**
 
@@ -309,7 +309,7 @@ Resets all settings to default.
 
 Manage script branches (Local history).
 
-* **Usage**: branch <name> (-n)  
+* **Usage**: branch (name) (-n)  
 * **Options**:  
   * -n: Create a new branch.  
 * **Aliases**: checkout, sw, b
@@ -347,4 +347,4 @@ Opens the DataStore Editor.
 
 * **Usage**: data (StoreName) (Key)  
 * **Aliases**: ds, datastore  
-* **Example**: TODO: Add image of DataStore Editor
+* **Example**: ![Image of Data Editor](/src/assets/screenshots/data-editor.png)
