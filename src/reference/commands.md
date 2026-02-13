@@ -2,9 +2,11 @@
 
 ScriptSense comes with a Command Palette within the toolbar to manage your projects.
 
-Brackets, \[\] , indicate being **required**.
+Brackets, `[]` , indicate being **required**.
 
-Paranthesis, (), indicate being **optional**.
+Paranthesis, `()`, indicate being **optional**.
+
+---
 
 ## **Core & General**
 
@@ -52,6 +54,8 @@ Sends feedback, bug reports, or suggestions to the author.
 * **Example**: report bug The terminal is flickering  
 * **Example**: TODO: Add GIF of Feedback UI
 
+---
+
 ## **Refactoring & Code Editing**
 
 ### **fix**
@@ -61,7 +65,7 @@ Auto-fixes unused imports AND deprecated API calls.
 * **Usage**: fix (Name) (-y)  
 * **Options**:  
   * Name: Target script or module. Defaults to active script.  
-  * \-y: Auto-confirm all changes without preview.  
+  * -y: Auto-confirm all changes without preview.  
 * **Aliases**: clean, optimize, repair  
 * **Example**: TODO: Add before/after image of fix
 
@@ -69,7 +73,7 @@ Auto-fixes unused imports AND deprecated API calls.
 
 Safely renames a module and updates all require() calls referencing it.
 
-* **Usage**: rename \[OldName\] \[NewName\] (-y)  
+* **Usage**: rename [OldName] [NewName] (-y)  
 * **Example**: rename DataManager PlayerData
 
 ### **extract**
@@ -93,7 +97,7 @@ Converts a nested if statement into a guard clause (inverts logic and un-nests).
 
 Wraps the selected code block in a specific statement (if, pcall, spawn, etc).
 
-* **Usage**: wrap \[type\]  
+* **Usage**: wrap [type]  
 * **Types**: if, pcall, spawn, do, while  
 * **Aliases**: surround
 
@@ -135,13 +139,15 @@ Generates a Luau export type definition from the selected table.
 
 ### **ignore**
 
-Attaches or removes the "SS\_IgnoreCheck" attribute, preventing ScriptSense from scanning the script.
+Attaches or removes the "SS_IgnoreCheck" attribute, preventing ScriptSense from scanning the script.
 
 * **Usage**: ignore (Name) (-n)  
 * **Options**:  
-  * \-n: "Un-ignore" mode (Removes the attribute).  
-  * \-y: Auto-confirm.  
+  * -n: "Un-ignore" mode (Removes the attribute).  
+  * -y: Auto-confirm.  
 * **Aliases**: ignores, ign
+
+---
 
 ## **Navigation & Search**
 
@@ -149,10 +155,10 @@ Attaches or removes the "SS\_IgnoreCheck" attribute, preventing ScriptSense from
 
 Opens a script, optionally at a specific line.
 
-* **Usage**: go \[Name\] (Index) (:Line)  
+* **Usage**: go [Name] (Index) (:Line)  
 * **Examples**:  
   * go DataHandler (Opens script)  
-  * go DataHandler:50 (Opens at line 50\)  
+  * go DataHandler:50 (Opens at line 50)  
   * go Script 2 (Opens the 2nd script named "Script")  
 * **Aliases**: goto, open
 
@@ -160,14 +166,14 @@ Opens a script, optionally at a specific line.
 
 Jumps to a function definition within the currently active script.
 
-* **Usage**: jump \[FunctionName\]  
-* **Aliases**: goto\_func, func
+* **Usage**: jump [FunctionName]  
+* **Aliases**: goto_func, func
 
 ### **refs**
 
 Finds all scripts requiring a specific module.
 
-* **Usage**: refs \[Name\]  
+* **Usage**: refs [Name]  
 * **Aliases**: findrefs, usages  
 * **Example**: TODO: Add image of references output
 
@@ -176,6 +182,8 @@ Finds all scripts requiring a specific module.
 Aggregates all TODO, FIXME, and HACK comments into a clickable list.
 
 * **Usage**: tasks
+
+---
 
 ## **Analysis & Visualization**
 
@@ -220,6 +228,8 @@ Generates Markdown documentation from TypeDef files or source comments.
 * **Usage**: gendocs (Name)  
 * **Result**: Creates a README script in the module's parent.
 
+---
+
 ## **Configuration & Macros**
 
 ### **config**
@@ -229,15 +239,15 @@ View or modify settings.
 * **Usage**: config (Key) (Value)  
 * **Options**:  
   * config: List all settings (Paged).  
-  * config \[Key\] \[Value\]: Set a specific setting.  
+  * config [Key] [Value]: Set a specific setting.  
 * **Aliases**: setting, settings
 
 ### **define**
 
 Define a macro with optional dependencies.
 
-* **Usage**: define \[key\] \[code\] (-d "Desc") (-dep "Deps")  
-* **Example**: define print\_hello print("Hello") \-d "Prints hello"
+* **Usage**: define [key] [code] (-d "Desc") (-dep "Deps")  
+* **Example**: define print_hello print("Hello") -d "Prints hello"
 
 ### **list**
 
@@ -250,7 +260,7 @@ Lists saved macros.
 
 Deletes a macro.
 
-* **Usage**: del \[Name\]
+* **Usage**: del [Name]
 
 ### **export**
 
@@ -262,7 +272,7 @@ Exports macros to JSON format (displayed in terminal).
 
 Imports macros from a JSON string.
 
-* **Usage**: import \[JSONString\]
+* **Usage**: import [JSONString]
 
 ### **sync**
 
@@ -271,13 +281,13 @@ Manages Project-level Macros.
 * **Usage**: sync (-init)  
 * **Options**:  
   * sync: Reloads project macros and user commands.  
-  * sync \-init: Creates a ProjectMacros module in ServerStorage to share macros with the team.
+  * sync -init: Creates a ProjectMacros module in ServerStorage to share macros with the team.
 
 ### **session**
 
 Manages editing sessions (Open scripts, cursor positions, graph state).
 
-* **Usage**: session \[save|load|del|list\] (Name)
+* **Usage**: session [save|load|del|list] (Name)
 
 ### **rules**
 
@@ -293,13 +303,15 @@ Resets all settings to default.
 
 ## **Version Control & Data**
 
+---
+
 ### **branch**
 
 Manage script branches (Local history).
 
-* **Usage**: branch \<name\> (-n)  
+* **Usage**: branch <name> (-n)  
 * **Options**:  
-  * \-n: Create a new branch.  
+  * -n: Create a new branch.  
 * **Aliases**: checkout, sw, b
 
 ### **undo**
