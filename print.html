@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-9aec7332.js";
+            window.path_to_searchindex_js = "searchindex-ae50bf8d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-d2dfc5ad.js"></script>
@@ -193,41 +193,319 @@
 <hr>
 <p><a href="#cli-commands">Get Started</a></p>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="cli-commands"><a class="header" href="#cli-commands">CLI Commands</a></h1>
-<p>ScriptSense comes with a Command Palette within the toolbar to manage your projects.
-Brackets, <code>[]</code> , indicate being <strong>required</strong>.
-Paranthesis, <code>()</code>, indicate being <strong>optional</strong>.</p>
-<h2 id="core-commands"><a class="header" href="#core-commands">Core Commands</a></h2>
-<h3 id="scan"><a class="header" href="#scan"><code>scan</code></a></h3>
-<p>Runs the Path Doctor to scan the project.</p>
+<h1 id="cli-commands"><a class="header" href="#cli-commands"><strong>CLI Commands</strong></a></h1>
+<p>ScriptSense comes with a Command Palette within the toolbar to manage your projects.</p>
+<p>Brackets, [] , indicate being <strong>required</strong>.</p>
+<p>Paranthesis, (), indicate being <strong>optional</strong>.</p>
+<h2 id="core--general"><a class="header" href="#core--general"><strong>Core &amp; General</strong></a></h2>
+<h3 id="scan"><a class="header" href="#scan"><strong>scan</strong></a></h3>
+<p>Runs the Path Doctor to scan the project for errors and dead code.</p>
 <ul>
-<li><strong>Usage</strong>: <code>scan (Name)</code></li>
+<li><strong>Usage</strong>: scan (Name)</li>
 <li><strong>Options</strong>:
 <ul>
-<li><code>Name</code>: Scan a specific instance and its descendants.</li>
+<li>Name: Scan a specific instance and its descendants. If omitted, scans the whole game.</li>
 </ul>
 </li>
 </ul>
-<h3 id="fix"><a class="header" href="#fix"><code>fix</code></a></h3>
+<h3 id="help"><a class="header" href="#help"><strong>help</strong></a></h3>
+<p>Lists all commands or explains a specific one.</p>
+<ul>
+<li><strong>Usage</strong>: help (PageNumber) OR help (CommandName)</li>
+<li><strong>Example</strong>: help rename</li>
+</ul>
+<h3 id="clear"><a class="header" href="#clear"><strong>clear</strong></a></h3>
+<p>Clears the terminal output.</p>
+<ul>
+<li><strong>Aliases</strong>: cls</li>
+</ul>
+<h3 id="about"><a class="header" href="#about"><strong>about</strong></a></h3>
+<p>Displays the welcome screen, version info, and credits.</p>
+<ul>
+<li><strong>Aliases</strong>: info, version</li>
+</ul>
+<h3 id="changelog"><a class="header" href="#changelog"><strong>changelog</strong></a></h3>
+<p>View the latest plugin updates and version history.</p>
+<ul>
+<li><strong>Aliases</strong>: updates, changes, news</li>
+</ul>
+<h3 id="report"><a class="header" href="#report"><strong>report</strong></a></h3>
+<p>Sends feedback, bug reports, or suggestions to the author.</p>
+<ul>
+<li><strong>Usage</strong>: report (Message)</li>
+<li><strong>Options</strong>:
+<ul>
+<li>If Message is omitted, opens the Feedback UI.</li>
+<li>You can prefix the message with bug, suggestion, or security.</li>
+</ul>
+</li>
+<li><strong>Example</strong>: report bug The terminal is flickering</li>
+<li><strong>Example</strong>: TODO: Add GIF of Feedback UI</li>
+</ul>
+<h2 id="refactoring--code-editing"><a class="header" href="#refactoring--code-editing"><strong>Refactoring &amp; Code Editing</strong></a></h2>
+<h3 id="fix"><a class="header" href="#fix"><strong>fix</strong></a></h3>
 <p>Auto-fixes unused imports AND deprecated API calls.</p>
 <ul>
-<li><strong>Usage</strong>: <code>fix (Name)</code> <em>Defaults to active script</em></li>
-<li><strong>Example</strong>: <code>TODO: add image here lol</code></li>
-</ul>
-<h3 id="rename"><a class="header" href="#rename"><code>rename</code></a></h3>
-<p>Safely renames the specified script and its dependents.</p>
+<li><strong>Usage</strong>: fix (Name) (-y)</li>
+<li><strong>Options</strong>:
 <ul>
-<li><strong>Usage</strong>: <code>rename [OldName] [NewName]</code></li>
+<li>Name: Target script or module. Defaults to active script.</li>
+<li>-y: Auto-confirm all changes without preview.</li>
 </ul>
-<p><em>TODO: Add more shit!</em></p>
-<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
-<h3 id="config"><a class="header" href="#config"><code>config</code></a></h3>
-<p>Manage your configuration settings.</p>
+</li>
+<li><strong>Aliases</strong>: clean, optimize, repair</li>
+<li><strong>Example</strong>: TODO: Add before/after image of fix</li>
+</ul>
+<h3 id="rename"><a class="header" href="#rename"><strong>rename</strong></a></h3>
+<p>Safely renames a module and updates all require() calls referencing it.</p>
 <ul>
-<li><strong>Usage</strong>: <code>config (Setting)</code></li>
-<li><strong>Example</strong>: <code>TODO: add image here too lol</code></li>
+<li><strong>Usage</strong>: rename [OldName] [NewName] (-y)</li>
+<li><strong>Example</strong>: rename DataManager PlayerData</li>
 </ul>
-<p><em>TODO: Add more shit!</em></p>
+<h3 id="extract"><a class="header" href="#extract"><strong>extract</strong></a></h3>
+<p>Extracts the currently selected code into a new local function.</p>
+<ul>
+<li><strong>Usage</strong>: extract (FunctionName)</li>
+<li><strong>Aliases</strong>: func, ex</li>
+<li><strong>Note</strong>: Select the code lines in the editor before running.</li>
+</ul>
+<h3 id="guard"><a class="header" href="#guard"><strong>guard</strong></a></h3>
+<p>Converts a nested if statement into a guard clause (inverts logic and un-nests).</p>
+<ul>
+<li><strong>Usage</strong>: guard</li>
+<li><strong>Aliases</strong>: invert, unest</li>
+<li><strong>Note</strong>: Highlight the if … then line before running.</li>
+<li><strong>Example</strong>: TODO: Add GIF of guard clause refactor</li>
+</ul>
+<h3 id="wrap"><a class="header" href="#wrap"><strong>wrap</strong></a></h3>
+<p>Wraps the selected code block in a specific statement (if, pcall, spawn, etc).</p>
+<ul>
+<li><strong>Usage</strong>: wrap [type]</li>
+<li><strong>Types</strong>: if, pcall, spawn, do, while</li>
+<li><strong>Aliases</strong>: surround</li>
+</ul>
+<h3 id="lift"><a class="header" href="#lift"><strong>lift</strong></a></h3>
+<p>Moves all nested require statements to the top of the script.</p>
+<ul>
+<li><strong>Usage</strong>: lift</li>
+<li><strong>Aliases</strong>: hoist, raise</li>
+</ul>
+<h3 id="sort"><a class="header" href="#sort"><strong>sort</strong></a></h3>
+<p>Alphabetizes selected lines and ensures correct comma formatting. Useful for tables.</p>
+<ul>
+<li><strong>Usage</strong>: sort</li>
+<li><strong>Aliases</strong>: alphabetize, order</li>
+</ul>
+<h3 id="strip"><a class="header" href="#strip"><strong>strip</strong></a></h3>
+<p>Removes comments and empty gaps from the selected script.</p>
+<ul>
+<li><strong>Usage</strong>: strip</li>
+<li><strong>Aliases</strong>: nocomments, clean</li>
+</ul>
+<h3 id="fmt"><a class="header" href="#fmt"><strong>fmt</strong></a></h3>
+<p>Toggles a table between Single-Line and Multi-Line formatting.</p>
+<ul>
+<li><strong>Usage</strong>: fmt</li>
+<li><strong>Aliases</strong>: format, table</li>
+<li><strong>Note</strong>: Highlight the table brackets { … }.</li>
+</ul>
+<h3 id="infer"><a class="header" href="#infer"><strong>infer</strong></a></h3>
+<p>Generates a Luau export type definition from the selected table.</p>
+<ul>
+<li><strong>Usage</strong>: infer (TypeName)</li>
+<li><strong>Aliases</strong>: type, gen</li>
+</ul>
+<h3 id="ignore"><a class="header" href="#ignore"><strong>ignore</strong></a></h3>
+<p>Attaches or removes the “SS_IgnoreCheck” attribute, preventing ScriptSense from scanning the script.</p>
+<ul>
+<li><strong>Usage</strong>: ignore (Name) (-n)</li>
+<li><strong>Options</strong>:
+<ul>
+<li>-n: “Un-ignore” mode (Removes the attribute).</li>
+<li>-y: Auto-confirm.</li>
+</ul>
+</li>
+<li><strong>Aliases</strong>: ignores, ign</li>
+</ul>
+<h2 id="navigation--search"><a class="header" href="#navigation--search"><strong>Navigation &amp; Search</strong></a></h2>
+<h3 id="go"><a class="header" href="#go"><strong>go</strong></a></h3>
+<p>Opens a script, optionally at a specific line.</p>
+<ul>
+<li><strong>Usage</strong>: go [Name] (Index) (:Line)</li>
+<li><strong>Examples</strong>:
+<ul>
+<li>go DataHandler (Opens script)</li>
+<li>go DataHandler:50 (Opens at line 50)</li>
+<li>go Script 2 (Opens the 2nd script named “Script”)</li>
+</ul>
+</li>
+<li><strong>Aliases</strong>: goto, open</li>
+</ul>
+<h3 id="jump"><a class="header" href="#jump"><strong>jump</strong></a></h3>
+<p>Jumps to a function definition within the currently active script.</p>
+<ul>
+<li><strong>Usage</strong>: jump [FunctionName]</li>
+<li><strong>Aliases</strong>: goto_func, func</li>
+</ul>
+<h3 id="refs"><a class="header" href="#refs"><strong>refs</strong></a></h3>
+<p>Finds all scripts requiring a specific module.</p>
+<ul>
+<li><strong>Usage</strong>: refs [Name]</li>
+<li><strong>Aliases</strong>: findrefs, usages</li>
+<li><strong>Example</strong>: TODO: Add image of references output</li>
+</ul>
+<h3 id="tasks"><a class="header" href="#tasks"><strong>tasks</strong></a></h3>
+<p>Aggregates all TODO, FIXME, and HACK comments into a clickable list.</p>
+<ul>
+<li><strong>Usage</strong>: tasks</li>
+</ul>
+<h2 id="analysis--visualization"><a class="header" href="#analysis--visualization"><strong>Analysis &amp; Visualization</strong></a></h2>
+<h3 id="dashboard"><a class="header" href="#dashboard"><strong>dashboard</strong></a></h3>
+<p>Shows a high-level overview of Project Health, Tasks, and Network stats.</p>
+<ul>
+<li><strong>Usage</strong>: dashboard</li>
+</ul>
+<h3 id="flow"><a class="header" href="#flow"><strong>flow</strong></a></h3>
+<p>Visualizes function call flow as a node graph.</p>
+<ul>
+<li><strong>Usage</strong>: flow (Name)</li>
+<li><strong>Aliases</strong>: graph, calls</li>
+<li><strong>Example</strong>: TODO: Add image of Flow Graph</li>
+</ul>
+<h3 id="tree"><a class="header" href="#tree"><strong>tree</strong></a></h3>
+<p>Visualizes the dependency graph (requires) of a script.</p>
+<ul>
+<li><strong>Usage</strong>: tree (Name)</li>
+</ul>
+<h3 id="network"><a class="header" href="#network"><strong>network</strong></a></h3>
+<p>Visualizes Network Traffic (RemoteEvents/Functions) in the Graph View.</p>
+<ul>
+<li><strong>Usage</strong>: network</li>
+</ul>
+<h3 id="history"><a class="header" href="#history"><strong>history</strong></a></h3>
+<p>View script edit history (if using ScriptSense history tracking) as a tree.</p>
+<ul>
+<li><strong>Usage</strong>: history</li>
+<li><strong>Aliases</strong>: log, timeline</li>
+<li><strong>Note</strong>: Select a script to view its history.</li>
+</ul>
+<h3 id="gendocs"><a class="header" href="#gendocs"><strong>gendocs</strong></a></h3>
+<p>Generates Markdown documentation from TypeDef files or source comments.</p>
+<ul>
+<li><strong>Usage</strong>: gendocs (Name)</li>
+<li><strong>Result</strong>: Creates a README script in the module’s parent.</li>
+</ul>
+<h2 id="configuration--macros"><a class="header" href="#configuration--macros"><strong>Configuration &amp; Macros</strong></a></h2>
+<h3 id="config"><a class="header" href="#config"><strong>config</strong></a></h3>
+<p>View or modify settings.</p>
+<ul>
+<li><strong>Usage</strong>: config (Key) (Value)</li>
+<li><strong>Options</strong>:
+<ul>
+<li>config: List all settings (Paged).</li>
+<li>config [Key] [Value]: Set a specific setting.</li>
+</ul>
+</li>
+<li><strong>Aliases</strong>: setting, settings</li>
+</ul>
+<h3 id="define"><a class="header" href="#define"><strong>define</strong></a></h3>
+<p>Define a macro with optional dependencies.</p>
+<ul>
+<li><strong>Usage</strong>: define [key] [code] (-d “Desc”) (-dep “Deps”)</li>
+<li><strong>Example</strong>: define print_hello print(“Hello”) -d “Prints hello”</li>
+</ul>
+<h3 id="list"><a class="header" href="#list"><strong>list</strong></a></h3>
+<p>Lists saved macros.</p>
+<ul>
+<li><strong>Usage</strong>: list (page)</li>
+<li><strong>Aliases</strong>: macros, ls</li>
+</ul>
+<h3 id="del"><a class="header" href="#del"><strong>del</strong></a></h3>
+<p>Deletes a macro.</p>
+<ul>
+<li><strong>Usage</strong>: del [Name]</li>
+</ul>
+<h3 id="export"><a class="header" href="#export"><strong>export</strong></a></h3>
+<p>Exports macros to JSON format (displayed in terminal).</p>
+<ul>
+<li><strong>Usage</strong>: export</li>
+</ul>
+<h3 id="import"><a class="header" href="#import"><strong>import</strong></a></h3>
+<p>Imports macros from a JSON string.</p>
+<ul>
+<li><strong>Usage</strong>: import [JSONString]</li>
+</ul>
+<h3 id="sync"><a class="header" href="#sync"><strong>sync</strong></a></h3>
+<p>Manages Project-level Macros.</p>
+<ul>
+<li><strong>Usage</strong>: sync (-init)</li>
+<li><strong>Options</strong>:
+<ul>
+<li>sync: Reloads project macros and user commands.</li>
+<li>sync -init: Creates a ProjectMacros module in ServerStorage to share macros with the team.</li>
+</ul>
+</li>
+</ul>
+<h3 id="session"><a class="header" href="#session"><strong>session</strong></a></h3>
+<p>Manages editing sessions (Open scripts, cursor positions, graph state).</p>
+<ul>
+<li><strong>Usage</strong>: session [save|load|del|list] (Name)</li>
+</ul>
+<h3 id="rules"><a class="header" href="#rules"><strong>rules</strong></a></h3>
+<p>Installs or opens the Architecture Rules definition file (ScriptSenseRules).</p>
+<ul>
+<li><strong>Usage</strong>: rules</li>
+</ul>
+<h3 id="reset"><a class="header" href="#reset"><strong>reset</strong></a></h3>
+<p>Resets all settings to default.</p>
+<ul>
+<li><strong>Usage</strong>: reset</li>
+</ul>
+<h2 id="version-control--data"><a class="header" href="#version-control--data"><strong>Version Control &amp; Data</strong></a></h2>
+<h3 id="branch"><a class="header" href="#branch"><strong>branch</strong></a></h3>
+<p>Manage script branches (Local history).</p>
+<ul>
+<li><strong>Usage</strong>: branch &lt;name&gt; (-n)</li>
+<li><strong>Options</strong>:
+<ul>
+<li>-n: Create a new branch.</li>
+</ul>
+</li>
+<li><strong>Aliases</strong>: checkout, sw, b</li>
+</ul>
+<h3 id="undo"><a class="header" href="#undo"><strong>undo</strong></a></h3>
+<p>Reverts the last action (Refactors, renames, etc).</p>
+<ul>
+<li><strong>Usage</strong>: undo</li>
+</ul>
+<h3 id="redo"><a class="header" href="#redo"><strong>redo</strong></a></h3>
+<p>Redoes the last undone action.</p>
+<ul>
+<li><strong>Usage</strong>: redo</li>
+</ul>
+<h3 id="test"><a class="header" href="#test"><strong>test</strong></a></h3>
+<p>Generates a TestEZ-compatible .spec file for the target module.</p>
+<ul>
+<li><strong>Usage</strong>: test (quick)</li>
+<li><strong>Options</strong>:
+<ul>
+<li>quick: Runs the test immediately without creating a file.</li>
+</ul>
+</li>
+</ul>
+<h3 id="runtests"><a class="header" href="#runtests"><strong>runtests</strong></a></h3>
+<p>Executes TestEZ tests.</p>
+<ul>
+<li><strong>Usage</strong>: runtests</li>
+<li><strong>Aliases</strong>: specs, test-all</li>
+</ul>
+<h3 id="data"><a class="header" href="#data"><strong>data</strong></a></h3>
+<p>Opens the DataStore Editor.</p>
+<ul>
+<li><strong>Usage</strong>: data (StoreName) (Key)</li>
+<li><strong>Aliases</strong>: ds, datastore</li>
+<li><strong>Example</strong>: TODO: Add image of DataStore Editor</li>
+</ul>
 
                     </main>
 
