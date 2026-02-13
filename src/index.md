@@ -3,23 +3,28 @@
 **ScriptSense** is a project-aware static analysis and workflow tool for Roblox Studio, designed to bring professional-grade tooling to Luau development. It enhances the Roblox Script Editor with intelligent automation and real-time safety tools. It understands what you type, prevents broken references, and keeps your workflow clean and fast without getting in the way.
 
 ## Why ScriptSense?
-- **Type Safety**: Catch bugs before you run your game with live type checking.
-- **Workflow Automation**: Automate repetitive tasks with custom macros and commands.
-- **Project Awareness**: Understands your entire project, not just individual scripts.
+- **Type Safety**
+: Catch bugs before you run your game with live type checking.
+- **Workflow Automation**
+: Automate repetitive tasks with custom macros and commands.
+- **Project Awareness**
+: Understands your entire project, not just individual scripts.
 
 ## Key Features
-### Live-Analysis 
-Deep analysis of your codebase to find errors, style issues, and potential performance bottlenecks.
-### Safety
-Built for safety, using robust checks to handle edge cases, requiring user conformity to execute tasks carefully, and providing the ability to undo (and redo) actions.
-### Extensibility
-Write your own rules, macros, and commands to tailor ScriptSense to your, and your team's workflow.
+- **Live-Analysis**
+: Deep analysis of your codebase to find errors, style issues, and potential performance bottlenecks.
+- **Safety**
+: Built for safety, using robust checks to handle edge cases, requiring user conformity to execute tasks carefully, and providing the ability to undo (and redo) actions.
+- **Extensibility**
+: Write your own rules, macros, and commands to tailor ScriptSense to your, and your team's workflow.
 
-## Demo Video (Temporary)
-![Demo Video](https://youtu.be/xvYV7LIr1SQ?si=Ix47SquWEAWhWX6O)
+## Demo Video
+![](www.youtube.com/watch?v=xvYV7LIr1SQ)
 
+- *Note: This demo video is temporary and will be shortly replaced after formal publication.*
 ---
 
 
 [Get Started](reference/commands.md)
+
 
