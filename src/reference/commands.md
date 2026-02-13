@@ -2,9 +2,9 @@
 
 ScriptSense comes with a Command Palette within the toolbar to manage your projects.
 
-Brackets, `[]` , indicate being **required**.
+Square brackets, `[]`, mean the item is required. 
 
-Paranthesis, `()`, indicate being **optional**.
+`()`, mean the item is optional.
 
 ---
 
@@ -301,9 +301,9 @@ Resets all settings to default.
 
 * **Usage**: reset
 
-## **Version Control & Data**
-
 ---
+
+## **Version Control & Data**
 
 ### **branch**
 
