@@ -52,7 +52,8 @@ Sends feedback, bug reports, or suggestions to the author.
   * If Message is omitted, opens the Feedback UI.  
   * You can prefix the message with bug, suggestion, or security.  
 * **Example**: report bug The terminal is flickering  
-* **Example**: ![Report/Feedback UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/feedback.png)
+* **Example**:
+![Report/Feedback UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/feedback.png)
 
 ---
 
@@ -68,8 +69,10 @@ Auto-fixes unused imports AND deprecated API calls.
   * -y: Auto-confirm all changes without preview.  
 * **Aliases**: clean, optimize, repair  
 * **Example**:
-  * Before: ![Before fix command](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/fix-before.png)
-  * After: ![After fix command](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/fix-after.png)
+  * Before:
+  ![Before fix command](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/fix-before.png)
+  * After:
+  ![After fix command](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/fix-after.png)
 
 ### **rename**
 
@@ -93,7 +96,8 @@ Converts a nested if statement into a guard clause (inverts logic and un-nests).
 * **Usage**: guard  
 * **Aliases**: invert, unest  
 * **Note**: Highlight the if ... then line before running.  
-* **Example**: ![Guard gif example](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/guard-example.gif)
+* **Example**:
+![Guard gif example](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/guard-example.gif)
 ### **wrap**
 
 Wraps the selected code block in a specific statement (if, pcall, spawn, etc).
@@ -176,13 +180,16 @@ Finds all scripts requiring a specific module.
 
 * **Usage**: refs [Name]  
 * **Aliases**: findrefs, usages  
-* **Example**: ![References output](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/refs-output.png)
+* **Example**:
+![References output](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/refs-output.png)
 
 ### **tasks**
 
-Aggregates all TODO, FIXME, and HACK comments into a clickable list.
+Aggregates all TODO, FIXME, and HACK comments into a hub.
 
 * **Usage**: tasks
+* **Example**:
+![Data Editor/Surgeon UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-hub.png)
 
 ---
 
@@ -200,7 +207,8 @@ Visualizes function call flow as a node graph.
 
 * **Usage**: flow (Name)  
 * **Aliases**: graph, calls  
-* **Example**: ![Flow graph UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/flow-graph.png)
+* **Example**:
+![Flow graph UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/flow-graph.png)
 
 ### **tree**
 
@@ -209,7 +217,7 @@ Visualizes the dependency graph (requires) of a script.
 * **Usage**: tree (Name)
 
 ### **network**
-
+tas
 Visualizes Network Traffic (RemoteEvents/Functions) in the Graph View.
 
 * **Usage**: network
@@ -349,7 +357,8 @@ Opens the DataStore Editor.
 * **Usage**: data (StoreName) (Key)  
 * **Aliases**: ds, datastore  
 
-* **Example**: ![Data Editor/Surgeon UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/data-editor.png)
+* **Example**:
+![Data Editor/Surgeon UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/data-editor.png)
 ---
 <footer class="custom-footer">
     <div class="footer-links">
