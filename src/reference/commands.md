@@ -351,4 +351,12 @@ Opens the DataStore Editor.
 
 * **Example**: ![Data Editor/Surgeon UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/data-editor.png)
 
+<footer class="custom-footer">
+    <div class="footer-links">
+        <a href="https://www.roblox.com/users/635454083/profile" target="_blank" rel="noopener noreferrer">Roblox</a>
+        <a href="https://www.youtube.com/@KeIlllIl" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+    <p>Copyright &copy; 2026 Kel (@GudEveningBois). Built with mdBook.</p>
+</footer>
+
 
