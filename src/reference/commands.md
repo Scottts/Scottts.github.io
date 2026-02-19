@@ -185,11 +185,11 @@ Finds all scripts requiring a specific module.
 
 ### **tasks**
 
-Aggregates all TODO, FIXME, and HACK comments into a hub.
+Aggregates all TODO, FIXME, and HACK comments into a centralized hub.
 
 * **Usage**: tasks
 * **Example**:
-![Data Editor/Surgeon UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-hub.png)
+![Task Hub UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-hub.png)
 
 ---
 
@@ -366,4 +366,5 @@ Opens the DataStore Editor.
         <a href="https://www.youtube.com/@KeIlllIl" target="_blank" rel="noopener noreferrer">YouTube</a>
     </div>
     <p>Copyright &copy; 2026 Kel (@GudEveningBois). Built with mdBook.</p>
+
 </footer>
