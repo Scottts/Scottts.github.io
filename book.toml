@@ -7,7 +7,7 @@ title = "ScriptSense Documentation"
 [output.html]
 additional-css = ["custom.css"]
 
-logo = "/src/assets/logo-large.png"
+logo = "/src/assets/logo.png"
 favicon = "/src/assets/favicon.ico"
 
 default-theme = "light"
