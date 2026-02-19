@@ -27,8 +27,8 @@
 ---
 
 
-[Get Started](reference/commands.md)\
-
+[Get Started](reference/commands.md)
+---
 <footer class="custom-footer">
     <div class="footer-links">
         <a href="https://www.roblox.com/users/635454083/profile" target="_blank" rel="noopener noreferrer">Roblox</a>
