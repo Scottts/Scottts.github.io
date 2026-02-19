@@ -28,8 +28,3 @@
 
 
 [Get Started](reference/commands.md)
-
-
-
-
-
