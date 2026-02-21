@@ -6,9 +6,7 @@ title = "ScriptSense Documentation"
 
 [output.html]
 additional-css = ["custom.css"]
-
-logo = "theme/logo.png"
-favicon = "theme/logo.png"
+logo = "assets/logo.png"
 
 default-theme = "light"
 preferred-dark-theme = "navy"
@@ -17,4 +15,5 @@ copy-fonts = true
 
 [output.html.fold]
 enable = true
+
 level = 1
