@@ -250,7 +250,7 @@ Generates Markdown documentation from TypeDef files or source comments.
 ---
 
 ## **Configuration & Macros**
-h
+
 ### **config**
 
 View or modify settings.
