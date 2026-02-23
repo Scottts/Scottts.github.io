@@ -230,6 +230,16 @@ View script edit history (if using ScriptSense history tracking) as a tree.
 * **Aliases**: log, timeline  
 * **Note**: Select a script to view its history.
 
+### **diff**
+
+Compares current script with a historical snapshot.
+
+* **Usage**: diff  
+* **Aliases**: compare, changes  
+* **Note**: Select a script OR StringValue (ScriptSense history snapshot) to view its history.
+* **Example**:
+![Diff comparison UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/diff-example.png)
+
 ### **gendocs**
 
 Generates Markdown documentation from TypeDef files or source comments.
@@ -240,7 +250,7 @@ Generates Markdown documentation from TypeDef files or source comments.
 ---
 
 ## **Configuration & Macros**
-
+h
 ### **config**
 
 View or modify settings.
