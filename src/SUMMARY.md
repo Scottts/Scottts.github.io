@@ -1,9 +1,7 @@
 # Summary
 
 - [Introduction](index.md)
-
-- Getting Started
-  - [Quick Start & Installation](reference/getting-started.md)
+- [Quick Start & Installation](reference/getting-started.md)
 
 # Tutorials
   - [Tutorials & Guides](reference/tutorials.md)
@@ -22,3 +20,4 @@
 
 # Changelog
   - [Release Notes & Changes](reference/changelogs.md)
+
