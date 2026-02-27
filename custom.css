@@ -150,3 +150,95 @@ blockquote {
 ::-webkit-scrollbar-thumb:hover {
     background: #6b7280; 
 }
+
+/* Ensure accessible tap targets and hover/focus parity for interactive elements */
+.menu-bar button,
+.icon-button,
+.sidebar a,
+.nav-chapters a,
+.custom-footer a {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.custom-footer a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main a:not(.header):not(.custom-footer a):focus-visible,
+.custom-footer a:focus-visible {
+    border-bottom: 1px solid var(--links);
+    outline: 2px solid var(--links);
+    outline-offset: 2px;
+}
+
+/* Responsive layout spacing for hero/video/sidebar areas */
+@media (max-width: 1024px) {
+    .sidebar {
+        padding-top: 0.75rem;
+    }
+
+    .sidebar .logo img {
+        margin: 1rem auto 0.75rem auto;
+    }
+
+    #content,
+    main {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        line-height: 1.2;
+        margin-top: 0.5rem;
+    }
+
+    .video-container {
+        margin-bottom: 1rem;
+        border-radius: 6px;
+    }
+
+    .custom-footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+    }
+
+    .custom-footer .footer-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #content,
+    main {
+        padding-left: 0.875rem;
+        padding-right: 0.875rem;
+    }
+
+    .sidebar .logo img {
+        max-width: 78%;
+    }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    main a:not(.header):not(.custom-footer a):hover,
+    .custom-footer a:hover,
+    main a:not(.header):not(.custom-footer a):focus-visible,
+    .custom-footer a:focus-visible {
+        border-bottom: 1px solid currentColor;
+    }
+}
