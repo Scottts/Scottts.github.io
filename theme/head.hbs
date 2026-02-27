@@ -52,3 +52,28 @@
 </script>
 
 <!-- <script async defer data-domain="scottts.github.io" src="https://plausible.io/js/plausible.js"></script> -->
+
+
+
+<template id="global-footer-template">
+  <footer class="custom-footer">
+    <div class="footer-links">
+      <a href="https://www.roblox.com/users/635454083/profile" target="_blank" rel="noopener noreferrer">Roblox</a>
+      <a href="https://www.youtube.com/@KeIlllIl" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+    <p>Copyright &copy; 2026 Kel (@GudEveningBois). Built with mdBook.</p>
+  </footer>
+</template>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('.custom-footer')) return;
+
+    var template = document.getElementById('global-footer-template');
+    if (!template) return;
+
+    var article = document.querySelector('main .content') || document.querySelector('main');
+    if (!article) return;
+
+    article.appendChild(template.content.cloneNode(true));
+  });
+</script>

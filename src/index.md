@@ -1,3 +1,5 @@
+<section class="hero">
+
 # ![ScriptSense Banner](assets/logo-large.png)
 
 **ScriptSense** is a project-aware static analysis and workflow tool for Roblox Studio, designed to bring professional-grade tooling to Luau development. It enhances the Roblox Script Editor with intelligent automation and real-time safety tools. It understands what you type, prevents broken references, and keeps your workflow clean and fast without getting in the way.
@@ -19,20 +21,20 @@
 : Write your own rules, macros, and commands to tailor ScriptSense to your, and your team's workflow.
 
 ## Demo Video
-<div class="video-container">
-  <iframe src="https://www.youtube.com/embed/xvYV7LIr1SQ" allowfullscreen></iframe>
+<div class="video-card">
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/xvYV7LIr1SQ" allowfullscreen></iframe>
+  </div>
 </div>
 
 - *Note: This demo video is temporary and will be shortly replaced after formal publication.*
----
 
+<div class="hero-divider" aria-hidden="true"></div>
+
+<div class="hero-actions">
 
 [Get Started](reference/commands.md)
----
-<footer class="custom-footer">
-    <div class="footer-links">
-        <a href="https://www.roblox.com/users/635454083/profile" target="_blank" rel="noopener noreferrer">Roblox</a>
-        <a href="https://www.youtube.com/@KeIlllIl" target="_blank" rel="noopener noreferrer">YouTube</a>
-    </div>
-    <p>Copyright &copy; 2026 Kel (@GudEveningBois). Built with mdBook.</p>
-</footer>
+
+</div>
+
+</section>
