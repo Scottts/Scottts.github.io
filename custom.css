@@ -1,48 +1,172 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Work+Sans:wght@400;500;600&display=swap');
 
 :root {
-    --links: #0091fe;
-    --inline-code-color: #0091fe;
     --content-max-width: 900px;
     --transition-speed: 0.2s;
 }
 
-/* Light Mode Overrides */
+/* Light Mode Tokens */
 .light {
-    --sidebar-bg: #f8f9fa;
-    --sidebar-fg: #1a1a1b;
-    --page-bg: #ffffff;
-    --text-color: #1a1a1b;
-    --border-color: #e5e7eb;
-    --footer-text: #6b7280;
+    --color-bg: #ffffff;
+    --color-surface: #f8f9fa;
+    --color-text: #1a1a1b;
+    --color-muted: #6b7280;
+    --color-border: #e5e7eb;
+    --color-primary: #0091fe;
+    --color-primary-strong: #0074cc;
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --space-8: 5rem;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 2rem;
+    --line-height-sm: 1.4;
+    --line-height-base: 1.7;
+    --line-height-lg: 1.9;
 }
 
-/* Dark Mode Overrides */
-.navy, .ayu, .coal {
-    --sidebar-bg: #0d1117;
-    --sidebar-fg: #e6edf3;
-    --page-bg: #10141a;
-    --text-color: #e6edf3;
-    --border-color: #30363d;
-    --quote-bg: #161b22;
-    --footer-text: #8b949e;
+/* Dark Mode Tokens */
+.navy,
+.ayu,
+.coal {
+    --color-bg: #10141a;
+    --color-surface: #161b22;
+    --color-text: #e6edf3;
+    --color-muted: #8b949e;
+    --color-border: #30363d;
+    --color-primary: #4db1ff;
+    --color-primary-strong: #7ac6ff;
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --space-8: 5rem;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.45), 0 2px 6px -2px rgba(0, 0, 0, 0.35);
+
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 2rem;
+    --line-height-sm: 1.4;
+    --line-height-base: 1.7;
+    --line-height-lg: 1.9;
 }
 
 /* Typography & Base */
 body {
     font-family: 'Work Sans', sans-serif;
-    line-height: 1.6;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background: var(--color-bg);
 }
 
-h1, h2, h3, h4 {
+main {
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+.content {
+    max-width: var(--content-max-width);
+    color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4 {
     font-family: 'Crimson Pro', serif;
     font-weight: 700;
+    color: var(--color-text);
+    line-height: var(--line-height-sm);
 }
 
-code {
+h1 {
+    font-size: var(--font-size-xl);
+}
+
+h2,
+h3,
+h4 {
+    font-size: var(--font-size-lg);
+}
+
+p,
+li {
+    color: var(--color-text);
+    line-height: var(--line-height-base);
+}
+
+code,
+pre {
     font-family: 'JetBrains Mono', monospace;
-    border-radius: 4px;
+}
+
+:not(pre) > code {
+    border-radius: var(--radius-sm);
     padding: 0.15em 0.3em;
+    background: var(--color-surface);
+    color: var(--color-primary-strong);
+    font-size: var(--font-size-sm);
+}
+
+pre {
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Sidebar & Chapter Navigation */
+.sidebar {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border-right: 1px solid var(--color-border);
+}
+
+.sidebar .chapter li a,
+.sidebar .chapter-item {
+    color: var(--color-text);
+    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-3);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.sidebar .chapter li a:hover,
+.sidebar .chapter-item:hover {
+    background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+    color: var(--color-primary-strong);
+}
+
+.sidebar .chapter li a.active,
+.sidebar .chapter-item.active {
+    background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+    color: var(--color-primary-strong);
+    font-weight: 600;
 }
 
 /* =========================================
@@ -51,14 +175,14 @@ code {
 /* Hide the default text titles since we use the large logo */
 .sidebar .sidebar-header .book-title,
 .menu-title {
-    display: none !important; 
+    display: none !important;
 }
 
 /* Make the logo fit beautifully in the sidebar */
 .sidebar .logo img {
     max-width: 85%;
     height: auto;
-    margin: 1.5rem auto 1rem auto;
+    margin: var(--space-5) auto var(--space-4) auto;
     display: block;
 }
 
@@ -66,30 +190,30 @@ code {
    Custom Footer Styling
    ========================================= */
 .custom-footer {
-    margin-top: 5rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
     text-align: center;
-    color: var(--footer-text);
-    font-size: 0.9rem;
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
 }
 
 .custom-footer .footer-links {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4);
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: var(--space-5);
 }
 
 .custom-footer a {
-    color: var(--footer-text);
+    color: var(--color-muted);
     text-decoration: none;
     font-weight: 500;
     transition: color var(--transition-speed) ease;
 }
 
 .custom-footer a:hover {
-    color: var(--links);
+    color: var(--color-primary);
 }
 
 /* =========================================
@@ -101,9 +225,9 @@ code {
     padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-5);
+    box-shadow: var(--shadow-md);
 }
 
 .video-container iframe {
@@ -117,22 +241,26 @@ code {
 
 /* Modern Link Hovers */
 main a:not(.header):not(.custom-footer a) {
+    color: var(--color-primary);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-bottom var(--transition-speed) ease;
 }
 
 main a:not(.header):not(.custom-footer a):hover {
-    border-bottom: 1px solid var(--links);
+    border-bottom: 1px solid var(--color-primary);
 }
 
-/* Better Blockquotes for "Notes" */
-blockquote {
-    border-left: 4px solid var(--links);
-    background: var(--quote-bg, #f3f4f6);
-    padding: 1rem;
-    border-radius: 0 8px 8px 0;
-    margin: 1.5rem 0;
+/* Better Callouts & Blockquotes for "Notes" */
+blockquote,
+.callout {
+    border-left: 4px solid var(--color-primary);
+    background: var(--color-surface);
+    padding: var(--space-4);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin: var(--space-5) 0;
+    color: var(--color-text);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Modern Scrollbars */
@@ -140,13 +268,16 @@ blockquote {
     width: 8px;
     height: 8px;
 }
+
 ::-webkit-scrollbar-track {
-    background: var(--page-bg); 
+    background: var(--color-bg);
 }
+
 ::-webkit-scrollbar-thumb {
-    background: var(--border-color); 
-    border-radius: 4px;
+    background: var(--color-border);
+    border-radius: var(--radius-sm);
 }
+
 ::-webkit-scrollbar-thumb:hover {
-    background: #6b7280; 
+    background: var(--color-muted);
 }
