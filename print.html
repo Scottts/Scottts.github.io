@@ -87,7 +87,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-fded768c.js";
+            window.path_to_searchindex_js = "searchindex-ff1a26d3.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-bacbec6a.js"></script>
@@ -779,6 +779,69 @@ https://create.roblox.com/store/asset/75708311511053/ScriptSense</p>
 
 </footer>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="configuration"><a class="header" href="#configuration">Configuration</a></h1>
+<p>ScriptSense settings are stored as plugin settings (per-user) and can be edited through the <code>config</code> command.</p>
+<p>Project-level macros (shared with your place/team) are stored in <code>ServerStorage/ScriptSense_Data/ProjectMacros</code>.</p>
+<hr>
+<h2 id="editing-settings"><a class="header" href="#editing-settings">Editing settings</a></h2>
+<p>Use the <code>config</code> command:</p>
+<ul>
+<li><code>config</code> → list settings</li>
+<li><code>config (Key)</code> → show a specific setting</li>
+<li><code>config (Key) (Value)</code> → set a value</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><code>config DynamicScanningEnabled false</code></li>
+<li><code>config DebounceTime 0.25</code></li>
+<li><code>config NotifyPosition TopRight</code></li>
+</ul>
+<hr>
+<h2 id="settings-schema"><a class="header" href="#settings-schema">Settings (Schema)</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Key</th><th>Type</th><th style="text-align: right">Default</th><th>What it does</th></tr>
+</thead>
+<tbody>
+<tr><td>SmartImports</td><td>Toggle</td><td style="text-align: right">false</td><td>Smart Imports</td></tr>
+<tr><td>AutoSaveEnabled</td><td>Toggle</td><td style="text-align: right">true</td><td>Auto-Save History</td></tr>
+<tr><td>AutoRefactor</td><td>Toggle</td><td style="text-align: right">false</td><td>Automatically applies refactors on manual changes</td></tr>
+<tr><td>BranchedHistory</td><td>Toggle</td><td style="text-align: right">false</td><td>Git-like Branch History</td></tr>
+<tr><td>UseDedicatedSpecFolder</td><td>Toggle</td><td style="text-align: right">true</td><td>Store <code>.spec</code> files in <code>ScriptSense_Data</code></td></tr>
+<tr><td>ImgBBKey</td><td>String</td><td style="text-align: right"><code>""</code></td><td>ImgBB API Key (required for uploads)</td></tr>
+<tr><td>ThemeOverrides</td><td>String</td><td style="text-align: right"><code>"{}"</code></td><td>UI theme override JSON</td></tr>
+<tr><td>DynamicScanningEnabled</td><td>Toggle</td><td style="text-align: right">true</td><td>Real-time Scan</td></tr>
+<tr><td>ShowWidget</td><td>Toggle</td><td style="text-align: right">true</td><td>Show Widget on Start</td></tr>
+<tr><td>WidgetPersists</td><td>Toggle</td><td style="text-align: right">false</td><td>Widget no longer auto-closes</td></tr>
+<tr><td>CaseInsensitive</td><td>Toggle</td><td style="text-align: right">true</td><td>Case Insensitive Search</td></tr>
+<tr><td>AutoSyncProject</td><td>Toggle</td><td style="text-align: right">true</td><td>Sync Project Macros</td></tr>
+<tr><td>SmartRecovery</td><td>Toggle</td><td style="text-align: right">true</td><td>Crash Recovery</td></tr>
+<tr><td>WatchdogInterval</td><td>Num</td><td style="text-align: right">60</td><td>Watchdog Interval</td></tr>
+<tr><td>DebounceTime</td><td>Num</td><td style="text-align: right">0.5</td><td>Debounce Time (seconds)</td></tr>
+<tr><td>NotifyEnabled</td><td>Toggle</td><td style="text-align: right">true</td><td>Enable Notifications</td></tr>
+<tr><td>HideNotify</td><td>Toggle</td><td style="text-align: right">false</td><td>Hides the notification UI</td></tr>
+<tr><td>NotifySound</td><td>Toggle</td><td style="text-align: right">false</td><td>Enables/disables notification sound</td></tr>
+<tr><td>NotifyVolume</td><td>Num</td><td style="text-align: right">0.1</td><td>Adjusts notification sound volume</td></tr>
+<tr><td>NotifyPosition</td><td>Dropdown</td><td style="text-align: right">BottomLeft</td><td>Notification Position (<code>BottomRight</code>, <code>BottomLeft</code>, <code>TopRight</code>, <code>TopLeft</code>)</td></tr>
+<tr><td>NotifyDuration</td><td>Num</td><td style="text-align: right">6</td><td>Toast Duration (seconds)</td></tr>
+<tr><td>ScanOnMove</td><td>Toggle</td><td style="text-align: right">true</td><td>Scan on Move (Refactor)</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="themeoverrides-json"><a class="header" href="#themeoverrides-json">ThemeOverrides (JSON)</a></h2>
+<p><code>ThemeOverrides</code> is a JSON string stored in settings.<br>It should be a JSON object (<code>{}</code>) containing per-key theme overrides used by the UI/theme system.</p>
+<p>(If you use the <code>theme</code> command, it should update this setting automatically.)</p>
+<hr>
+<h2 id="projectmacros-shared-macros"><a class="header" href="#projectmacros-shared-macros">ProjectMacros (shared macros)</a></h2>
+<p>ScriptSense supports two macro layers:</p>
+<ul>
+<li><strong>Global macros</strong>: stored in plugin settings (per-user).</li>
+<li><strong>Project macros</strong>: stored in <code>ServerStorage/ScriptSense_Data/ProjectMacros</code> (shared with the place).</li>
+</ul>
+<p>The project macro module is watched for changes; when it updates, ScriptSense refreshes the project macro layer automatically.</p>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="-work-in-progress-1"><a class="header" href="#-work-in-progress-1">🚧 Work in Progress</a></h1>
 <p>This page is currently under construction.</p>
 <p>Content, examples, and detailed explanations will be added soon.<br>ScriptSense is actively evolving, and documentation is being expanded alongside new improvements.</p>
@@ -813,17 +876,6 @@ https://create.roblox.com/store/asset/75708311511053/ScriptSense</p>
 <p>Thank you for your patience.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="-work-in-progress-4"><a class="header" href="#-work-in-progress-4">🚧 Work in Progress</a></h1>
-<p>This page is currently under construction.</p>
-<p>Content, examples, and detailed explanations will be added soon.<br>ScriptSense is actively evolving, and documentation is being expanded alongside new improvements.</p>
-<p>In the meantime, you can:</p>
-<ul>
-<li>Use <code>help</code> inside ScriptSense for quick command guidance.</li>
-<li>Explore the existing Command Reference.</li>
-<li>Check the latest release notes for updates.</li>
-</ul>
-<p>Thank you for your patience.</p>
-<div style="break-before: page; page-break-before: always;"></div>
-<h1 id="-work-in-progress-5"><a class="header" href="#-work-in-progress-5">🚧 Work in Progress</a></h1>
 <p>This page is currently under construction.</p>
 <p>Content, examples, and detailed explanations will be added soon.<br>ScriptSense is actively evolving, and documentation is being expanded alongside new improvements.</p>
 <p>In the meantime, you can:</p>
