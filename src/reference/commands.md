@@ -25,6 +25,19 @@ Lists all commands or explains a specific one.
 * **Usage**: help (PageNumber) OR help (CommandName)  
 * **Example**: help rename
 
+### **docs**
+
+Opens the internal knowledge base (GitHub Pages).
+
+* **Usage**: docs (CommandName)  
+* **Options**:  
+  * If `CommandName` is omitted, opens the docs homepage.  
+  * If `CommandName` is provided and matches a command module, opens the `commands` page anchored to that command section.  
+  * Matching is case-insensitive.
+* **Example**:  
+  * docs  
+  * docs scan
+
 ### **clear**
 
 Clears the terminal output.
@@ -54,6 +67,7 @@ Sends feedback, bug reports, or suggestions to the author.
 * **Example**: report bug The terminal is flickering  
 * **Example**:
 ![Report/Feedback UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/feedback.png)
+* **Aliases**: feedback, bug, suggestion, -n
 
 ---
 
@@ -190,6 +204,7 @@ Aggregates all TODO, FIXME, and HACK comments into a centralized hub.
 * **Usage**: tasks
 * **Example**:
 ![Task Hub UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-hub.png)
+* **Aliases**: todo, board
 
 ---
 
@@ -217,7 +232,7 @@ Visualizes the dependency graph (requires) of a script.
 * **Usage**: tree (Name)
 
 ### **network**
-tas
+
 Visualizes Network Traffic (RemoteEvents/Functions) in the Graph View.
 
 * **Usage**: network
@@ -232,12 +247,19 @@ View script edit history (if using ScriptSense history tracking) as a tree.
 
 ### **diff**
 
-Compares current script with a historical snapshot.
+Compares a script with a historical snapshot using RichText coloring.
 
-* **Usage**: diff  
+* **Usage**: diff (Index)  
 * **Aliases**: compare, changes  
-* **Note**: Select a script OR StringValue (ScriptSense history snapshot) to view its history.
-* **Example**:
+* **Options**:  
+  * Select a **LuaSourceContainer** (a script/module/local script), then run `diff` to compare it with its snapshot history.  
+  * `(Index)` chooses which snapshot entry to compare against (defaults to `1`).  
+  * If the latest snapshot matches current source, `diff` automatically skips forward to the next snapshot when possible.  
+  * You can also select a **StringValue snapshot** inside ScriptSense history; the command will try to locate the matching script and compare.  
+* **Example**:  
+  * diff  
+  * diff 2  
+  * diff 3  
 ![Diff comparison UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/diff-example.png)
 
 ### **gendocs**
@@ -258,8 +280,41 @@ View or modify settings.
 * **Usage**: config (Key) (Value)  
 * **Options**:  
   * config: List all settings (Paged).  
-  * config [Key] [Value]: Set a specific setting.  
-* **Aliases**: setting, settings
+  * config [Key] [Value]: Set a specific setting.
+  * **Aliases**: setting, settings, configuration, configs, configurations
+
+### **theme**
+
+Manage UI theme presets and per-key theme overrides.
+
+* **Usage**:  
+  * theme  
+  * theme list  
+  * theme presets  
+  * theme (PresetName)  
+  * theme apply (PresetName)  
+  * theme set (PresetName)  
+  * theme set (Key) (Color)  
+  * theme clear (Key)  
+  * theme reset  
+* **Aliases**: themes, uitheme  
+* **Options**:  
+  * `theme` / `theme list`: Shows current overrides + available preset names.  
+  * `theme presets`: Lists preset themes.  
+  * `theme (PresetName)`: Applies the preset immediately.  
+  * `theme apply (PresetName)` / `theme set (PresetName)`: Applies the preset.  
+  * `theme set (Key) (Color)`: Sets a single override key.  
+  * `theme clear (Key)`: Removes the override for that key.  
+  * `theme reset`: Clears all overrides.  
+  * **Color formats**: `#RRGGBB` or `R,G,B`.  
+* **Preset names** (current): Midnight, Dracula-ish, Nord, Catppuccin Mocha, Gruvbox Dark, Tokyo Night, Rose Pine, Light Minimal, Synthwave, Forest (and Orange Joe)
+* **Examples**:  
+  * theme presets  
+  * theme Midnight  
+  * theme set Button #ff0000  
+  * theme set Text 240,240,240  
+  * theme clear Button  
+  * theme reset
 
 ### **define**
 
@@ -271,7 +326,6 @@ Define a macro with optional dependencies.
 ### **list**
 
 Lists saved macros.
-
 * **Usage**: list (page)  
 * **Aliases**: macros, ls
 
@@ -360,7 +414,7 @@ Executes TestEZ tests.
 * **Usage**: runtests  
 * **Aliases**: specs, test-all
 
-### **data**
+### **data** (WILL BE DEPRECATED!)
 
 Opens the DataStore Editor.
 
@@ -378,3 +432,4 @@ Opens the DataStore Editor.
     <p>Copyright &copy; 2026 Kel (@GudEveningBois). Built with mdBook.</p>
 
 </footer>
+
