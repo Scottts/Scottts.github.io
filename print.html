@@ -87,7 +87,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-ff1a26d3.js";
+            window.path_to_searchindex_js = "searchindex-22074a2d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-bacbec6a.js"></script>
@@ -864,18 +864,127 @@ https://create.roblox.com/store/asset/75708311511053/ScriptSense</p>
 </ul>
 <p>Thank you for your patience.</p>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="-work-in-progress-3"><a class="header" href="#-work-in-progress-3">🚧 Work in Progress</a></h1>
-<p>This page is currently under construction.</p>
-<p>Content, examples, and detailed explanations will be added soon.<br>ScriptSense is actively evolving, and documentation is being expanded alongside new improvements.</p>
-<p>In the meantime, you can:</p>
+<h1 id="faq--tips--tricks"><a href="#faq--tips--tricks" class="header">FAQ / Tips &amp; Tricks</a></h1>
+<p>FAQs &amp; Troubleshooting</p>
+<blockquote>
+<p>ScriptSense FAQs and quick fixes for common issues. Learn what ScriptSense is (and isn’t), how it fits with Rojo/LSP tools, and how to resolve the most frequent setup, performance, and rule-related questions.</p>
+</blockquote>
+<hr>
+<h2 id="faq-why-scriptsense-and-how-is-it-different-from-rojo--lsp-tools"><a class="header" href="#faq-why-scriptsense-and-how-is-it-different-from-rojo--lsp-tools">FAQ: Why ScriptSense (and how is it different from Rojo / LSP tools)?</a></h2>
+<h3 id="is-scriptsense-a-rojo-replacement"><a class="header" href="#is-scriptsense-a-rojo-replacement"><strong>Is ScriptSense a Rojo replacement?</strong></a></h3>
 <ul>
-<li>Use <code>help</code> inside ScriptSense for quick command guidance.</li>
-<li>Explore the existing Command Reference.</li>
-<li>Check the latest release notes for updates.</li>
+<li>No. Rojo is for syncing files between an external editor and Studio. ScriptSense is a <strong>Studio-native workflow tool</strong> for analysis, tasks, navigation, and refactors without leaving Studio.</li>
 </ul>
-<p>Thank you for your patience.</p>
+<h3 id="what-problem-does-scriptsense-solve"><a class="header" href="#what-problem-does-scriptsense-solve"><strong>What problem does ScriptSense solve?</strong></a></h3>
+<ul>
+<li>It reduces “Studio friction” by surfacing <strong>code health</strong>, <strong>tasks (TODO/FIXME/HACK)</strong>, <strong>unused variables</strong>, and <strong>broken paths</strong>, and by giving you a <strong>Command Palette</strong> to run actions quickly.</li>
+</ul>
+<h3 id="who-benefits-the-most-from-scriptsense"><a class="header" href="#who-benefits-the-most-from-scriptsense"><strong>Who benefits the most from ScriptSense?</strong></a></h3>
+<ul>
+<li>It’s most valuable for <strong>teams and medium-to-large projects</strong>, where people refactor often, code ownership is shared, and consistency checks + navigation speed matter.</li>
+</ul>
+<h3 id="why-not-just-use-luau-lsp--selene-in-vs-code"><a class="header" href="#why-not-just-use-luau-lsp--selene-in-vs-code"><strong>Why not just use Luau LSP / Selene in VS Code?</strong></a></h3>
+<ul>
+<li>Those are great for external-editor diagnostics. ScriptSense focuses on <strong>in-Studio workflows</strong> — where you test, wire instances, review scripts, and apply quick project-aware actions.</li>
+</ul>
+<h3 id="will-scriptsense-slow-down-studio"><a class="header" href="#will-scriptsense-slow-down-studio"><strong>Will ScriptSense slow down Studio?</strong></a></h3>
+<ul>
+<li>It’s designed for real projects: it uses <strong>indexing/caching</strong> and supports <strong>targeted workflows</strong> (current script vs project-wide). If your project is huge, you can tune settings to reduce scanning overhead.</li>
+</ul>
+<h3 id="does-scriptsense-send-my-code-anywhere-privacy"><a class="header" href="#does-scriptsense-send-my-code-anywhere-privacy"><strong>Does ScriptSense send my code anywhere (privacy)?</strong></a></h3>
+<ul>
+<li>By default, <strong>no</strong> — analysis runs locally in Studio and does <strong>not</strong> use the internet.</li>
+</ul>
+<h3 id="does-scriptsense-use-networking-at-all"><a class="header" href="#does-scriptsense-use-networking-at-all"><strong>Does ScriptSense use networking at all?</strong></a></h3>
+<ul>
+<li>Only if you <strong>explicitly run the <code>report</code> command</strong>. Nothing is sent automatically.</li>
+</ul>
+<h3 id="what-does-the-report-command-send"><a class="header" href="#what-does-the-report-command-send"><strong>What does the <code>report</code> command send?</strong></a></h3>
+<ul>
+<li>Your report message and relevant debugging context (for example: plugin version, Studio version, and command output/logs). If code snippets are ever included, that should be <strong>clearly shown and opt-in</strong> before sending.</li>
+</ul>
+<h3 id="is-it-safe-to-try-refactors-and-tools"><a class="header" href="#is-it-safe-to-try-refactors-and-tools"><strong>Is it safe to try refactors and tools?</strong></a></h3>
+<ul>
+<li>ScriptSense includes <strong>snapshots/backups</strong> to help you recover from mistakes or crashes, making it safer to experiment — especially when applying refactors.</li>
+</ul>
+<hr>
+<h1 id="troubleshooting-1"><a class="header" href="#troubleshooting-1">Troubleshooting</a></h1>
+<h3 id="scriptsense-isnt-showing-up-anywhere-what-should-i-check-first"><a class="header" href="#scriptsense-isnt-showing-up-anywhere-what-should-i-check-first"><strong>ScriptSense isn’t showing up anywhere. What should I check first?</strong></a></h3>
+<ul>
+<li>Make sure ScriptSense is enabled in <strong>Plugins</strong>, then look for the <strong>Terminal</strong> button in the plugin toolbar. If you don’t see it, restart Studio and confirm the plugin is installed (Manage Plugins).</li>
+</ul>
+<h3 id="the-terminal--command-palette-wont-open"><a class="header" href="#the-terminal--command-palette-wont-open"><strong>The Terminal / Command Palette won’t open.</strong></a></h3>
+<ul>
+<li>Try restarting Studio, then open it from the ScriptSense toolbar button. If Studio UI is “stuck,” close any floating plugin widgets and reopen the Terminal.</li>
+</ul>
+<h3 id="the-widget-panel-code-health--tasks--suggestions-isnt-appearing"><a class="header" href="#the-widget-panel-code-health--tasks--suggestions-isnt-appearing"><strong>The widget panel (code health / tasks / suggestions) isn’t appearing.</strong></a></h3>
+<ul>
+<li>The widget only opens when ScriptSense has something to flag (rule violations, unused variables, broken paths, or tasks). To confirm it’s working, add something obvious like <code>getfenv()</code>, <code>wait()</code>, or a <code>TODO:</code> comment in an open script.</li>
+</ul>
+<h3 id="commands-run-but-nothing-happens--no-output-appears"><a class="header" href="#commands-run-but-nothing-happens--no-output-appears"><strong>Commands run, but nothing happens / no output appears.</strong></a></h3>
+<ul>
+<li>Make sure a Script is open (some commands need an active editor context). If you’re running project-wide commands, verify the project can be indexed (large places may take longer on first run).</li>
+</ul>
+<h3 id="scriptsense-feels-slow-or-causes-lag"><a class="header" href="#scriptsense-feels-slow-or-causes-lag"><strong>ScriptSense feels slow or causes lag.</strong></a></h3>
+<ul>
+<li>Reduce workload by switching to <strong>current-script scanning</strong>, disabling always-on watchers (like watchdog-style scanning), and limiting heavy checks. Large projects benefit from letting the initial index finish, then using cached results.</li>
+</ul>
+<h3 id="the-first-scan-is-taking-a-long-time"><a class="header" href="#the-first-scan-is-taking-a-long-time"><strong>The first scan is taking a long time.</strong></a></h3>
+<ul>
+<li>First runs typically build a project index (scripts/modules/dependencies). After the index exists, scans should be faster due to caching.</li>
+</ul>
+<h3 id="im-seeing-warnings-that-dont-seem-correct-false-positives"><a class="header" href="#im-seeing-warnings-that-dont-seem-correct-false-positives"><strong>I’m seeing warnings that don’t seem correct (false positives).</strong></a></h3>
+<ul>
+<li>ScriptSense is best at static patterns; dynamic code (runtime instance creation, dynamic <code>require</code>, metatable-heavy patterns) can confuse analyzers. Use ignore/disable options or adding a simple <code>-- ss-ignore</code> comment on the line(s) for specific rules or narrow scans to the current script when needed.</li>
+</ul>
+<h3 id="why-does-it-flag-wait--getfenv"><a class="header" href="#why-does-it-flag-wait--getfenv"><strong>Why does it flag <code>wait()</code> / <code>getfenv()</code>?</strong></a></h3>
+<ul>
+<li>Some rules intentionally discourage deprecated/unsafe patterns. If your use case is intentional, add a <code>-- ss-ignore</code> comment on the line(s).</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Linter rules will be exposed in a later update for editing.</p>
+</blockquote>
+<h3 id="it-says-broken-path-but-the-game-runs-fine"><a class="header" href="#it-says-broken-path-but-the-game-runs-fine"><strong>It says “broken path,” but the game runs fine.</strong></a></h3>
+<ul>
+<li>Broken path checks are static. If the instance is created at runtime or inserted later, it may warn even if it works at runtime. Consider adding rule exceptions for known dynamic patterns.</li>
+</ul>
+<h3 id="renamerefactor-didnt-update-everything"><a class="header" href="#renamerefactor-didnt-update-everything"><strong>Rename/refactor didn’t update everything.</strong></a></h3>
+<ul>
+<li>Refactors are safest on statically-resolvable references. If your project uses dynamic access (<code>obj[name]</code>, string-built paths, dynamic requires), some usages can’t be updated reliably.</li>
+</ul>
+<h3 id="undoredo-didnt-restore-what-i-expected-after-a-refactor"><a class="header" href="#undoredo-didnt-restore-what-i-expected-after-a-refactor"><strong>Undo/redo didn’t restore what I expected after a refactor.</strong></a></h3>
+<ul>
+<li>Use ScriptSense history/snapshots when available, and check whether changes were applied across multiple scripts. For large edits, restoring a snapshot is often the quickest recovery option.</li>
+</ul>
+<h3 id="where-are-backupssnapshots-stored-and-how-do-i-restore-them"><a class="header" href="#where-are-backupssnapshots-stored-and-how-do-i-restore-them"><strong>Where are backups/snapshots stored and how do I restore them?</strong></a></h3>
+<ul>
+<li>Snapshots are stored by ScriptSense for recovery. Use the History/Snapshots command(s) in the Terminal to browse and restore the version you want.</li>
+</ul>
+<h3 id="scriptsense-isnt-detecting-my-todofixme-comments"><a class="header" href="#scriptsense-isnt-detecting-my-todofixme-comments"><strong>ScriptSense isn’t detecting my TODO/FIXME comments.</strong></a></h3>
+<ul>
+<li>Make sure you’re using supported tags (for example <code>TODO:</code> / <code>FIXME:</code>) inside comments. Custom task tags aren’t supported yet.</li>
+</ul>
+<h3 id="team-projects-different-people-get-different-results"><a class="header" href="#team-projects-different-people-get-different-results"><strong>Team projects: different people get different results.</strong></a></h3>
+<ul>
+<li>Ensure everyone is using the same ScriptSense version and the same configuration. If your team supports shared config/macros, sync or export/import settings so the rules and filters match.</li>
+</ul>
+<h3 id="how-do-i-reset-scriptsense-to-default-settings"><a class="header" href="#how-do-i-reset-scriptsense-to-default-settings"><strong>How do I reset ScriptSense to default settings?</strong></a></h3>
+<ul>
+<li>Use the Config/Settings command(s) to restore defaults, or clear ScriptSense’s saved settings via Studio’s plugin settings management (then restart Studio).</li>
+</ul>
+<h3 id="how-do-i-report-a-bug-or-send-feedback"><a class="header" href="#how-do-i-report-a-bug-or-send-feedback"><strong>How do I report a bug or send feedback?</strong></a></h3>
+<ul>
+<li>Use the <code>report</code> command and include: what you expected, what happened, how to reproduce it, and your Studio/plugin version. Only the <code>report</code> command uses networking; normal scanning runs locally.</li>
+</ul>
+<hr>
+<h3 id="helpful-links"><a class="header" href="#helpful-links">Helpful links</a></h3>
+<ul>
+<li><strong><a href="#getting-started">Getting Started</a></strong></li>
+<li><strong><a href="#cli-commands">Commands &amp; Terminal</a></strong></li>
+<li><strong><a href="#changelog-1">Changelogs</a></strong></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="-work-in-progress-4"><a class="header" href="#-work-in-progress-4">🚧 Work in Progress</a></h1>
+<h1 id="-work-in-progress-3"><a class="header" href="#-work-in-progress-3">🚧 Work in Progress</a></h1>
 <p>This page is currently under construction.</p>
 <p>Content, examples, and detailed explanations will be added soon.<br>ScriptSense is actively evolving, and documentation is being expanded alongside new improvements.</p>
 <p>In the meantime, you can:</p>
