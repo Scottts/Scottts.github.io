@@ -23,7 +23,7 @@ It supports two documentation modes:
 
 ## Output
 
-`gendocs` creates (or replaces) a ModuleScript named:
+`gendocs` creates a ModuleScript named:
 
 `<TargetModuleName>_Docs`
 
