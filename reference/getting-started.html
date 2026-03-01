@@ -86,7 +86,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-355d3aca.js";
+            window.path_to_searchindex_js = "../searchindex-fded768c.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-bacbec6a.js"></script>
@@ -225,17 +225,66 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="-work-in-progress"><a class="header" href="#-work-in-progress">🚧 Work in Progress</a></h1>
-<p>This page is currently under construction.</p>
-<p>Content, examples, and detailed explanations will be added soon.<br>ScriptSense is actively evolving, and documentation is being expanded alongside new improvements.</p>
-<p>In the meantime, you can:</p>
+                        <h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<p>ScriptSense is designed to be “add it and forget it.”</p>
+<p>Once installed, you can simply open a script and ScriptSense will surface useful project info automatically (code health, tasks, unused variables, broken paths, and more). The terminal / command palette is optional.</p>
+<hr>
+<h2 id="install"><a class="header" href="#install">Install</a></h2>
+<ol>
+<li>
+<p>Open the ScriptSense asset page and add it to your inventory:
+https://create.roblox.com/store/asset/75708311511053/ScriptSense</p>
+</li>
+<li>
+<p>In Roblox Studio, install it from either:</p>
+</li>
+</ol>
 <ul>
-<li>Use <code>help</code> inside ScriptSense for quick command guidance.</li>
-<li>Explore the existing Command Reference.</li>
-<li>Check the latest release notes for updates.</li>
+<li>Your inventory (Plugins → Manage Plugins / My Plugins), or</li>
+<li>Toolbox → <strong>Plugins</strong> tab → find ScriptSense → install</li>
 </ul>
-<p>Thank you for your patience.</p>
-
+<p>That’s it.</p>
+<hr>
+<h2 id="first-use"><a class="header" href="#first-use">First Use</a></h2>
+<ol>
+<li>Open any script (Script / LocalScript / ModuleScript).</li>
+<li>ScriptSense will show a widget with live insights like:</li>
+</ol>
+<ul>
+<li>Code health</li>
+<li>Tasks (TODO/FIXME/HACK)</li>
+<li>Unused variables</li>
+<li>Broken paths / dependency issues</li>
+<li>Other project signals depending on what’s available</li>
+</ul>
+<p>You don’t need to run a command for this.</p>
+<hr>
+<h2 id="optional-open-the-command-palette--terminal"><a class="header" href="#optional-open-the-command-palette--terminal">Optional: Open the Command Palette / Terminal</a></h2>
+<p>If you <em>do</em> want to use commands:</p>
+<ul>
+<li>Open the <strong>Plugins</strong> section in the Studio toolbar and open ScriptSense’s palette/terminal from there.</li>
+</ul>
+<p>Some useful first commands:</p>
+<ul>
+<li><code>help</code> — list commands / get help for one command</li>
+<li><code>scan</code> — scan for issues and dead code</li>
+<li><code>tasks</code> — open the Tasks hub</li>
+<li><code>docs</code> — open this documentation</li>
+<li><code>theme</code> — change theme presets / tweak UI colors</li>
+</ul>
+<hr>
+<h2 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h2>
+<h3 id="i-installed-it-but-nothing-shows-up"><a class="header" href="#i-installed-it-but-nothing-shows-up">I installed it, but nothing shows up</a></h3>
+<ul>
+<li>Try opening a script first and add something like <code>getfenv()</code> (ScriptSense reacts to an active script).</li>
+<li>Make sure the plugin is enabled in Studio (Plugin Management).</li>
+</ul>
+<h3 id="the-terminal-isnt-showing"><a class="header" href="#the-terminal-isnt-showing">The terminal isn’t showing</a></h3>
+<ul>
+<li>The terminal is optional. ScriptSense features still work without it.</li>
+<li>Open it from the Studio toolbar’s <strong>Plugins</strong> section.</li>
+</ul>
+<hr>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
