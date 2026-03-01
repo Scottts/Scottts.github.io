@@ -1,23 +1,19 @@
-# Summary
-
 - [Introduction](index.md)
+  
 - [Quick Start & Installation](reference/getting-started.md)
 
-# Tutorials
-  - [Tutorials & Guides](reference/tutorials.md)
+- [Tutorials & Guides](reference/tutorials.md)
 
-# Reference
-  - [CLI Commands](reference/commands.md)
-  - [Configuration & Settings](reference/configuration.md)
-  - [Extending ScriptSense (API & Integrations)](reference/extension.md)
-  - [Generate Docs / gendocs (utilities)](reference/gendocs.md)
+- [CLI Commands](reference/commands.md)
 
-# Workflow & Tips
-  - [FAQ / Tips & Tricks](reference/faqs-ts.md)
+- [Configuration & Settings](reference/configuration.md)
 
-# Design
-  - [Philosophy & Design Goals](reference/philosophy.md)
+- [Extending ScriptSense (API & Integrations)](reference/extension.md)
 
-# Changelog
-  - [Release Notes & Changes](reference/changelogs.md)
+- [Generate Docs / gendocs (utilities)](reference/gendocs.md)
 
+- [FAQ / Tips & Tricks](reference/faqs-ts.md)
+
+- [Philosophy & Design Goals](reference/philosophy.md)
+
+- [Release Notes & Changes](reference/changelogs.md)
