@@ -273,7 +273,7 @@ Compares a script with a historical snapshot using RichText coloring.
 Generates Markdown documentation from TypeDef files or source comments.
 
 * **Usage**: gendocs (Name)  
-* **Result**: Creates a README script in the module's parent.
+* **Result**: Create `<TargetModuleName>_Docs` next to the module (same parent), and overwrites contents if it exists.
 * **More**: [Generate Docs / gendocs](commands/gendocs.md)
 
 ---
@@ -431,3 +431,4 @@ Opens the DataStore Editor.
 
 * **Example**:
 ![Data Editor/Surgeon UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/data-editor.png)
+
