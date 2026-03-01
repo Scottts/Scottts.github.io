@@ -16,8 +16,7 @@ Runs the Path Doctor to scan the project for errors and dead code.
 
 * **Usage**: scan (Name)  
 * **Options**:  
-  * Name: Scan a specific instance and its descendants. If omitted, scans the whole game.
-
+  * Name: Scan a specific instance and its descendants. If Name is omitted, scans the current selection if any; otherwise scans the active script; otherwise scans the whole game.
 ### **help**
 
 Lists all commands or explains a specific one.
@@ -201,9 +200,12 @@ Finds all scripts requiring a specific module.
 
 Aggregates all TODO, FIXME, and HACK comments into a centralized hub.
 
-* **Usage**: tasks
+* **Usage**: tasks (global|local)
+* **Options**:
+  * local: show tasks for the currently open script.
+  * global: show tasks across the entire project.
 * **Example**:
-![Task Hub UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-hub.png)
+![Tasks Hub UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/tasks-hub.png)
 * **Aliases**: todo, board
 
 ---
@@ -281,7 +283,7 @@ View or modify settings.
 * **Options**:  
   * config: List all settings (Paged).  
   * config [Key] [Value]: Set a specific setting.
-  * **Aliases**: setting, settings, configuration, configs, configurations
+* **Aliases**: setting, settings, configuration, configs, configurations
 
 ### **theme**
 
@@ -307,7 +309,7 @@ Manage UI theme presets and per-key theme overrides.
   * `theme clear (Key)`: Removes the override for that key.  
   * `theme reset`: Clears all overrides.  
   * **Color formats**: `#RRGGBB` or `R,G,B`.  
-* **Preset names** (current): Midnight, Dracula-ish, Nord, Catppuccin Mocha, Gruvbox Dark, Tokyo Night, Rose Pine, Light Minimal, Synthwave, Forest (and Orange Joe)
+* **Preset names** (current): Midnight, Dracula-ish, Nord, Catppuccin Mocha, Gruvbox Dark, Tokyo Night, Rose Pine, Light Minimal, Synthwave, Forest, Orange Joe
 * **Examples**:  
   * theme presets  
   * theme Midnight  
@@ -432,4 +434,5 @@ Opens the DataStore Editor.
     <p>Copyright &copy; 2026 Kel (@GudEveningBois). Built with mdBook.</p>
 
 </footer>
+
 
