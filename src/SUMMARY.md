@@ -10,10 +10,9 @@
 
 - [Extending ScriptSense (API & Integrations)](reference/extension.md)
 
-- [Generate Docs / gendocs (utilities)](reference/gendocs.md)
-
 - [FAQ / Tips & Tricks](reference/faqs-ts.md)
 
 - [Philosophy & Design Goals](reference/philosophy.md)
 
 - [Release Notes & Changes](reference/changelogs.md)
+
