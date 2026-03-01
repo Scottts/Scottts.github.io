@@ -9,7 +9,8 @@ Once installed, you can simply open a script and ScriptSense will surface useful
 ## Install
 
 1) Open the ScriptSense asset page and add it to your inventory:
-   https://create.roblox.com/store/asset/75708311511053/ScriptSense
+
+	https://create.roblox.com/store/asset/75708311511053/ScriptSense
 
 2) In Roblox Studio, install it from either:
 	- Your inventory (Plugins → Manage Plugins / My Plugins), or
