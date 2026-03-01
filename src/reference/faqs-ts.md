@@ -1,6 +1,9 @@
 # FAQs & Troubleshooting
-> ScriptSense FAQs and quick fixes for common issues. Learn what ScriptSense is (and isn’t), how it fits with Rojo/LSP tools, and how to resolve the most frequent setup, performance, and rule-related questions.
+
+ScriptSense FAQs and quick fixes for common issues. Learn what ScriptSense is (and isn’t), how it fits with Rojo/LSP tools, and how to resolve the most frequent setup, performance, and rule-related questions.
+
 ---
+
 ## FAQ: Why ScriptSense (and how is it different from Rojo / LSP tools)?
 
 ### **Is ScriptSense a Rojo replacement?**
