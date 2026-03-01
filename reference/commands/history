@@ -1,0 +1,76 @@
+# History (`history`)
+
+View a script’s snapshot history as a clickable tree. Each entry can be opened in the snapshot viewer.
+
+> Screenshot placeholder: terminal output of the tree (with branches + hashes)  
+> `![History tree](history-tree.png)`
+
+> Screenshot placeholder: snapshot viewer opened from a history entry  
+> `![Snapshot viewer](history-viewer.png)`
+
+---
+
+## Usage
+
+1) Select a **Script / LocalScript / ModuleScript** in Explorer  
+2) Run: `history`
+
+### Aliases
+- `log`
+- `timeline`
+
+---
+
+## What you’ll see
+
+`history` prints a tree-like list where each line shows:
+
+- a tree connector (`├──`, `└──`, etc.)
+- a dot (or a 📌 pin if pinned)
+- a short commit hash (7 characters)
+- the branch name in parentheses
+- the snapshot label/message
+
+Each entry is **clickable** — clicking opens that snapshot in the viewer.
+
+> GIF placeholder: clicking an entry → viewer opens  
+> `![Click to open snapshot](history-click.gif)`
+
+---
+
+## Requirements
+
+### You must select a script
+`history` uses your current Selection and only reads the **first selected instance**.
+
+If you don’t select a script (or the selection isn’t a `LuaSourceContainer`), it prints:
+- `Error: Select a script.`
+
+### History must exist
+If the script has no saved history, it prints:
+- `No history found.`
+
+---
+
+## Branches, pins, and coloring
+
+Snapshots may include metadata:
+
+- **Branch** (attribute: `Branch`, default is `"main"`)
+- **Pinned** (attribute: `Pinned`) → displays 📌
+- **CommitID** (attribute: `CommitID`) → shown as a 7-char short hash
+
+The tree uses different colors for branch names:
+- `main` uses the standard info color
+- the current active branch is highlighted
+- other branches get a deterministic color based on the branch name
+
+---
+
+## Troubleshooting
+
+### “No history found.”
+History is empty for that script. Make sure history saving is enabled (see `AutoSaveEnabled` in Configuration) and that you’ve made changes since enabling it.
+
+### Clicking entries doesn’t do anything
+Entries open the viewer via `SnapshotManager:OpenViewer(...)`. If nothing opens, try reopening Studio or re-running the command after a fresh scan/save.
