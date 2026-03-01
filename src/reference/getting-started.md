@@ -11,11 +11,11 @@ Once installed, you can simply open a script and ScriptSense will surface useful
 1) Open the ScriptSense asset page and add it to your inventory:
    https://create.roblox.com/store/asset/75708311511053/ScriptSense
 
-3) In Roblox Studio, install it from either:
-- Your inventory (Plugins → Manage Plugins / My Plugins), or
-- Toolbox → **Plugins** tab → find ScriptSense → install
+2) In Roblox Studio, install it from either:
+	- Your inventory (Plugins → Manage Plugins / My Plugins), or
+	- Toolbox → **Plugins** tab → find ScriptSense → install
 
-That’s it.
+3) That’s it.
 
 ---
 
@@ -23,13 +23,13 @@ That’s it.
 
 1) Open any script (Script / LocalScript / ModuleScript).
 2) ScriptSense will show a widget with live insights like:
-- Code health
-- Tasks (TODO/FIXME/HACK)
-- Unused variables
-- Broken paths / dependency issues
-- Other project signals depending on what’s available
+	- Code health
+	- Tasks (TODO/FIXME/HACK)
+	- Unused variables
+	- Broken paths / dependency issues
+	- Other project signals depending on what’s available
 
-You don’t need to run a command for this.
+**You don’t need to run a command for this.**
 
 ---
 
