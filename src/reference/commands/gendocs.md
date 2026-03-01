@@ -13,9 +13,9 @@ It supports two documentation modes:
 **Command:** `gendocs (Name)`
 
 - If `(Name)` is provided, ScriptSense tries to find a matching module by name.
-- If `(Name)` is omitted, it uses:
-  1) the **ActiveScript**, or
-  2) your **current Selection** (first item)
+- If `(Name)` is omitted, it tries:
+  1) the **ActiveScript**
+  2) otherwise, your **current Selection** (first item)
 
 `gendocs` only works on **ModuleScripts**. If the target isn’t a ModuleScript, it logs an error.
 
@@ -29,7 +29,11 @@ It supports two documentation modes:
 
 It is created in the **same parent** as your target module, and ScriptSense opens it automatically.
 
+If `<TargetModuleName>_Docs` already exists, `gendocs` overwrites its contents.
+
 The generated content is Markdown-like text wrapped inside a Lua block comment so it’s readable in Studio.
+
+> Screenshot placeholder: show the generated `<ModuleName>_Docs` ModuleScript appearing next to the target.
 
 ---
 
@@ -62,8 +66,24 @@ If no `TypeDef` / `Types` child exists, `gendocs` scans the module source for fu
 It then looks **upwards** for contiguous `--` comments directly above the function and uses those as the description.
 
 **Rules:**
-- It stops collecting comments if it hits a `---` separator line.
+- It stops collecting comments when it hits a line containing `---`.
 - If no description is found, it outputs: `No description provided.`
+
+> Screenshot placeholder: a function with `--` comments above it, and the corresponding generated entry.
+
+---
+
+### Recommended inline doc style
+
+Put `--` comments directly above the function:
+
+```lua
+-- Returns the player’s cached data.
+-- If the player has no cache entry, returns nil.
+function DataService:Get(player: Player)
+	...
+end
+```
 
 ---
 
