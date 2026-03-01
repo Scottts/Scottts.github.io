@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Tutorials &amp; Guides - ScriptSense Documentation</title>
+        <title>History &amp; Diff - ScriptSense Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -28,7 +28,7 @@
         <meta name="twitter:image" content="https://scottts.github.io/assets/social.png">
         
         <!-- Icons & PWA -->
-        <link rel="icon" href="../favicon.svg">
+        <link rel="icon" href="../../favicon.svg">
         <link rel="apple-touch-icon" href="https://scottts.github.io/assets/logo.png">
         <link rel="manifest" href="https://scottts.github.io/site.webmanifest">
         <meta name="theme-color" content="#0b3d91">
@@ -64,32 +64,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="../favicon-82e0d3a7.svg">
-        <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
-        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+        <link rel="icon" href="../../favicon-82e0d3a7.svg">
+        <link rel="stylesheet" href="../../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../../css/general-2459343d.css">
+        <link rel="stylesheet" href="../../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+        <link rel="stylesheet" href="../../fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
-        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
-        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "../";
+            const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c1ed238e.js";
+            window.path_to_searchindex_js = "../../searchindex-c1ed238e.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-ed54b17f.js"></script>
+        <script src="../../toc-ed54b17f.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -156,7 +156,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
             </noscript>
             <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -191,7 +191,7 @@
                     <h1 class="menu-title">ScriptSense Documentation</h1>
 
                     <div class="right-buttons">
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
 
@@ -225,26 +225,174 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="-work-in-progress"><a class="header" href="#-work-in-progress">🚧 Work in Progress</a></h1>
-<p>This page is currently under construction.</p>
-<p>Content, examples, and detailed explanations will be added soon.<br>ScriptSense is actively evolving, and documentation is being expanded alongside new improvements.</p>
-<p>In the meantime, you can:</p>
+                        <h1 id="history--diff"><a class="header" href="#history--diff">History &amp; Diff</a></h1>
+<p>View a script’s snapshot history as a clickable tree, then compare any snapshot against your current code with a color-highlighted diff.</p>
+<hr>
+<h1 id="history-history"><a class="header" href="#history-history">History (<code>history</code>)</a></h1>
+<p>View a script’s snapshot history as a clickable tree. Each entry can be opened in the snapshot viewer.</p>
+<blockquote>
+<p>Screenshot placeholder: terminal output of the tree (with branches + hashes)<br><code>![History tree](history-tree.png)</code></p>
+</blockquote>
+<blockquote>
+<p>Screenshot placeholder: snapshot viewer opened from a history entry<br><code>![Snapshot viewer](history-viewer.png)</code></p>
+</blockquote>
+<hr>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<ol>
+<li>Select a <strong>Script / LocalScript / ModuleScript</strong> in Explorer</li>
+<li>Run: <code>history</code></li>
+</ol>
+<h3 id="aliases"><a class="header" href="#aliases">Aliases</a></h3>
 <ul>
-<li>Use <code>help</code> inside ScriptSense for quick command guidance.</li>
-<li>Explore the existing Command Reference.</li>
-<li>Check the latest release notes for updates.</li>
+<li><code>log</code></li>
+<li><code>timeline</code></li>
 </ul>
-<p>Thank you for your patience.</p>
+<hr>
+<h2 id="what-youll-see"><a class="header" href="#what-youll-see">What you’ll see</a></h2>
+<p><code>history</code> prints a tree-like list where each line shows:</p>
+<ul>
+<li>a tree connector (<code>├──</code>, <code>└──</code>, etc.)</li>
+<li>a dot (or a 📌 pin if pinned)</li>
+<li>a short commit hash (7 characters)</li>
+<li>the branch name in parentheses</li>
+<li>the snapshot label/message</li>
+</ul>
+<p>Each entry is <strong>clickable</strong> — clicking opens that snapshot in the viewer.</p>
+<blockquote>
+<p>GIF placeholder: clicking an entry → viewer opens<br><code>![Click to open snapshot](history-click.gif)</code></p>
+</blockquote>
+<hr>
+<h2 id="requirements"><a class="header" href="#requirements">Requirements</a></h2>
+<h3 id="you-must-select-a-script"><a class="header" href="#you-must-select-a-script">You must select a script</a></h3>
+<p><code>history</code> uses your current Selection and only reads the <strong>first selected instance</strong>.</p>
+<p>If you don’t select a script (or the selection isn’t a <code>LuaSourceContainer</code>), it prints:</p>
+<ul>
+<li><code>Error: Select a script.</code></li>
+</ul>
+<h3 id="history-must-exist"><a class="header" href="#history-must-exist">History must exist</a></h3>
+<p>If the script has no saved history, it prints:</p>
+<ul>
+<li><code>No history found.</code></li>
+</ul>
+<hr>
+<h2 id="branches-pins-and-coloring"><a class="header" href="#branches-pins-and-coloring">Branches, pins, and coloring</a></h2>
+<p>Snapshots may include metadata:</p>
+<ul>
+<li><strong>Branch</strong> (attribute: <code>Branch</code>, default is <code>"main"</code>)</li>
+<li><strong>Pinned</strong> (attribute: <code>Pinned</code>) → displays 📌</li>
+<li><strong>CommitID</strong> (attribute: <code>CommitID</code>) → shown as a 7-char short hash</li>
+</ul>
+<p>The tree uses different colors for branch names:</p>
+<ul>
+<li><code>main</code> uses the standard info color</li>
+<li>the current active branch is highlighted</li>
+<li>other branches get a deterministic color based on the branch name</li>
+</ul>
+<hr>
+<h2 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h2>
+<h3 id="no-history-found"><a class="header" href="#no-history-found">“No history found.”</a></h3>
+<p>History is empty for that script. Make sure history saving is enabled (see <code>AutoSaveEnabled</code> in Configuration) and that you’ve made changes since enabling it.</p>
+<h3 id="clicking-entries-doesnt-do-anything"><a class="header" href="#clicking-entries-doesnt-do-anything">Clicking entries doesn’t do anything</a></h3>
+<p>Entries open the viewer via <code>SnapshotManager:OpenViewer(...)</code>. If nothing opens, try reopening Studio or re-running the command after a fresh scan/save.</p>
+<hr>
+<h1 id="diff-diff"><a class="header" href="#diff-diff">Diff (<code>diff</code>)</a></h1>
+<p>Compare a script with a historical snapshot using RichText coloring (additions are green, removals are red).</p>
+<blockquote>
+<p>Screenshot placeholder: diff output window (with green <code>+</code> and red <code>-</code> lines)
+<code>![Diff output](diff-example.png)</code></p>
+</blockquote>
+<hr>
+<h2 id="usage-1"><a class="header" href="#usage-1">Usage</a></h2>
+<h3 id="option-a-compare-a-script-recommended"><a class="header" href="#option-a-compare-a-script-recommended">Option A: Compare a script (recommended)</a></h3>
+<ol>
+<li>Select a <strong>Script / LocalScript / ModuleScript</strong> in Explorer</li>
+<li>Run:</li>
+</ol>
+<ul>
+<li><code>diff</code></li>
+<li><code>diff (Index)</code></li>
+</ul>
+<p><code>(Index)</code> chooses which snapshot entry to compare against (defaults to <code>1</code>).</p>
+<h3 id="option-b-compare-from-a-snapshot"><a class="header" href="#option-b-compare-from-a-snapshot">Option B: Compare from a snapshot</a></h3>
+<ol>
+<li>Select a snapshot <strong>StringValue</strong> inside ScriptSense history</li>
+<li>Run:</li>
+</ol>
+<ul>
+<li><code>diff</code></li>
+</ul>
+<p><code>diff</code> will try to locate the matching script and compare it.</p>
+<hr>
+<h2 id="aliases-1"><a class="header" href="#aliases-1">Aliases</a></h2>
+<ul>
+<li><code>compare</code></li>
+<li><code>changes</code></li>
+</ul>
+<hr>
+<h2 id="how-the-snapshot-selection-works"><a class="header" href="#how-the-snapshot-selection-works">How the snapshot selection works</a></h2>
+<h3 id="when-selecting-a-script"><a class="header" href="#when-selecting-a-script">When selecting a script</a></h3>
+<ul>
+<li>ScriptSense loads the script’s history list.</li>
+<li>It picks <code>history[Index]</code> (Index defaults to <code>1</code>).</li>
+</ul>
+<p><strong>Auto-skip behavior:</strong><br>If you run <code>diff</code> with no index and snapshot <code>1</code> is identical to your current script source, ScriptSense automatically compares against snapshot <code>2</code> instead (when available).</p>
+<hr>
+<h2 id="output-format"><a class="header" href="#output-format">Output format</a></h2>
+<p>Diff output is shown in the command palette output window and includes:</p>
+<ul>
+<li>A header with the script name and snapshot name</li>
+<li>A summary line:
+<ul>
+<li><strong>X additions</strong></li>
+<li><strong>Y removals</strong></li>
+</ul>
+</li>
+<li>A unified diff-style body:
+<ul>
+<li>Lines starting with <code>+</code> are highlighted green</li>
+<li>Lines starting with <code>-</code> are highlighted red</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Screenshot placeholder: summary line showing “additions” and “removals”.</p>
+</blockquote>
+<hr>
+<h2 id="requirements-1"><a class="header" href="#requirements-1">Requirements</a></h2>
+<h3 id="you-must-select-something"><a class="header" href="#you-must-select-something">You must select something</a></h3>
+<p>If nothing is selected:</p>
+<ul>
+<li><code>Error: Select a script or a snapshot.</code></li>
+</ul>
+<h3 id="scriptsnapshot-pair-must-be-resolvable"><a class="header" href="#scriptsnapshot-pair-must-be-resolvable">Script/snapshot pair must be resolvable</a></h3>
+<p>If ScriptSense can’t determine a valid script + snapshot to compare:</p>
+<ul>
+<li><code>Error: Could not find script/snapshot pair.</code></li>
+</ul>
+<hr>
+<h2 id="notes--tips"><a class="header" href="#notes--tips">Notes &amp; tips</a></h2>
+<h3 id="best-pairing-with-history"><a class="header" href="#best-pairing-with-history">Best pairing with <code>history</code></a></h3>
+<ul>
+<li>Use <code>history</code> to browse and open snapshots</li>
+<li>Use <code>diff (Index)</code> when you want a quick compare against a specific snapshot index</li>
+</ul>
+<blockquote>
+<p>GIF placeholder: <code>history</code> → click snapshot → select script → <code>diff 2</code></p>
+</blockquote>
+<hr>
+<h2 id="troubleshooting-1"><a class="header" href="#troubleshooting-1">Troubleshooting</a></h2>
+<h3 id="diff-error-"><a class="header" href="#diff-error-">“Diff Error: …”</a></h3>
+<p>This means the diff operation failed internally (it runs inside a protected call). Re-try after reopening Studio or after ensuring history exists for the script.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../reference/getting-started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../reference/commands/tasks.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../reference/commands.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../reference/commands/report.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -254,11 +402,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../reference/getting-started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../reference/commands/tasks.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../reference/commands.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../reference/commands/report.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
@@ -278,13 +426,13 @@
         </script>
 
 
-        <script src="../elasticlunr-ef4e11c1.min.js"></script>
-        <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../../mark-09e88c2c.min.js"></script>
+        <script src="../../searcher-c2a407aa.js"></script>
 
-        <script src="../clipboard-1626706a.min.js"></script>
-        <script src="../highlight-abc7f01d.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../../clipboard-1626706a.min.js"></script>
+        <script src="../../highlight-abc7f01d.js"></script>
+        <script src="../../book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
 

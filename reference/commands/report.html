@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Tutorials &amp; Guides - ScriptSense Documentation</title>
+        <title>Reporting &amp; Feedback - ScriptSense Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -28,7 +28,7 @@
         <meta name="twitter:image" content="https://scottts.github.io/assets/social.png">
         
         <!-- Icons & PWA -->
-        <link rel="icon" href="../favicon.svg">
+        <link rel="icon" href="../../favicon.svg">
         <link rel="apple-touch-icon" href="https://scottts.github.io/assets/logo.png">
         <link rel="manifest" href="https://scottts.github.io/site.webmanifest">
         <meta name="theme-color" content="#0b3d91">
@@ -64,32 +64,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="../favicon-82e0d3a7.svg">
-        <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
-        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+        <link rel="icon" href="../../favicon-82e0d3a7.svg">
+        <link rel="stylesheet" href="../../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../../css/general-2459343d.css">
+        <link rel="stylesheet" href="../../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+        <link rel="stylesheet" href="../../fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
-        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
-        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "../";
+            const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c1ed238e.js";
+            window.path_to_searchindex_js = "../../searchindex-c1ed238e.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-ed54b17f.js"></script>
+        <script src="../../toc-ed54b17f.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -156,7 +156,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
             </noscript>
             <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -191,7 +191,7 @@
                     <h1 class="menu-title">ScriptSense Documentation</h1>
 
                     <div class="right-buttons">
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
 
@@ -225,26 +225,123 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="-work-in-progress"><a class="header" href="#-work-in-progress">🚧 Work in Progress</a></h1>
-<p>This page is currently under construction.</p>
-<p>Content, examples, and detailed explanations will be added soon.<br>ScriptSense is actively evolving, and documentation is being expanded alongside new improvements.</p>
-<p>In the meantime, you can:</p>
+                        <h1 id="reporting--feedback-report"><a class="header" href="#reporting--feedback-report">Reporting &amp; Feedback (<code>report</code>)</a></h1>
+<p><code>report</code> lets you send feedback to the ScriptSense author from inside Studio.</p>
+<p>It supports:</p>
 <ul>
-<li>Use <code>help</code> inside ScriptSense for quick command guidance.</li>
-<li>Explore the existing Command Reference.</li>
-<li>Check the latest release notes for updates.</li>
+<li>A dedicated <strong>Report UI</strong> (recommended)</li>
+<li>A quick <strong>CLI draft</strong> flow (legacy)</li>
 </ul>
-<p>Thank you for your patience.</p>
+<blockquote>
+<p>Screenshot placeholder: Report UI main window<br><code>![Report UI](report-feedback.png)</code></p>
+</blockquote>
+<h4 id="-only-use-report-to-send-plugin-feedback-dont-include-secrets-api-keys-passwords-private-links"><a class="header" href="#-only-use-report-to-send-plugin-feedback-dont-include-secrets-api-keys-passwords-private-links">⚠️ Only use report to send plugin feedback; don’t include secrets (API keys, passwords, private links)!</a></h4>
+<hr>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<h3 id="ui-mode-recommended"><a class="header" href="#ui-mode-recommended">UI mode (recommended)</a></h3>
+<ul>
+<li><code>report</code></li>
+</ul>
+<p>Opens the Report window. 7</p>
+<h3 id="cli-mode-quick-draft"><a class="header" href="#cli-mode-quick-draft">CLI mode (quick draft)</a></h3>
+<ul>
+<li><code>report &lt;message&gt;</code></li>
+<li><code>report bug &lt;message&gt;</code></li>
+<li><code>report suggestion &lt;message&gt;</code></li>
+<li><code>report security &lt;message&gt;</code></li>
+</ul>
+<p>CLI mode creates a pending draft and asks for confirmation. 8</p>
+<h3 id="aliases"><a class="header" href="#aliases">Aliases</a></h3>
+<ul>
+<li><code>feedback</code></li>
+<li><code>bug</code></li>
+<li><code>suggestion</code></li>
+<li><code>-n</code></li>
+</ul>
+<hr>
+<h2 id="categories"><a class="header" href="#categories">Categories</a></h2>
+<p>You can choose one of:</p>
+<ul>
+<li>Bug</li>
+<li>Feedback</li>
+<li>Security</li>
+<li>Suggestion</li>
+</ul>
+<p>In the UI, use the Category dropdown.<br>In CLI mode, prefix the message with the category keyword (e.g. <code>bug ...</code>).</p>
+<hr>
+<h2 id="attach-images-optional"><a class="header" href="#attach-images-optional">Attach images (optional)</a></h2>
+<p>In the UI, click <strong>Attach</strong> and select:</p>
+<ul>
+<li><code>.png</code>, <code>.jpg</code>, <code>.jpeg</code></li>
+</ul>
+<p>Images are uploaded to ImgBB and the resulting URLs are included with your report.</p>
+<blockquote>
+<p>Screenshot placeholder: attached image preview + “Attached Images” gallery<br><code>![Attached images](report-gallery.png)</code></p>
+</blockquote>
+<h3 id="imgbb-setup"><a class="header" href="#imgbb-setup">ImgBB setup</a></h3>
+<p>To enable uploads, set your API key:</p>
+<ul>
+<li><code>config ImgBBKey &lt;your_key&gt;</code></li>
+</ul>
+<p>If no key is set, ScriptSense will show:</p>
+<ul>
+<li>“Error: Please set your ImgBB API Key in Settings.”</li>
+</ul>
+<h3 id="limits"><a class="header" href="#limits">Limits</a></h3>
+<ul>
+<li>Upload body must be under ~1MB (ScriptSense rejects larger payloads).</li>
+</ul>
+<hr>
+<h2 id="include-context-optional"><a class="header" href="#include-context-optional">Include context (optional)</a></h2>
+<p>The report UI includes a toggle for sending a small context snapshot. When enabled, ScriptSense includes: 16</p>
+<ul>
+<li>ScriptSense version</li>
+<li>macro count</li>
+<li>whether Studio is in Edit or Run mode</li>
+</ul>
+<blockquote>
+<p>Note: Context is optional and can be disabled via the toggle.</p>
+</blockquote>
+<hr>
+<h2 id="cooldown"><a class="header" href="#cooldown">Cooldown</a></h2>
+<p>To prevent spam, reports are rate-limited:</p>
+<ul>
+<li>60 seconds between sends</li>
+</ul>
+<p>If you send too soon:</p>
+<ul>
+<li>“Please wait before sending another report.”</li>
+</ul>
+<hr>
+<h2 id="cli-draft-flow-legacy"><a class="header" href="#cli-draft-flow-legacy">CLI draft flow (legacy)</a></h2>
+<p>When you run <code>report &lt;message&gt;</code>, ScriptSense:</p>
+<ol>
+<li>Parses the category (if provided)</li>
+<li>Saves a pending draft</li>
+<li>Logs a preview + asks whether to include context</li>
+</ol>
+<p>If the report fails to send, ScriptSense keeps your text and asks you to retry.</p>
+<blockquote>
+<p>Screenshot placeholder: terminal output showing “Drafting report…” and confirmation prompt.</p>
+</blockquote>
+<hr>
+<h2 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h2>
+<h3 id="message-cannot-be-empty"><a class="header" href="#message-cannot-be-empty">“Message cannot be empty.”</a></h3>
+<p>Your CLI message was empty. Use <code>report &lt;message&gt;</code> or open the UI with <code>report</code>.</p>
+<h3 id="image-too-large"><a class="header" href="#image-too-large">“Image too large!”</a></h3>
+<p>Try a smaller image (the upload body is limited to ~1MB).</p>
+<h3 id="report-failed-your-text-has-been-saved"><a class="header" href="#report-failed-your-text-has-been-saved">“Report failed. Your text has been saved.”</a></h3>
+<p>Sending failed, but your draft text was preserved. Try again (button changes to “Retry Sending”).</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../reference/getting-started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../reference/commands/history-diff.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../reference/commands.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../reference/commands/gendocs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -254,11 +351,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../reference/getting-started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../reference/commands/history-diff.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../reference/commands.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../reference/commands/gendocs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
@@ -278,13 +375,13 @@
         </script>
 
 
-        <script src="../elasticlunr-ef4e11c1.min.js"></script>
-        <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../../mark-09e88c2c.min.js"></script>
+        <script src="../../searcher-c2a407aa.js"></script>
 
-        <script src="../clipboard-1626706a.min.js"></script>
-        <script src="../highlight-abc7f01d.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../../clipboard-1626706a.min.js"></script>
+        <script src="../../highlight-abc7f01d.js"></script>
+        <script src="../../book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
 

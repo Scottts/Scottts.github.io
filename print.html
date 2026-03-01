@@ -87,10 +87,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-dbd80e53.js";
+            window.path_to_searchindex_js = "searchindex-c1ed238e.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-848b297d.js"></script>
+        <script src="toc-ed54b17f.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -412,7 +412,7 @@ https://create.roblox.com/store/asset/75708311511053/ScriptSense</p>
 <li><strong>Example</strong>:
 <img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/feedback.png" alt="Report/Feedback UI"></li>
 <li><strong>Aliases</strong>: feedback, bug, suggestion, -n</li>
-<li><strong>More</strong>: <a href="reference/commands/report.html">Reporting &amp; Feedback</a></li>
+<li><strong>More</strong>: <a href="#reporting--feedback-report">Reporting &amp; Feedback</a></li>
 </ul>
 <hr>
 <h2 id="refactoring--code-editing"><a class="header" href="#refactoring--code-editing"><strong>Refactoring &amp; Code Editing</strong></a></h2>
@@ -550,7 +550,7 @@ https://create.roblox.com/store/asset/75708311511053/ScriptSense</p>
 <li><strong>Example</strong>:
 <img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-hub.png" alt="Tasks Hub UI"></li>
 <li><strong>Aliases</strong>: todo, board</li>
-<li><strong>More</strong>: <a href="reference/commands/tasks.html">Tasks Hub</a></li>
+<li><strong>More</strong>: <a href="#tasks-hub-tasks">Tasks Hub</a></li>
 </ul>
 <hr>
 <h2 id="analysis--visualization"><a class="header" href="#analysis--visualization"><strong>Analysis &amp; Visualization</strong></a></h2>
@@ -583,7 +583,7 @@ https://create.roblox.com/store/asset/75708311511053/ScriptSense</p>
 <li><strong>Usage</strong>: history</li>
 <li><strong>Aliases</strong>: log, timeline</li>
 <li><strong>Note</strong>: Select a script to view its history.</li>
-<li><strong>More</strong>: <a href="reference/commands/history-diff.html">History &amp; Diff</a></li>
+<li><strong>More</strong>: <a href="#history--diff">History &amp; Diff</a></li>
 </ul>
 <h3 id="diff"><a class="header" href="#diff"><strong>diff</strong></a></h3>
 <p>Compares a script with a historical snapshot using RichText coloring.</p>
@@ -605,14 +605,14 @@ https://create.roblox.com/store/asset/75708311511053/ScriptSense</p>
 <li>diff 3<br><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/diff-example.png" alt="Diff comparison UI"></li>
 </ul>
 </li>
-<li><strong>More</strong>: <a href="reference/commands/history-diff.html#diff">History &amp; Diff</a></li>
+<li><strong>More</strong>: <a href="#diff">History &amp; Diff</a></li>
 </ul>
 <h3 id="gendocs"><a class="header" href="#gendocs"><strong>gendocs</strong></a></h3>
 <p>Generates Markdown documentation from TypeDef files or source comments.</p>
 <ul>
 <li><strong>Usage</strong>: gendocs (Name)</li>
 <li><strong>Result</strong>: Create <code>&lt;TargetModuleName&gt;_Docs</code> next to the module (same parent), and overwrites contents if it exists.</li>
-<li><strong>More</strong>: <a href="reference/commands/gendocs.html">Generate Docs / gendocs</a></li>
+<li><strong>More</strong>: <a href="#generate-docs-gendocs">Generate Docs / gendocs</a></li>
 </ul>
 <hr>
 <h2 id="configuration--macros"><a class="header" href="#configuration--macros"><strong>Configuration &amp; Macros</strong></a></h2>
@@ -668,7 +668,7 @@ https://create.roblox.com/store/asset/75708311511053/ScriptSense</p>
 <li>theme reset</li>
 </ul>
 </li>
-<li><strong>More</strong>: <a href="reference/commands/theme.html">Theme &amp; UI Customization</a></li>
+<li><strong>More</strong>: <a href="#theme--ui-customization-theme">Theme &amp; UI Customization</a></li>
 </ul>
 <h3 id="define"><a class="header" href="#define"><strong>define</strong></a></h3>
 <p>Define a macro with optional dependencies.</p>
@@ -775,6 +775,590 @@ https://create.roblox.com/store/asset/75708311511053/ScriptSense</p>
 <p><strong>Example</strong>:
 <img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/data-editor.png" alt="Data Editor/Surgeon UI"></p>
 </li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="theme--ui-customization-theme"><a class="header" href="#theme--ui-customization-theme">Theme &amp; UI Customization (<code>theme</code>)</a></h1>
+<p>ScriptSense supports <strong>theme presets</strong> and <strong>per-key overrides</strong> to customize the UI.</p>
+<p>Theme changes are stored in <code>ThemeOverrides</code> (a JSON string in ScriptSense settings), and the <code>theme</code> command updates it automatically.</p>
+<blockquote>
+<p>Screenshot placeholder: Add a before/after of a preset (same screen, different theme)<br><code>![Theme before/after](theme-before-after.png)</code></p>
+</blockquote>
+<hr>
+<h2 id="quick-start"><a class="header" href="#quick-start">Quick start</a></h2>
+<h3 id="list-current-overrides--available-presets"><a class="header" href="#list-current-overrides--available-presets">List current overrides + available presets</a></h3>
+<ul>
+<li><code>theme</code></li>
+<li><code>theme list</code></li>
+</ul>
+<h3 id="list-presets-only"><a class="header" href="#list-presets-only">List presets only</a></h3>
+<ul>
+<li><code>theme presets</code></li>
+</ul>
+<h3 id="apply-a-preset-overwrites-all-current-overrides"><a class="header" href="#apply-a-preset-overwrites-all-current-overrides">Apply a preset (overwrites all current overrides)</a></h3>
+<ul>
+<li><code>theme Midnight</code></li>
+<li><code>theme apply Midnight</code></li>
+<li><code>theme set Midnight</code></li>
+<li><code>theme use Midnight</code></li>
+</ul>
+<h3 id="override-a-single-theme-key"><a class="header" href="#override-a-single-theme-key">Override a single theme key</a></h3>
+<ul>
+<li><code>theme set Button #ff0000</code></li>
+<li><code>theme set Text 240,240,240</code></li>
+</ul>
+<h3 id="remove-overrides"><a class="header" href="#remove-overrides">Remove overrides</a></h3>
+<ul>
+<li><code>theme clear Button</code> <em>(removes one key override)</em></li>
+<li><code>theme reset</code> <em>(clears all overrides)</em></li>
+</ul>
+<blockquote>
+<p>GIF placeholder: <code>theme presets</code> → apply preset → <code>theme set Text ...</code> → widget updates<br><code>![Theme command demo](theme-demo.gif)</code></p>
+</blockquote>
+<hr>
+<h2 id="command-reference"><a class="header" href="#command-reference">Command reference</a></h2>
+<h3 id="usage"><a class="header" href="#usage">Usage</a></h3>
+<ul>
+<li><code>theme</code></li>
+<li><code>theme list</code></li>
+<li><code>theme presets</code></li>
+<li><code>theme &lt;PresetName&gt;</code></li>
+<li><code>theme apply &lt;PresetName&gt;</code></li>
+<li><code>theme use &lt;PresetName&gt;</code></li>
+<li><code>theme set &lt;PresetName&gt;</code></li>
+<li><code>theme set &lt;Key&gt; &lt;Color&gt;</code></li>
+<li><code>theme clear &lt;Key&gt;</code></li>
+<li><code>theme reset</code></li>
+</ul>
+<h3 id="aliases"><a class="header" href="#aliases">Aliases</a></h3>
+<ul>
+<li><code>themes</code></li>
+<li><code>uitheme</code></li>
+</ul>
+<hr>
+<h2 id="presets"><a class="header" href="#presets">Presets</a></h2>
+<p>In this snapshot (v2.17.0), the built-in presets include:</p>
+<ul>
+<li>Midnight</li>
+<li>Dracula-ish</li>
+<li>Nord</li>
+<li>Catppuccin Mocha</li>
+<li>Gruvbox Dark</li>
+<li>Tokyo Night</li>
+<li>Rose Pine</li>
+<li>Light Minimal</li>
+<li>Synthwave</li>
+<li>Forest</li>
+<li>Orange Joe</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Preset lists can change between versions/builds.</p>
+</blockquote>
+<blockquote>
+<p>Screenshot placeholder: terminal output of <code>theme presets</code><br><code>![Theme presets output](theme-presets.png)</code></p>
+</blockquote>
+<hr>
+<h2 id="theme-keys"><a class="header" href="#theme-keys">Theme keys</a></h2>
+<p>When you run <code>theme</code> / <code>theme list</code>, ScriptSense prints the <strong>valid theme keys</strong> (these come from <code>UIFactory.Theme</code> and only keys backed by an <code>EnumItem</code> are accepted).</p>
+<p>If you try to set or clear an invalid key, ScriptSense will print a list of valid keys.</p>
+<blockquote>
+<p>Screenshot placeholder: an “Invalid theme key” error showing the valid keys list<br><code>![Invalid theme key](theme-invalid-key.png)</code></p>
+</blockquote>
+<hr>
+<h2 id="colors-supported-formats"><a class="header" href="#colors-supported-formats">Colors: supported formats</a></h2>
+<p><code>theme</code> accepts exactly these formats:</p>
+<ul>
+<li>Hex: <code>#RRGGBB</code></li>
+<li>RGB: <code>R,G,B</code> (0–255)</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><code>theme set Accent #3b82f6</code></li>
+<li><code>theme set Text 235,235,235</code></li>
+</ul>
+<p>If the color is invalid, it prints:</p>
+<ul>
+<li>“Invalid color. Use #RRGGBB or R,G,B”</li>
+</ul>
+<hr>
+<h2 id="what-gets-saved-themeoverrides"><a class="header" href="#what-gets-saved-themeoverrides">What gets saved (ThemeOverrides)</a></h2>
+<p>Theme overrides are saved as JSON in <code>ThemeOverrides</code>.</p>
+<h3 id="shape"><a class="header" href="#shape">Shape:</a></h3>
+<ul>
+<li>A JSON object mapping theme keys → <strong>hex strings</strong> (e.g. <code>"#FF0000"</code>)</li>
+</ul>
+<h3 id="example"><a class="header" href="#example">Example:</a></h3>
+<pre><code class="language-json">{
+  "Text": "#E6EDF3",
+  "Button": "#21262D"
+}
+</code></pre>
+<h3 id="important-details"><a class="header" href="#important-details">Important details:</a></h3>
+<p>Values are stored as hex strings (even if you typed R,G,B).</p>
+<p>Applying a preset overwrites the entire overrides table with the preset’s keys.</p>
+<hr>
+<h2 id="troubleshooting-1"><a class="header" href="#troubleshooting-1">Troubleshooting</a></h2>
+<h3 id="unknown-theme-preset"><a class="header" href="#unknown-theme-preset">“Unknown theme preset”</a></h3>
+<p>Run theme presets and copy the preset name (matching is flexible, but spelling helps).</p>
+<p>If you’re on a different version/build, the preset may not exist there.</p>
+<h3 id="invalid-theme-key"><a class="header" href="#invalid-theme-key">“Invalid theme key”</a></h3>
+<p>Run theme to see the valid keys list, then copy one of the keys exactly.</p>
+<h3 id="invalid-color"><a class="header" href="#invalid-color">“Invalid color”</a></h3>
+<p>Use #RRGGBB or R,G,B only (0–255).</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="tasks-hub-tasks"><a class="header" href="#tasks-hub-tasks">Tasks Hub (<code>tasks</code>)</a></h1>
+<p><code>tasks</code> displays all <strong>TODO</strong>, <strong>FIXME</strong>, <strong>HACK</strong>, and <strong>NOTE</strong> comments in an interactive Tasks widget.</p>
+<blockquote>
+<p>Screenshot placeholder: the Tasks widget UI<br><code>![Tasks Hub UI](task-hub.png)</code></p>
+</blockquote>
+<hr>
+<h2 id="usage-1"><a class="header" href="#usage-1">Usage</a></h2>
+<ul>
+<li><code>tasks</code></li>
+<li><code>tasks local</code> / <code>tasks current</code></li>
+<li><code>tasks global</code> / <code>tasks all</code></li>
+</ul>
+<h3 id="aliases-1"><a class="header" href="#aliases-1">Aliases</a></h3>
+<ul>
+<li><code>todo</code></li>
+<li><code>board</code></li>
+</ul>
+<hr>
+<h2 id="what-it-shows"><a class="header" href="#what-it-shows">What it shows</a></h2>
+<p>The Tasks widget lists task items with:</p>
+<ul>
+<li>A tag (TODO/FIXME/HACK/NOTE)</li>
+<li>The message text</li>
+<li>Script name + line number</li>
+<li>A <strong>Jump To</strong> button that opens the script at that line</li>
+</ul>
+<blockquote>
+<p>Screenshot placeholder: a task card showing tag + message + <code>(Line X)</code> and the Jump button.</p>
+</blockquote>
+<hr>
+<h2 id="scopes-local-vs-global"><a class="header" href="#scopes-local-vs-global">Scopes (Local vs Global)</a></h2>
+<p>The widget supports two scopes:</p>
+<h3 id="global"><a class="header" href="#global">Global</a></h3>
+<p>Shows tasks across the <strong>full project</strong>.</p>
+<h3 id="local"><a class="header" href="#local">Local</a></h3>
+<p>Shows tasks only for the <strong>currently active script</strong> (<code>StudioService.ActiveScript</code>).</p>
+<p>You can switch scope in two ways:</p>
+<ul>
+<li>Command args:
+<ul>
+<li><code>tasks local</code> / <code>tasks current</code></li>
+<li><code>tasks global</code> / <code>tasks all</code></li>
+</ul>
+</li>
+<li>UI: click the <strong>Scope</strong> button to toggle Global ↔ Local.</li>
+</ul>
+<hr>
+<h2 id="filters-and-search"><a class="header" href="#filters-and-search">Filters and search</a></h2>
+<h3 id="tag-filters"><a class="header" href="#tag-filters">Tag filters</a></h3>
+<p>The widget includes a filter dropdown with toggles for:</p>
+<ul>
+<li>TODO</li>
+<li>FIXME</li>
+<li>HACK</li>
+<li>NOTE</li>
+</ul>
+<h3 id="search"><a class="header" href="#search">Search</a></h3>
+<p>Typing in the search box filters tasks by:</p>
+<ul>
+<li>message text</li>
+<li>script name</li>
+</ul>
+<blockquote>
+<p>Screenshot placeholder: filter dropdown open (showing TODO/FIXME/HACK/NOTE toggles).<br>GIF placeholder: typing in search to filter the list.</p>
+</blockquote>
+<hr>
+<h2 id="what-gets-scanned"><a class="header" href="#what-gets-scanned">What gets scanned</a></h2>
+<p>ScriptSense builds the list by calling <code>TaskScanner:GetAllTasks()</code> each time you run <code>tasks</code> (so the board refreshes when opened).</p>
+<p>Example comment style:</p>
+<pre><code class="language-lua">-- TODO: refactor this
+-- FIXME: handle nil case
+-- HACK: temporary workaround
+-- NOTE: optional reminder
+</code></pre>
+<hr>
+<h2 id="terminal-output"><a class="header" href="#terminal-output">Terminal output</a></h2>
+<p>When opened/refreshed, ScriptSense logs:</p>
+<ul>
+<li>“Task board refreshed (Local Script)” or</li>
+<li>“Task board refreshed (Full Project)”</li>
+</ul>
+<hr>
+<h2 id="troubleshooting-2"><a class="header" href="#troubleshooting-2">Troubleshooting</a></h2>
+<h3 id="local-is-empty-but-i-see-todos"><a class="header" href="#local-is-empty-but-i-see-todos">“Local is empty but I see TODOs”</a></h3>
+<p>Local mode only shows tasks for the <strong>active script</strong>. Open the script that contains the TODOs, then run <code>tasks local</code>. 12</p>
+<h3 id="jump-to-doesnt-open-the-right-spot"><a class="header" href="#jump-to-doesnt-open-the-right-spot">“Jump To doesn’t open the right spot”</a></h3>
+<p>Jump uses <code>plugin:OpenScript(script, line)</code>. If line numbers are off, it usually means the file changed since tasks were scanned—re-run <code>tasks</code> to refresh.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="history--diff"><a class="header" href="#history--diff">History &amp; Diff</a></h1>
+<p>View a script’s snapshot history as a clickable tree, then compare any snapshot against your current code with a color-highlighted diff.</p>
+<hr>
+<h1 id="history-history"><a class="header" href="#history-history">History (<code>history</code>)</a></h1>
+<p>View a script’s snapshot history as a clickable tree. Each entry can be opened in the snapshot viewer.</p>
+<blockquote>
+<p>Screenshot placeholder: terminal output of the tree (with branches + hashes)<br><code>![History tree](history-tree.png)</code></p>
+</blockquote>
+<blockquote>
+<p>Screenshot placeholder: snapshot viewer opened from a history entry<br><code>![Snapshot viewer](history-viewer.png)</code></p>
+</blockquote>
+<hr>
+<h2 id="usage-2"><a class="header" href="#usage-2">Usage</a></h2>
+<ol>
+<li>Select a <strong>Script / LocalScript / ModuleScript</strong> in Explorer</li>
+<li>Run: <code>history</code></li>
+</ol>
+<h3 id="aliases-2"><a class="header" href="#aliases-2">Aliases</a></h3>
+<ul>
+<li><code>log</code></li>
+<li><code>timeline</code></li>
+</ul>
+<hr>
+<h2 id="what-youll-see"><a class="header" href="#what-youll-see">What you’ll see</a></h2>
+<p><code>history</code> prints a tree-like list where each line shows:</p>
+<ul>
+<li>a tree connector (<code>├──</code>, <code>└──</code>, etc.)</li>
+<li>a dot (or a 📌 pin if pinned)</li>
+<li>a short commit hash (7 characters)</li>
+<li>the branch name in parentheses</li>
+<li>the snapshot label/message</li>
+</ul>
+<p>Each entry is <strong>clickable</strong> — clicking opens that snapshot in the viewer.</p>
+<blockquote>
+<p>GIF placeholder: clicking an entry → viewer opens<br><code>![Click to open snapshot](history-click.gif)</code></p>
+</blockquote>
+<hr>
+<h2 id="requirements"><a class="header" href="#requirements">Requirements</a></h2>
+<h3 id="you-must-select-a-script"><a class="header" href="#you-must-select-a-script">You must select a script</a></h3>
+<p><code>history</code> uses your current Selection and only reads the <strong>first selected instance</strong>.</p>
+<p>If you don’t select a script (or the selection isn’t a <code>LuaSourceContainer</code>), it prints:</p>
+<ul>
+<li><code>Error: Select a script.</code></li>
+</ul>
+<h3 id="history-must-exist"><a class="header" href="#history-must-exist">History must exist</a></h3>
+<p>If the script has no saved history, it prints:</p>
+<ul>
+<li><code>No history found.</code></li>
+</ul>
+<hr>
+<h2 id="branches-pins-and-coloring"><a class="header" href="#branches-pins-and-coloring">Branches, pins, and coloring</a></h2>
+<p>Snapshots may include metadata:</p>
+<ul>
+<li><strong>Branch</strong> (attribute: <code>Branch</code>, default is <code>"main"</code>)</li>
+<li><strong>Pinned</strong> (attribute: <code>Pinned</code>) → displays 📌</li>
+<li><strong>CommitID</strong> (attribute: <code>CommitID</code>) → shown as a 7-char short hash</li>
+</ul>
+<p>The tree uses different colors for branch names:</p>
+<ul>
+<li><code>main</code> uses the standard info color</li>
+<li>the current active branch is highlighted</li>
+<li>other branches get a deterministic color based on the branch name</li>
+</ul>
+<hr>
+<h2 id="troubleshooting-3"><a class="header" href="#troubleshooting-3">Troubleshooting</a></h2>
+<h3 id="no-history-found"><a class="header" href="#no-history-found">“No history found.”</a></h3>
+<p>History is empty for that script. Make sure history saving is enabled (see <code>AutoSaveEnabled</code> in Configuration) and that you’ve made changes since enabling it.</p>
+<h3 id="clicking-entries-doesnt-do-anything"><a class="header" href="#clicking-entries-doesnt-do-anything">Clicking entries doesn’t do anything</a></h3>
+<p>Entries open the viewer via <code>SnapshotManager:OpenViewer(...)</code>. If nothing opens, try reopening Studio or re-running the command after a fresh scan/save.</p>
+<hr>
+<h1 id="diff-diff"><a class="header" href="#diff-diff">Diff (<code>diff</code>)</a></h1>
+<p>Compare a script with a historical snapshot using RichText coloring (additions are green, removals are red).</p>
+<blockquote>
+<p>Screenshot placeholder: diff output window (with green <code>+</code> and red <code>-</code> lines)
+<code>![Diff output](diff-example.png)</code></p>
+</blockquote>
+<hr>
+<h2 id="usage-1-1"><a class="header" href="#usage-1-1">Usage</a></h2>
+<h3 id="option-a-compare-a-script-recommended"><a class="header" href="#option-a-compare-a-script-recommended">Option A: Compare a script (recommended)</a></h3>
+<ol>
+<li>Select a <strong>Script / LocalScript / ModuleScript</strong> in Explorer</li>
+<li>Run:</li>
+</ol>
+<ul>
+<li><code>diff</code></li>
+<li><code>diff (Index)</code></li>
+</ul>
+<p><code>(Index)</code> chooses which snapshot entry to compare against (defaults to <code>1</code>).</p>
+<h3 id="option-b-compare-from-a-snapshot"><a class="header" href="#option-b-compare-from-a-snapshot">Option B: Compare from a snapshot</a></h3>
+<ol>
+<li>Select a snapshot <strong>StringValue</strong> inside ScriptSense history</li>
+<li>Run:</li>
+</ol>
+<ul>
+<li><code>diff</code></li>
+</ul>
+<p><code>diff</code> will try to locate the matching script and compare it.</p>
+<hr>
+<h2 id="aliases-1-1"><a class="header" href="#aliases-1-1">Aliases</a></h2>
+<ul>
+<li><code>compare</code></li>
+<li><code>changes</code></li>
+</ul>
+<hr>
+<h2 id="how-the-snapshot-selection-works"><a class="header" href="#how-the-snapshot-selection-works">How the snapshot selection works</a></h2>
+<h3 id="when-selecting-a-script"><a class="header" href="#when-selecting-a-script">When selecting a script</a></h3>
+<ul>
+<li>ScriptSense loads the script’s history list.</li>
+<li>It picks <code>history[Index]</code> (Index defaults to <code>1</code>).</li>
+</ul>
+<p><strong>Auto-skip behavior:</strong><br>If you run <code>diff</code> with no index and snapshot <code>1</code> is identical to your current script source, ScriptSense automatically compares against snapshot <code>2</code> instead (when available).</p>
+<hr>
+<h2 id="output-format"><a class="header" href="#output-format">Output format</a></h2>
+<p>Diff output is shown in the command palette output window and includes:</p>
+<ul>
+<li>A header with the script name and snapshot name</li>
+<li>A summary line:
+<ul>
+<li><strong>X additions</strong></li>
+<li><strong>Y removals</strong></li>
+</ul>
+</li>
+<li>A unified diff-style body:
+<ul>
+<li>Lines starting with <code>+</code> are highlighted green</li>
+<li>Lines starting with <code>-</code> are highlighted red</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Screenshot placeholder: summary line showing “additions” and “removals”.</p>
+</blockquote>
+<hr>
+<h2 id="requirements-1"><a class="header" href="#requirements-1">Requirements</a></h2>
+<h3 id="you-must-select-something"><a class="header" href="#you-must-select-something">You must select something</a></h3>
+<p>If nothing is selected:</p>
+<ul>
+<li><code>Error: Select a script or a snapshot.</code></li>
+</ul>
+<h3 id="scriptsnapshot-pair-must-be-resolvable"><a class="header" href="#scriptsnapshot-pair-must-be-resolvable">Script/snapshot pair must be resolvable</a></h3>
+<p>If ScriptSense can’t determine a valid script + snapshot to compare:</p>
+<ul>
+<li><code>Error: Could not find script/snapshot pair.</code></li>
+</ul>
+<hr>
+<h2 id="notes--tips"><a class="header" href="#notes--tips">Notes &amp; tips</a></h2>
+<h3 id="best-pairing-with-history"><a class="header" href="#best-pairing-with-history">Best pairing with <code>history</code></a></h3>
+<ul>
+<li>Use <code>history</code> to browse and open snapshots</li>
+<li>Use <code>diff (Index)</code> when you want a quick compare against a specific snapshot index</li>
+</ul>
+<blockquote>
+<p>GIF placeholder: <code>history</code> → click snapshot → select script → <code>diff 2</code></p>
+</blockquote>
+<hr>
+<h2 id="troubleshooting-1-1"><a class="header" href="#troubleshooting-1-1">Troubleshooting</a></h2>
+<h3 id="diff-error-"><a class="header" href="#diff-error-">“Diff Error: …”</a></h3>
+<p>This means the diff operation failed internally (it runs inside a protected call). Re-try after reopening Studio or after ensuring history exists for the script.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="reporting--feedback-report"><a class="header" href="#reporting--feedback-report">Reporting &amp; Feedback (<code>report</code>)</a></h1>
+<p><code>report</code> lets you send feedback to the ScriptSense author from inside Studio.</p>
+<p>It supports:</p>
+<ul>
+<li>A dedicated <strong>Report UI</strong> (recommended)</li>
+<li>A quick <strong>CLI draft</strong> flow (legacy)</li>
+</ul>
+<blockquote>
+<p>Screenshot placeholder: Report UI main window<br><code>![Report UI](report-feedback.png)</code></p>
+</blockquote>
+<h4 id="-only-use-report-to-send-plugin-feedback-dont-include-secrets-api-keys-passwords-private-links"><a class="header" href="#-only-use-report-to-send-plugin-feedback-dont-include-secrets-api-keys-passwords-private-links">⚠️ Only use report to send plugin feedback; don’t include secrets (API keys, passwords, private links)!</a></h4>
+<hr>
+<h2 id="usage-3"><a class="header" href="#usage-3">Usage</a></h2>
+<h3 id="ui-mode-recommended"><a class="header" href="#ui-mode-recommended">UI mode (recommended)</a></h3>
+<ul>
+<li><code>report</code></li>
+</ul>
+<p>Opens the Report window. 7</p>
+<h3 id="cli-mode-quick-draft"><a class="header" href="#cli-mode-quick-draft">CLI mode (quick draft)</a></h3>
+<ul>
+<li><code>report &lt;message&gt;</code></li>
+<li><code>report bug &lt;message&gt;</code></li>
+<li><code>report suggestion &lt;message&gt;</code></li>
+<li><code>report security &lt;message&gt;</code></li>
+</ul>
+<p>CLI mode creates a pending draft and asks for confirmation. 8</p>
+<h3 id="aliases-3"><a class="header" href="#aliases-3">Aliases</a></h3>
+<ul>
+<li><code>feedback</code></li>
+<li><code>bug</code></li>
+<li><code>suggestion</code></li>
+<li><code>-n</code></li>
+</ul>
+<hr>
+<h2 id="categories"><a class="header" href="#categories">Categories</a></h2>
+<p>You can choose one of:</p>
+<ul>
+<li>Bug</li>
+<li>Feedback</li>
+<li>Security</li>
+<li>Suggestion</li>
+</ul>
+<p>In the UI, use the Category dropdown.<br>In CLI mode, prefix the message with the category keyword (e.g. <code>bug ...</code>).</p>
+<hr>
+<h2 id="attach-images-optional"><a class="header" href="#attach-images-optional">Attach images (optional)</a></h2>
+<p>In the UI, click <strong>Attach</strong> and select:</p>
+<ul>
+<li><code>.png</code>, <code>.jpg</code>, <code>.jpeg</code></li>
+</ul>
+<p>Images are uploaded to ImgBB and the resulting URLs are included with your report.</p>
+<blockquote>
+<p>Screenshot placeholder: attached image preview + “Attached Images” gallery<br><code>![Attached images](report-gallery.png)</code></p>
+</blockquote>
+<h3 id="imgbb-setup"><a class="header" href="#imgbb-setup">ImgBB setup</a></h3>
+<p>To enable uploads, set your API key:</p>
+<ul>
+<li><code>config ImgBBKey &lt;your_key&gt;</code></li>
+</ul>
+<p>If no key is set, ScriptSense will show:</p>
+<ul>
+<li>“Error: Please set your ImgBB API Key in Settings.”</li>
+</ul>
+<h3 id="limits"><a class="header" href="#limits">Limits</a></h3>
+<ul>
+<li>Upload body must be under ~1MB (ScriptSense rejects larger payloads).</li>
+</ul>
+<hr>
+<h2 id="include-context-optional"><a class="header" href="#include-context-optional">Include context (optional)</a></h2>
+<p>The report UI includes a toggle for sending a small context snapshot. When enabled, ScriptSense includes: 16</p>
+<ul>
+<li>ScriptSense version</li>
+<li>macro count</li>
+<li>whether Studio is in Edit or Run mode</li>
+</ul>
+<blockquote>
+<p>Note: Context is optional and can be disabled via the toggle.</p>
+</blockquote>
+<hr>
+<h2 id="cooldown"><a class="header" href="#cooldown">Cooldown</a></h2>
+<p>To prevent spam, reports are rate-limited:</p>
+<ul>
+<li>60 seconds between sends</li>
+</ul>
+<p>If you send too soon:</p>
+<ul>
+<li>“Please wait before sending another report.”</li>
+</ul>
+<hr>
+<h2 id="cli-draft-flow-legacy"><a class="header" href="#cli-draft-flow-legacy">CLI draft flow (legacy)</a></h2>
+<p>When you run <code>report &lt;message&gt;</code>, ScriptSense:</p>
+<ol>
+<li>Parses the category (if provided)</li>
+<li>Saves a pending draft</li>
+<li>Logs a preview + asks whether to include context</li>
+</ol>
+<p>If the report fails to send, ScriptSense keeps your text and asks you to retry.</p>
+<blockquote>
+<p>Screenshot placeholder: terminal output showing “Drafting report…” and confirmation prompt.</p>
+</blockquote>
+<hr>
+<h2 id="troubleshooting-4"><a class="header" href="#troubleshooting-4">Troubleshooting</a></h2>
+<h3 id="message-cannot-be-empty"><a class="header" href="#message-cannot-be-empty">“Message cannot be empty.”</a></h3>
+<p>Your CLI message was empty. Use <code>report &lt;message&gt;</code> or open the UI with <code>report</code>.</p>
+<h3 id="image-too-large"><a class="header" href="#image-too-large">“Image too large!”</a></h3>
+<p>Try a smaller image (the upload body is limited to ~1MB).</p>
+<h3 id="report-failed-your-text-has-been-saved"><a class="header" href="#report-failed-your-text-has-been-saved">“Report failed. Your text has been saved.”</a></h3>
+<p>Sending failed, but your draft text was preserved. Try again (button changes to “Retry Sending”).</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="generate-docs-gendocs"><a class="header" href="#generate-docs-gendocs">Generate Docs (<code>gendocs</code>)</a></h1>
+<p><code>gendocs</code> generates a Markdown-style API reference for a <strong>ModuleScript</strong> and writes it into a new ModuleScript next to the target.</p>
+<p>It supports two documentation modes:</p>
+<ul>
+<li><strong>Proxy (TypeDef)</strong> mode (if your module contains a <code>TypeDef</code> or <code>Types</code> child script)</li>
+<li><strong>Inline (Source)</strong> mode (parses function declarations + preceding <code>--</code> comments)</li>
+</ul>
+<hr>
+<h2 id="usage-4"><a class="header" href="#usage-4">Usage</a></h2>
+<p><strong>Command:</strong> <code>gendocs (Name)</code></p>
+<ul>
+<li>If <code>(Name)</code> is provided, ScriptSense tries to find a matching module by name.</li>
+<li>If <code>(Name)</code> is omitted, it tries:
+<ol>
+<li>the <strong>ActiveScript</strong></li>
+<li>otherwise, your <strong>current Selection</strong> (first item)</li>
+</ol>
+</li>
+</ul>
+<p><code>gendocs</code> only works on <strong>ModuleScripts</strong>. If the target isn’t a ModuleScript, it logs an error.</p>
+<hr>
+<h2 id="output"><a class="header" href="#output">Output</a></h2>
+<p><code>gendocs</code> creates a ModuleScript named:</p>
+<p><code>&lt;TargetModuleName&gt;_Docs</code></p>
+<p>It is created in the <strong>same parent</strong> as your target module, and ScriptSense opens it automatically.</p>
+<p>If <code>&lt;TargetModuleName&gt;_Docs</code> already exists, <code>gendocs</code> overwrites its contents.</p>
+<p>The generated content is Markdown-like text wrapped inside a Lua block comment so it’s readable in Studio.</p>
+<blockquote>
+<p>Screenshot placeholder: show the generated <code>&lt;ModuleName&gt;_Docs</code> ModuleScript appearing next to the target.</p>
+</blockquote>
+<hr>
+<h2 id="mode-1-proxy-typedef-mode"><a class="header" href="#mode-1-proxy-typedef-mode">Mode 1: Proxy (TypeDef) Mode</a></h2>
+<p>If your module has a child named <strong><code>TypeDef</code></strong> or <strong><code>Types</code></strong> (and it’s a LuaSourceContainer), <code>gendocs</code> parses that child’s <code>.Source</code> instead of the module’s source.</p>
+<p>This mode expects a structure like:</p>
+<ul>
+<li>Entries that look like: <code>MethodName: typeof(...)</code></li>
+<li>A <code>--[[ ... ]]</code> block comment near the method for the description</li>
+<li>A <code>function(self:SomeType, ...)</code> signature inside the typeof block</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>The <code>self:Type</code> parameter is removed from the generated signature for readability.</li>
+<li>Simple HTML-like tags in TypeDef comments are converted:
+<ul>
+<li><code>&lt;strong&gt;</code> → <code>**bold**</code></li>
+<li><code>&lt;em&gt;</code> → <code>*italic*</code></li>
+<li><code>&lt;code&gt;</code> → <code>`inline code`</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="mode-2-inline-source-mode"><a class="header" href="#mode-2-inline-source-mode">Mode 2: Inline (Source) Mode</a></h2>
+<p>If no <code>TypeDef</code> / <code>Types</code> child exists, <code>gendocs</code> scans the module source for function definitions like:</p>
+<ul>
+<li><code>function module.Name(...)</code></li>
+<li><code>function module:Name(...)</code></li>
+</ul>
+<p>It then looks <strong>upwards</strong> for contiguous <code>--</code> comments directly above the function and uses those as the description.</p>
+<p><strong>Rules:</strong></p>
+<ul>
+<li>It stops collecting comments when it hits a line containing <code>---</code>.</li>
+<li>If no description is found, it outputs: <code>No description provided.</code></li>
+</ul>
+<blockquote>
+<p>Screenshot placeholder: a function with <code>--</code> comments above it, and the corresponding generated entry.</p>
+</blockquote>
+<hr>
+<h3 id="recommended-inline-doc-style"><a class="header" href="#recommended-inline-doc-style">Recommended inline doc style</a></h3>
+<p>Put <code>--</code> comments directly above the function:</p>
+<pre><code class="language-lua">-- Returns the player’s cached data.
+-- If the player has no cache entry, returns nil.
+function DataService:Get(player: Player)
+	...
+end
+</code></pre>
+<hr>
+<h2 id="example-workflow"><a class="header" href="#example-workflow">Example workflow</a></h2>
+<ol>
+<li>Select or open a ModuleScript (e.g. <code>DataService</code>)</li>
+<li>Run:
+<ul>
+<li><code>gendocs</code></li>
+</ul>
+</li>
+<li>A new module appears next to it:
+<ul>
+<li><code>DataService_Docs</code></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="troubleshooting-5"><a class="header" href="#troubleshooting-5">Troubleshooting</a></h2>
+<h3 id="error-select-a-modulescript"><a class="header" href="#error-select-a-modulescript">“Error: select a ModuleScript.”</a></h3>
+<p>Your target wasn’t a ModuleScript. Select/open a ModuleScript and run again.</p>
+<h3 id="no-documented-functions-found"><a class="header" href="#no-documented-functions-found">“No documented functions found.”</a></h3>
+<p>Either:</p>
+<ul>
+<li>your Inline functions don’t match the patterns <code>gendocs</code> searches for, or</li>
+<li>there are no TypeDef entries/comments it can parse.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="configuration"><a class="header" href="#configuration">Configuration</a></h1>
@@ -892,7 +1476,7 @@ https://create.roblox.com/store/asset/75708311511053/ScriptSense</p>
 <li>ScriptSense includes <strong>snapshots/backups</strong> to help you recover from mistakes or crashes, making it safer to experiment — especially when applying refactors.</li>
 </ul>
 <hr>
-<h1 id="troubleshooting-1"><a class="header" href="#troubleshooting-1">Troubleshooting</a></h1>
+<h1 id="troubleshooting-6"><a class="header" href="#troubleshooting-6">Troubleshooting</a></h1>
 <h3 id="scriptsense-isnt-showing-up-anywhere-what-should-i-check-first"><a class="header" href="#scriptsense-isnt-showing-up-anywhere-what-should-i-check-first"><strong>ScriptSense isn’t showing up anywhere. What should I check first?</strong></a></h3>
 <ul>
 <li>Make sure ScriptSense is enabled in <strong>Plugins</strong>, then look for the <strong>Terminal</strong> button in the plugin toolbar. If you don’t see it, restart Studio and confirm the plugin is installed (Manage Plugins).</li>

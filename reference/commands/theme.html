@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Tutorials &amp; Guides - ScriptSense Documentation</title>
+        <title>Theme &amp; UI Customization - ScriptSense Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -28,7 +28,7 @@
         <meta name="twitter:image" content="https://scottts.github.io/assets/social.png">
         
         <!-- Icons & PWA -->
-        <link rel="icon" href="../favicon.svg">
+        <link rel="icon" href="../../favicon.svg">
         <link rel="apple-touch-icon" href="https://scottts.github.io/assets/logo.png">
         <link rel="manifest" href="https://scottts.github.io/site.webmanifest">
         <meta name="theme-color" content="#0b3d91">
@@ -64,32 +64,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="../favicon-82e0d3a7.svg">
-        <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
-        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+        <link rel="icon" href="../../favicon-82e0d3a7.svg">
+        <link rel="stylesheet" href="../../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../../css/general-2459343d.css">
+        <link rel="stylesheet" href="../../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+        <link rel="stylesheet" href="../../fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
-        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
-        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "../";
+            const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c1ed238e.js";
+            window.path_to_searchindex_js = "../../searchindex-c1ed238e.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-ed54b17f.js"></script>
+        <script src="../../toc-ed54b17f.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -156,7 +156,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
             </noscript>
             <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -191,7 +191,7 @@
                     <h1 class="menu-title">ScriptSense Documentation</h1>
 
                     <div class="right-buttons">
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
 
@@ -225,26 +225,143 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="-work-in-progress"><a class="header" href="#-work-in-progress">🚧 Work in Progress</a></h1>
-<p>This page is currently under construction.</p>
-<p>Content, examples, and detailed explanations will be added soon.<br>ScriptSense is actively evolving, and documentation is being expanded alongside new improvements.</p>
-<p>In the meantime, you can:</p>
+                        <h1 id="theme--ui-customization-theme"><a class="header" href="#theme--ui-customization-theme">Theme &amp; UI Customization (<code>theme</code>)</a></h1>
+<p>ScriptSense supports <strong>theme presets</strong> and <strong>per-key overrides</strong> to customize the UI.</p>
+<p>Theme changes are stored in <code>ThemeOverrides</code> (a JSON string in ScriptSense settings), and the <code>theme</code> command updates it automatically.</p>
+<blockquote>
+<p>Screenshot placeholder: Add a before/after of a preset (same screen, different theme)<br><code>![Theme before/after](theme-before-after.png)</code></p>
+</blockquote>
+<hr>
+<h2 id="quick-start"><a class="header" href="#quick-start">Quick start</a></h2>
+<h3 id="list-current-overrides--available-presets"><a class="header" href="#list-current-overrides--available-presets">List current overrides + available presets</a></h3>
 <ul>
-<li>Use <code>help</code> inside ScriptSense for quick command guidance.</li>
-<li>Explore the existing Command Reference.</li>
-<li>Check the latest release notes for updates.</li>
+<li><code>theme</code></li>
+<li><code>theme list</code></li>
 </ul>
-<p>Thank you for your patience.</p>
+<h3 id="list-presets-only"><a class="header" href="#list-presets-only">List presets only</a></h3>
+<ul>
+<li><code>theme presets</code></li>
+</ul>
+<h3 id="apply-a-preset-overwrites-all-current-overrides"><a class="header" href="#apply-a-preset-overwrites-all-current-overrides">Apply a preset (overwrites all current overrides)</a></h3>
+<ul>
+<li><code>theme Midnight</code></li>
+<li><code>theme apply Midnight</code></li>
+<li><code>theme set Midnight</code></li>
+<li><code>theme use Midnight</code></li>
+</ul>
+<h3 id="override-a-single-theme-key"><a class="header" href="#override-a-single-theme-key">Override a single theme key</a></h3>
+<ul>
+<li><code>theme set Button #ff0000</code></li>
+<li><code>theme set Text 240,240,240</code></li>
+</ul>
+<h3 id="remove-overrides"><a class="header" href="#remove-overrides">Remove overrides</a></h3>
+<ul>
+<li><code>theme clear Button</code> <em>(removes one key override)</em></li>
+<li><code>theme reset</code> <em>(clears all overrides)</em></li>
+</ul>
+<blockquote>
+<p>GIF placeholder: <code>theme presets</code> → apply preset → <code>theme set Text ...</code> → widget updates<br><code>![Theme command demo](theme-demo.gif)</code></p>
+</blockquote>
+<hr>
+<h2 id="command-reference"><a class="header" href="#command-reference">Command reference</a></h2>
+<h3 id="usage"><a class="header" href="#usage">Usage</a></h3>
+<ul>
+<li><code>theme</code></li>
+<li><code>theme list</code></li>
+<li><code>theme presets</code></li>
+<li><code>theme &lt;PresetName&gt;</code></li>
+<li><code>theme apply &lt;PresetName&gt;</code></li>
+<li><code>theme use &lt;PresetName&gt;</code></li>
+<li><code>theme set &lt;PresetName&gt;</code></li>
+<li><code>theme set &lt;Key&gt; &lt;Color&gt;</code></li>
+<li><code>theme clear &lt;Key&gt;</code></li>
+<li><code>theme reset</code></li>
+</ul>
+<h3 id="aliases"><a class="header" href="#aliases">Aliases</a></h3>
+<ul>
+<li><code>themes</code></li>
+<li><code>uitheme</code></li>
+</ul>
+<hr>
+<h2 id="presets"><a class="header" href="#presets">Presets</a></h2>
+<p>In this snapshot (v2.17.0), the built-in presets include:</p>
+<ul>
+<li>Midnight</li>
+<li>Dracula-ish</li>
+<li>Nord</li>
+<li>Catppuccin Mocha</li>
+<li>Gruvbox Dark</li>
+<li>Tokyo Night</li>
+<li>Rose Pine</li>
+<li>Light Minimal</li>
+<li>Synthwave</li>
+<li>Forest</li>
+<li>Orange Joe</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Preset lists can change between versions/builds.</p>
+</blockquote>
+<blockquote>
+<p>Screenshot placeholder: terminal output of <code>theme presets</code><br><code>![Theme presets output](theme-presets.png)</code></p>
+</blockquote>
+<hr>
+<h2 id="theme-keys"><a class="header" href="#theme-keys">Theme keys</a></h2>
+<p>When you run <code>theme</code> / <code>theme list</code>, ScriptSense prints the <strong>valid theme keys</strong> (these come from <code>UIFactory.Theme</code> and only keys backed by an <code>EnumItem</code> are accepted).</p>
+<p>If you try to set or clear an invalid key, ScriptSense will print a list of valid keys.</p>
+<blockquote>
+<p>Screenshot placeholder: an “Invalid theme key” error showing the valid keys list<br><code>![Invalid theme key](theme-invalid-key.png)</code></p>
+</blockquote>
+<hr>
+<h2 id="colors-supported-formats"><a class="header" href="#colors-supported-formats">Colors: supported formats</a></h2>
+<p><code>theme</code> accepts exactly these formats:</p>
+<ul>
+<li>Hex: <code>#RRGGBB</code></li>
+<li>RGB: <code>R,G,B</code> (0–255)</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><code>theme set Accent #3b82f6</code></li>
+<li><code>theme set Text 235,235,235</code></li>
+</ul>
+<p>If the color is invalid, it prints:</p>
+<ul>
+<li>“Invalid color. Use #RRGGBB or R,G,B”</li>
+</ul>
+<hr>
+<h2 id="what-gets-saved-themeoverrides"><a class="header" href="#what-gets-saved-themeoverrides">What gets saved (ThemeOverrides)</a></h2>
+<p>Theme overrides are saved as JSON in <code>ThemeOverrides</code>.</p>
+<h3 id="shape"><a class="header" href="#shape">Shape:</a></h3>
+<ul>
+<li>A JSON object mapping theme keys → <strong>hex strings</strong> (e.g. <code>"#FF0000"</code>)</li>
+</ul>
+<h3 id="example"><a class="header" href="#example">Example:</a></h3>
+<pre><code class="language-json">{
+  "Text": "#E6EDF3",
+  "Button": "#21262D"
+}
+</code></pre>
+<h3 id="important-details"><a class="header" href="#important-details">Important details:</a></h3>
+<p>Values are stored as hex strings (even if you typed R,G,B).</p>
+<p>Applying a preset overwrites the entire overrides table with the preset’s keys.</p>
+<hr>
+<h2 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h2>
+<h3 id="unknown-theme-preset"><a class="header" href="#unknown-theme-preset">“Unknown theme preset”</a></h3>
+<p>Run theme presets and copy the preset name (matching is flexible, but spelling helps).</p>
+<p>If you’re on a different version/build, the preset may not exist there.</p>
+<h3 id="invalid-theme-key"><a class="header" href="#invalid-theme-key">“Invalid theme key”</a></h3>
+<p>Run theme to see the valid keys list, then copy one of the keys exactly.</p>
+<h3 id="invalid-color"><a class="header" href="#invalid-color">“Invalid color”</a></h3>
+<p>Use #RRGGBB or R,G,B only (0–255).</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../reference/getting-started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../reference/commands.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../reference/commands.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../reference/commands/tasks.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -254,11 +371,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../reference/getting-started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../reference/commands.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../reference/commands.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../reference/commands/tasks.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
@@ -278,13 +395,13 @@
         </script>
 
 
-        <script src="../elasticlunr-ef4e11c1.min.js"></script>
-        <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../../mark-09e88c2c.min.js"></script>
+        <script src="../../searcher-c2a407aa.js"></script>
 
-        <script src="../clipboard-1626706a.min.js"></script>
-        <script src="../highlight-abc7f01d.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../../clipboard-1626706a.min.js"></script>
+        <script src="../../highlight-abc7f01d.js"></script>
+        <script src="../../book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
 

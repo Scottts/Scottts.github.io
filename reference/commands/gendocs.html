@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Tutorials &amp; Guides - ScriptSense Documentation</title>
+        <title>Generate Docs / gendocs - ScriptSense Documentation</title>
 
 
         <!-- Custom HTML head -->
@@ -28,7 +28,7 @@
         <meta name="twitter:image" content="https://scottts.github.io/assets/social.png">
         
         <!-- Icons & PWA -->
-        <link rel="icon" href="../favicon.svg">
+        <link rel="icon" href="../../favicon.svg">
         <link rel="apple-touch-icon" href="https://scottts.github.io/assets/logo.png">
         <link rel="manifest" href="https://scottts.github.io/site.webmanifest">
         <meta name="theme-color" content="#0b3d91">
@@ -64,32 +64,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="../favicon-82e0d3a7.svg">
-        <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
-        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+        <link rel="icon" href="../../favicon-82e0d3a7.svg">
+        <link rel="stylesheet" href="../../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../../css/general-2459343d.css">
+        <link rel="stylesheet" href="../../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+        <link rel="stylesheet" href="../../fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
-        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
-        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "../";
+            const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c1ed238e.js";
+            window.path_to_searchindex_js = "../../searchindex-c1ed238e.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-ed54b17f.js"></script>
+        <script src="../../toc-ed54b17f.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -156,7 +156,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
             </noscript>
             <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -191,7 +191,7 @@
                     <h1 class="menu-title">ScriptSense Documentation</h1>
 
                     <div class="right-buttons">
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
 
@@ -225,26 +225,116 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="-work-in-progress"><a class="header" href="#-work-in-progress">🚧 Work in Progress</a></h1>
-<p>This page is currently under construction.</p>
-<p>Content, examples, and detailed explanations will be added soon.<br>ScriptSense is actively evolving, and documentation is being expanded alongside new improvements.</p>
-<p>In the meantime, you can:</p>
+                        <h1 id="generate-docs-gendocs"><a class="header" href="#generate-docs-gendocs">Generate Docs (<code>gendocs</code>)</a></h1>
+<p><code>gendocs</code> generates a Markdown-style API reference for a <strong>ModuleScript</strong> and writes it into a new ModuleScript next to the target.</p>
+<p>It supports two documentation modes:</p>
 <ul>
-<li>Use <code>help</code> inside ScriptSense for quick command guidance.</li>
-<li>Explore the existing Command Reference.</li>
-<li>Check the latest release notes for updates.</li>
+<li><strong>Proxy (TypeDef)</strong> mode (if your module contains a <code>TypeDef</code> or <code>Types</code> child script)</li>
+<li><strong>Inline (Source)</strong> mode (parses function declarations + preceding <code>--</code> comments)</li>
 </ul>
-<p>Thank you for your patience.</p>
+<hr>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<p><strong>Command:</strong> <code>gendocs (Name)</code></p>
+<ul>
+<li>If <code>(Name)</code> is provided, ScriptSense tries to find a matching module by name.</li>
+<li>If <code>(Name)</code> is omitted, it tries:
+<ol>
+<li>the <strong>ActiveScript</strong></li>
+<li>otherwise, your <strong>current Selection</strong> (first item)</li>
+</ol>
+</li>
+</ul>
+<p><code>gendocs</code> only works on <strong>ModuleScripts</strong>. If the target isn’t a ModuleScript, it logs an error.</p>
+<hr>
+<h2 id="output"><a class="header" href="#output">Output</a></h2>
+<p><code>gendocs</code> creates a ModuleScript named:</p>
+<p><code>&lt;TargetModuleName&gt;_Docs</code></p>
+<p>It is created in the <strong>same parent</strong> as your target module, and ScriptSense opens it automatically.</p>
+<p>If <code>&lt;TargetModuleName&gt;_Docs</code> already exists, <code>gendocs</code> overwrites its contents.</p>
+<p>The generated content is Markdown-like text wrapped inside a Lua block comment so it’s readable in Studio.</p>
+<blockquote>
+<p>Screenshot placeholder: show the generated <code>&lt;ModuleName&gt;_Docs</code> ModuleScript appearing next to the target.</p>
+</blockquote>
+<hr>
+<h2 id="mode-1-proxy-typedef-mode"><a class="header" href="#mode-1-proxy-typedef-mode">Mode 1: Proxy (TypeDef) Mode</a></h2>
+<p>If your module has a child named <strong><code>TypeDef</code></strong> or <strong><code>Types</code></strong> (and it’s a LuaSourceContainer), <code>gendocs</code> parses that child’s <code>.Source</code> instead of the module’s source.</p>
+<p>This mode expects a structure like:</p>
+<ul>
+<li>Entries that look like: <code>MethodName: typeof(...)</code></li>
+<li>A <code>--[[ ... ]]</code> block comment near the method for the description</li>
+<li>A <code>function(self:SomeType, ...)</code> signature inside the typeof block</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>The <code>self:Type</code> parameter is removed from the generated signature for readability.</li>
+<li>Simple HTML-like tags in TypeDef comments are converted:
+<ul>
+<li><code>&lt;strong&gt;</code> → <code>**bold**</code></li>
+<li><code>&lt;em&gt;</code> → <code>*italic*</code></li>
+<li><code>&lt;code&gt;</code> → <code>`inline code`</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="mode-2-inline-source-mode"><a class="header" href="#mode-2-inline-source-mode">Mode 2: Inline (Source) Mode</a></h2>
+<p>If no <code>TypeDef</code> / <code>Types</code> child exists, <code>gendocs</code> scans the module source for function definitions like:</p>
+<ul>
+<li><code>function module.Name(...)</code></li>
+<li><code>function module:Name(...)</code></li>
+</ul>
+<p>It then looks <strong>upwards</strong> for contiguous <code>--</code> comments directly above the function and uses those as the description.</p>
+<p><strong>Rules:</strong></p>
+<ul>
+<li>It stops collecting comments when it hits a line containing <code>---</code>.</li>
+<li>If no description is found, it outputs: <code>No description provided.</code></li>
+</ul>
+<blockquote>
+<p>Screenshot placeholder: a function with <code>--</code> comments above it, and the corresponding generated entry.</p>
+</blockquote>
+<hr>
+<h3 id="recommended-inline-doc-style"><a class="header" href="#recommended-inline-doc-style">Recommended inline doc style</a></h3>
+<p>Put <code>--</code> comments directly above the function:</p>
+<pre><code class="language-lua">-- Returns the player’s cached data.
+-- If the player has no cache entry, returns nil.
+function DataService:Get(player: Player)
+	...
+end
+</code></pre>
+<hr>
+<h2 id="example-workflow"><a class="header" href="#example-workflow">Example workflow</a></h2>
+<ol>
+<li>Select or open a ModuleScript (e.g. <code>DataService</code>)</li>
+<li>Run:
+<ul>
+<li><code>gendocs</code></li>
+</ul>
+</li>
+<li>A new module appears next to it:
+<ul>
+<li><code>DataService_Docs</code></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h2>
+<h3 id="error-select-a-modulescript"><a class="header" href="#error-select-a-modulescript">“Error: select a ModuleScript.”</a></h3>
+<p>Your target wasn’t a ModuleScript. Select/open a ModuleScript and run again.</p>
+<h3 id="no-documented-functions-found"><a class="header" href="#no-documented-functions-found">“No documented functions found.”</a></h3>
+<p>Either:</p>
+<ul>
+<li>your Inline functions don’t match the patterns <code>gendocs</code> searches for, or</li>
+<li>there are no TypeDef entries/comments it can parse.</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../reference/getting-started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../reference/commands/report.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../reference/commands.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../reference/configuration.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -254,11 +344,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../reference/getting-started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../reference/commands/report.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../reference/commands.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../reference/configuration.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
@@ -278,13 +368,13 @@
         </script>
 
 
-        <script src="../elasticlunr-ef4e11c1.min.js"></script>
-        <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../../mark-09e88c2c.min.js"></script>
+        <script src="../../searcher-c2a407aa.js"></script>
 
-        <script src="../clipboard-1626706a.min.js"></script>
-        <script src="../highlight-abc7f01d.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../../clipboard-1626706a.min.js"></script>
+        <script src="../../highlight-abc7f01d.js"></script>
+        <script src="../../book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
 
