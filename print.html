@@ -87,7 +87,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-a165728e.js";
+            window.path_to_searchindex_js = "searchindex-ed2f19e2.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-bacbec6a.js"></script>
@@ -313,6 +313,24 @@
 <li><strong>Usage</strong>: help (PageNumber) OR help (CommandName)</li>
 <li><strong>Example</strong>: help rename</li>
 </ul>
+<h3 id="docs"><a class="header" href="#docs"><strong>docs</strong></a></h3>
+<p>Opens the internal knowledge base (GitHub Pages).</p>
+<ul>
+<li><strong>Usage</strong>: docs (CommandName)</li>
+<li><strong>Options</strong>:
+<ul>
+<li>If <code>CommandName</code> is omitted, opens the docs homepage.</li>
+<li>If <code>CommandName</code> is provided and matches a command module, opens the <code>commands</code> page anchored to that command section.</li>
+<li>Matching is case-insensitive.</li>
+</ul>
+</li>
+<li><strong>Example</strong>:
+<ul>
+<li>docs</li>
+<li>docs scan</li>
+</ul>
+</li>
+</ul>
 <h3 id="clear"><a class="header" href="#clear"><strong>clear</strong></a></h3>
 <p>Clears the terminal output.</p>
 <ul>
@@ -341,6 +359,7 @@
 <li><strong>Example</strong>: report bug The terminal is flickering</li>
 <li><strong>Example</strong>:
 <img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/feedback.png" alt="Report/Feedback UI"></li>
+<li><strong>Aliases</strong>: feedback, bug, suggestion, -n</li>
 </ul>
 <hr>
 <h2 id="refactoring--code-editing"><a class="header" href="#refactoring--code-editing"><strong>Refactoring &amp; Code Editing</strong></a></h2>
@@ -471,6 +490,7 @@
 <li><strong>Usage</strong>: tasks</li>
 <li><strong>Example</strong>:
 <img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-hub.png" alt="Task Hub UI"></li>
+<li><strong>Aliases</strong>: todo, board</li>
 </ul>
 <hr>
 <h2 id="analysis--visualization"><a class="header" href="#analysis--visualization"><strong>Analysis &amp; Visualization</strong></a></h2>
@@ -493,8 +513,7 @@
 <li><strong>Usage</strong>: tree (Name)</li>
 </ul>
 <h3 id="network"><a class="header" href="#network"><strong>network</strong></a></h3>
-<p>tas
-Visualizes Network Traffic (RemoteEvents/Functions) in the Graph View.</p>
+<p>Visualizes Network Traffic (RemoteEvents/Functions) in the Graph View.</p>
 <ul>
 <li><strong>Usage</strong>: network</li>
 </ul>
@@ -506,13 +525,25 @@ Visualizes Network Traffic (RemoteEvents/Functions) in the Graph View.</p>
 <li><strong>Note</strong>: Select a script to view its history.</li>
 </ul>
 <h3 id="diff"><a class="header" href="#diff"><strong>diff</strong></a></h3>
-<p>Compares current script with a historical snapshot.</p>
+<p>Compares a script with a historical snapshot using RichText coloring.</p>
 <ul>
-<li><strong>Usage</strong>: diff</li>
+<li><strong>Usage</strong>: diff (Index)</li>
 <li><strong>Aliases</strong>: compare, changes</li>
-<li><strong>Note</strong>: Select a script OR StringValue (ScriptSense history snapshot) to view its history.</li>
+<li><strong>Options</strong>:
+<ul>
+<li>Select a <strong>LuaSourceContainer</strong> (a script/module/local script), then run <code>diff</code> to compare it with its snapshot history.</li>
+<li><code>(Index)</code> chooses which snapshot entry to compare against (defaults to <code>1</code>).</li>
+<li>If the latest snapshot matches current source, <code>diff</code> automatically skips forward to the next snapshot when possible.</li>
+<li>You can also select a <strong>StringValue snapshot</strong> inside ScriptSense history; the command will try to locate the matching script and compare.</li>
+</ul>
+</li>
 <li><strong>Example</strong>:
-<img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/diff-example.png" alt="Diff comparison UI"></li>
+<ul>
+<li>diff</li>
+<li>diff 2</li>
+<li>diff 3<br><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/diff-example.png" alt="Diff comparison UI"></li>
+</ul>
+</li>
 </ul>
 <h3 id="gendocs"><a class="header" href="#gendocs"><strong>gendocs</strong></a></h3>
 <p>Generates Markdown documentation from TypeDef files or source comments.</p>
@@ -530,9 +561,50 @@ Visualizes Network Traffic (RemoteEvents/Functions) in the Graph View.</p>
 <ul>
 <li>config: List all settings (Paged).</li>
 <li>config [Key] [Value]: Set a specific setting.</li>
+<li><strong>Aliases</strong>: setting, settings, configuration, configs, configurations</li>
 </ul>
 </li>
-<li><strong>Aliases</strong>: setting, settings</li>
+</ul>
+<h3 id="theme"><a class="header" href="#theme"><strong>theme</strong></a></h3>
+<p>Manage UI theme presets and per-key theme overrides.</p>
+<ul>
+<li><strong>Usage</strong>:
+<ul>
+<li>theme</li>
+<li>theme list</li>
+<li>theme presets</li>
+<li>theme (PresetName)</li>
+<li>theme apply (PresetName)</li>
+<li>theme set (PresetName)</li>
+<li>theme set (Key) (Color)</li>
+<li>theme clear (Key)</li>
+<li>theme reset</li>
+</ul>
+</li>
+<li><strong>Aliases</strong>: themes, uitheme</li>
+<li><strong>Options</strong>:
+<ul>
+<li><code>theme</code> / <code>theme list</code>: Shows current overrides + available preset names.</li>
+<li><code>theme presets</code>: Lists preset themes.</li>
+<li><code>theme (PresetName)</code>: Applies the preset immediately.</li>
+<li><code>theme apply (PresetName)</code> / <code>theme set (PresetName)</code>: Applies the preset.</li>
+<li><code>theme set (Key) (Color)</code>: Sets a single override key.</li>
+<li><code>theme clear (Key)</code>: Removes the override for that key.</li>
+<li><code>theme reset</code>: Clears all overrides.</li>
+<li><strong>Color formats</strong>: <code>#RRGGBB</code> or <code>R,G,B</code>.</li>
+</ul>
+</li>
+<li><strong>Preset names</strong> (current): Midnight, Dracula-ish, Nord, Catppuccin Mocha, Gruvbox Dark, Tokyo Night, Rose Pine, Light Minimal, Synthwave, Forest (and Orange Joe)</li>
+<li><strong>Examples</strong>:
+<ul>
+<li>theme presets</li>
+<li>theme Midnight</li>
+<li>theme set Button #ff0000</li>
+<li>theme set Text 240,240,240</li>
+<li>theme clear Button</li>
+<li>theme reset</li>
+</ul>
+</li>
 </ul>
 <h3 id="define"><a class="header" href="#define"><strong>define</strong></a></h3>
 <p>Define a macro with optional dependencies.</p>
@@ -626,7 +698,7 @@ Visualizes Network Traffic (RemoteEvents/Functions) in the Graph View.</p>
 <li><strong>Usage</strong>: runtests</li>
 <li><strong>Aliases</strong>: specs, test-all</li>
 </ul>
-<h3 id="data"><a class="header" href="#data"><strong>data</strong></a></h3>
+<h3 id="data-will-be-deprecated"><a class="header" href="#data-will-be-deprecated"><strong>data</strong> (WILL BE DEPRECATED!)</a></h3>
 <p>Opens the DataStore Editor.</p>
 <ul>
 <li>
