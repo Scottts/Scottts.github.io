@@ -205,7 +205,7 @@ Aggregates all TODO, FIXME, and HACK comments into a centralized hub.
   * local: show tasks for the currently open script.
   * global: show tasks across the entire project.
 * **Example**:
-![Tasks Hub UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/tasks-hub.png)
+![Tasks Hub UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-hub.png)
 * **Aliases**: todo, board
 
 ---
@@ -434,5 +434,6 @@ Opens the DataStore Editor.
     <p>Copyright &copy; 2026 Kel (@GudEveningBois). Built with mdBook.</p>
 
 </footer>
+
 
 
