@@ -67,6 +67,7 @@ Sends feedback, bug reports, or suggestions to the author.
 * **Example**:
 ![Report/Feedback UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/feedback.png)
 * **Aliases**: feedback, bug, suggestion, -n
+* **More**: [Reporting & Feedback](commands/report.md)
 
 ---
 
@@ -207,6 +208,7 @@ Aggregates all TODO, FIXME, and HACK comments into a centralized hub.
 * **Example**:
 ![Tasks Hub UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-hub.png)
 * **Aliases**: todo, board
+* **More**: [Tasks Hub](commands/tasks.md)
 
 ---
 
@@ -246,6 +248,7 @@ View script edit history (if using ScriptSense history tracking) as a tree.
 * **Usage**: history  
 * **Aliases**: log, timeline  
 * **Note**: Select a script to view its history.
+* **More**: [History & Diff](commands/history-diff.md)
 
 ### **diff**
 
@@ -263,6 +266,7 @@ Compares a script with a historical snapshot using RichText coloring.
   * diff 2  
   * diff 3  
 ![Diff comparison UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/diff-example.png)
+* **More**: [History & Diff](commands/history-diff.md#diff)
 
 ### **gendocs**
 
@@ -270,6 +274,7 @@ Generates Markdown documentation from TypeDef files or source comments.
 
 * **Usage**: gendocs (Name)  
 * **Result**: Creates a README script in the module's parent.
+* **More**: [Generate Docs / gendocs](commands/gendocs.md)
 
 ---
 
@@ -317,6 +322,7 @@ Manage UI theme presets and per-key theme overrides.
   * theme set Text 240,240,240  
   * theme clear Button  
   * theme reset
+* **More**: [Theme & UI Customization](commands/theme.md)
 
 ### **define**
 
@@ -425,15 +431,3 @@ Opens the DataStore Editor.
 
 * **Example**:
 ![Data Editor/Surgeon UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/data-editor.png)
----
-<footer class="custom-footer">
-    <div class="footer-links">
-        <a href="https://www.roblox.com/users/635454083/profile" target="_blank" rel="noopener noreferrer">Roblox</a>
-        <a href="https://www.youtube.com/@KeIlllIl" target="_blank" rel="noopener noreferrer">YouTube</a>
-    </div>
-    <p>Copyright &copy; 2026 Kel (@GudEveningBois). Built with mdBook.</p>
-
-</footer>
-
-
-
