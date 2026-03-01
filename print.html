@@ -87,7 +87,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-07fdb6da.js";
+            window.path_to_searchindex_js = "searchindex-59f2fa8a.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c09d2e48.js"></script>
@@ -932,11 +932,11 @@ https://create.roblox.com/store/asset/75708311511053/ScriptSense</p>
 </ul>
 <h3 id="im-seeing-warnings-that-dont-seem-correct-false-positives"><a class="header" href="#im-seeing-warnings-that-dont-seem-correct-false-positives"><strong>I’m seeing warnings that don’t seem correct (false positives).</strong></a></h3>
 <ul>
-<li>ScriptSense is best at static patterns; dynamic code (runtime instance creation, dynamic <code>require</code>, metatable-heavy patterns) can confuse analyzers. Use ignore/disable options or adding a simple <code>-- ss-ignore</code> comment on the line(s) for specific rules or narrow scans to the current script when needed.</li>
+<li>ScriptSense is best at static patterns; dynamic code (runtime instance creation, dynamic <code>require</code>, metatable-heavy patterns) can confuse analyzers. Use ignore/disable options or adding a simple <code>-- ss-ignore</code> / <code>-- lint-ignore</code> comment on the line(s) for specific rules or narrow scans to the current script when needed.</li>
 </ul>
 <h3 id="why-does-it-flag-wait--getfenv"><a class="header" href="#why-does-it-flag-wait--getfenv"><strong>Why does it flag <code>wait()</code> / <code>getfenv()</code>?</strong></a></h3>
 <ul>
-<li>Some rules intentionally discourage deprecated/unsafe patterns. If your use case is intentional, add a <code>-- ss-ignore</code> comment on the line(s).</li>
+<li>Some rules intentionally discourage deprecated/unsafe patterns. If your use case is intentional, add a <code>-- ss-ignore</code> / <code>-- lint-ignore</code> comment on the line(s).</li>
 </ul>
 <blockquote>
 <p><strong>Note:</strong> Linter rules will be exposed in a later update for editing.</p>
