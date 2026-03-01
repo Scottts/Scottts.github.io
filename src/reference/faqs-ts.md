@@ -56,10 +56,10 @@ ScriptSense FAQs and quick fixes for common issues. Learn what ScriptSense is (a
 * First runs typically build a project index (scripts/modules/dependencies). After the index exists, scans should be faster due to caching.
 
 ### **I’m seeing warnings that don’t seem correct (false positives).**
-* ScriptSense is best at static patterns; dynamic code (runtime instance creation, dynamic `require`, metatable-heavy patterns) can confuse analyzers. Use ignore/disable options or adding a simple `-- ss-ignore` comment on the line(s) for specific rules or narrow scans to the current script when needed.
+* ScriptSense is best at static patterns; dynamic code (runtime instance creation, dynamic `require`, metatable-heavy patterns) can confuse analyzers. Use ignore/disable options or adding a simple `-- ss-ignore` / `-- lint-ignore` comment on the line(s) for specific rules or narrow scans to the current script when needed.
 
 ### **Why does it flag `wait()` / `getfenv()`?**
-* Some rules intentionally discourage deprecated/unsafe patterns. If your use case is intentional, add a `-- ss-ignore` comment on the line(s).
+* Some rules intentionally discourage deprecated/unsafe patterns. If your use case is intentional, add a `-- ss-ignore` / `-- lint-ignore` comment on the line(s).
 > **Note:** Linter rules will be exposed in a later update for editing.
 
 ### **It says “broken path,” but the game runs fine.**
