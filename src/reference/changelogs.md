@@ -4,6 +4,28 @@ This page tracks notable changes to ScriptSense.
 
 ---
 
+## v2.17.0 — 2026-03-01
+
+### Highlights
+- Introduced command suggestions and inline hints.
+- The command palette now guides input with contextual autocomplete.
+
+### Added
+- Inline command suggestions while typing.
+- Autocomplete support for:
+  - Commands
+  - Arguments
+  - Themes
+  - Sessions
+  - Help pages
+  - Scripts
+  - And other supported entities
+
+### Changed
+- The command palette now actively assists with input instead of acting as a passive terminal.
+
+> Notes: This update makes ScriptSense feel significantly more interactive and beginner-friendly.
+
 ## v2.16.0 — 2026-02-27
 
 ### Highlights
@@ -63,7 +85,7 @@ This page tracks notable changes to ScriptSense.
 
 ### Added
 - `docs` command now opens the internal knowledge base (GitHub Pages).
-- `tasks` now supports `global` and `local` scope (show tasks only in the current project).
+- `tasks` now supports `global` and `local` scope (show tasks only in the current opened script).
 - `tasks` now has its own hub.
 
 ### Changed
@@ -108,28 +130,6 @@ This page tracks notable changes to ScriptSense.
 - Import suggestions no longer trigger while typing inside a multi-line comment.
 
 ---
-
-## v2.17.0 — 2026-03-01
-
-### Highlights
-- Introduced command suggestions and inline hints.
-- The command palette now guides input with contextual autocomplete.
-
-### Added
-- Inline command suggestions while typing.
-- Autocomplete support for:
-  - Commands
-  - Arguments
-  - Themes
-  - Sessions
-  - Help pages
-  - Scripts
-  - And other supported entities
-
-### Changed
-- The command palette now actively assists with input instead of acting as a passive terminal.
-
-> Notes: This update makes ScriptSense feel significantly more interactive and beginner-friendly.
 
 ## v2.8.1 — 2026-01-27
 
