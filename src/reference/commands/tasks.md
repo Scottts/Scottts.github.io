@@ -2,8 +2,8 @@
 
 `tasks` displays all **TODO**, **FIXME**, **HACK**, and **NOTE** comments in an interactive Tasks widget.
 
-> Screenshot placeholder: the Tasks widget UI  
-> `![Tasks Hub UI](task-hub.png)`
+> Screenshot placeholder: the Tasks widget UI
+![Tasks Hub UI](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-hub.png)
 
 ---
 
@@ -28,6 +28,7 @@ The Tasks widget lists task items with:
 - A **Jump To** button that opens the script at that line
 
 > Screenshot placeholder: a task card showing tag + message + `(Line X)` and the Jump button.
+![Task card and its contents](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-card.png)
 
 ---
 
@@ -64,7 +65,7 @@ Typing in the search box filters tasks by:
 - script name
 
 > Screenshot placeholder: filter dropdown open (showing TODO/FIXME/HACK/NOTE toggles).  
-> GIF placeholder: typing in search to filter the list.
+![Typing in search to filter the list](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/filter-dropdown.gif)
 
 ---
 
@@ -94,7 +95,7 @@ When opened/refreshed, ScriptSense logs:
 ## Troubleshooting
 
 ### “Local is empty but I see TODOs”
-Local mode only shows tasks for the **active script**. Open the script that contains the TODOs, then run `tasks local`. 12
+Local mode only shows tasks for the **active script**. Open the script that contains the TODOs, then run `tasks local`.
 
 ### “Jump To doesn’t open the right spot”
 Jump uses `plugin:OpenScript(script, line)`. If line numbers are off, it usually means the file changed since tasks were scanned—re-run `tasks` to refresh.

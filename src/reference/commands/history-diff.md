@@ -9,10 +9,10 @@ View a script’s snapshot history as a clickable tree, then compare any snapsho
 View a script’s snapshot history as a clickable tree. Each entry can be opened in the snapshot viewer.
 
 > Screenshot placeholder: terminal output of the tree (with branches + hashes)  
-> `![History tree](history-tree.png)`
+![History tree](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/history-tree.png)
 
 > Screenshot placeholder: snapshot viewer opened from a history entry  
-> `![Snapshot viewer](history-viewer.png)`
+![Snapshot viewer](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/history-viewer.png)
 
 ---
 
@@ -39,8 +39,7 @@ View a script’s snapshot history as a clickable tree. Each entry can be opened
 
 Each entry is **clickable** — clicking opens that snapshot in the viewer.
 
-> GIF placeholder: clicking an entry → viewer opens  
-> `![Click to open snapshot](history-click.gif)`
+![Click to open snapshot](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/history-click.gif)
 
 ---
 
@@ -87,8 +86,7 @@ Entries open the viewer via `SnapshotManager:OpenViewer(...)`. If nothing opens,
 
 Compare a script with a historical snapshot using RichText coloring (additions are green, removals are red).
 
-> Screenshot placeholder: diff output window (with green `+` and red `-` lines)
-> `![Diff output](diff-example.png)`
+![Diff output](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/diff-example.png)
 
 ---
 
@@ -140,7 +138,7 @@ Diff output is shown in the command palette output window and includes:
   - Lines starting with `+` are highlighted green
   - Lines starting with `-` are highlighted red
 
-> Screenshot placeholder: summary line showing “additions” and “removals”.
+![Summary line of additions and removals](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/diff-additions-removals.png)
 
 ---
 

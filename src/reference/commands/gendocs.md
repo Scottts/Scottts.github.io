@@ -33,7 +33,7 @@ If `<TargetModuleName>_Docs` already exists, `gendocs` overwrites its contents.
 
 The generated content is Markdown-like text wrapped inside a Lua block comment so it’s readable in Studio.
 
-> Screenshot placeholder: show the generated `<ModuleName>_Docs` ModuleScript appearing next to the target.
+![Gendocs file next to target](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/gen-docs.png)
 
 ---
 
@@ -69,7 +69,7 @@ It then looks **upwards** for contiguous `--` comments directly above the functi
 - It stops collecting comments when it hits a line containing `---`.
 - If no description is found, it outputs: `No description provided.`
 
-> Screenshot placeholder: a function with `--` comments above it, and the corresponding generated entry.
+![Function with '--' comments above it and corresponding generated entry](https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/gendocs-example.png)
 
 ---
 

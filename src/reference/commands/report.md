@@ -18,7 +18,7 @@ It supports:
 ### UI mode (recommended)
 - `report`
 
-Opens the Report window. 7
+Opens the Report window.
 
 ### CLI mode (quick draft)
 - `report <message>`
@@ -26,7 +26,7 @@ Opens the Report window. 7
 - `report suggestion <message>`
 - `report security <message>`
 
-CLI mode creates a pending draft and asks for confirmation. 8
+CLI mode creates a pending draft and asks for confirmation.
 
 ### Aliases
 - `feedback`
@@ -73,7 +73,7 @@ If no key is set, ScriptSense will show:
 
 ## Include context (optional)
 
-The report UI includes a toggle for sending a small context snapshot. When enabled, ScriptSense includes: 16
+The report UI includes a toggle for sending a small context snapshot. When enabled, ScriptSense includes:
 - ScriptSense version
 - macro count
 - whether Studio is in Edit or Run mode

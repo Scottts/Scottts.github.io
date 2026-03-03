@@ -1,3 +1,4 @@
+/* AI generated cause fuck this */
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Work+Sans:wght@400;500;600;700&display=swap');
 
 :root {
@@ -195,16 +196,11 @@ code {
     padding: 0.15em 0.3em;
 }
 
-/* =========================================
-   Logo & Title Adjustments
-   ========================================= */
-/* Hide the default text titles since we use the large logo */
 .sidebar .sidebar-header .book-title,
 .menu-title {
     display: none !important; 
 }
 
-/* Make the logo fit beautifully in the sidebar */
 .sidebar .logo img {
     max-width: 85%;
     height: auto;
@@ -212,9 +208,6 @@ code {
     display: block;
 }
 
-/* =========================================
-   Custom Footer Styling
-   ========================================= */
 .custom-footer {
     margin-top: 5rem;
     padding-top: 2rem;
@@ -242,10 +235,6 @@ code {
     color: var(--links);
 }
 
-/* =========================================
-   UX Polish & Video Adjustments
-   ========================================= */
-/* Video embed wrapper (kept your original) */
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -265,7 +254,6 @@ code {
     border: 0;
 }
 
-/* Modern Link Hovers */
 main a:not(.header):not(.custom-footer a) {
     text-decoration: none;
     border-bottom: 1px solid transparent;
@@ -276,7 +264,6 @@ main a:not(.header):not(.custom-footer a):hover {
     border-bottom: 1px solid var(--links);
 }
 
-/* Better Blockquotes for "Notes" */
 blockquote {
     border-left: 4px solid var(--links);
     background: var(--quote-bg, #f3f4f6);
@@ -285,7 +272,6 @@ blockquote {
     margin: 1.5rem 0;
 }
 
-/* Modern Scrollbars */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -301,7 +287,6 @@ blockquote {
     background: #6b7280; 
 }
 
-/* Ensure accessible tap targets and hover/focus parity for interactive elements */
 .menu-bar button,
 .icon-button,
 .sidebar a,
@@ -324,7 +309,6 @@ main a:not(.header):not(.custom-footer a):focus-visible,
     outline-offset: 2px;
 }
 
-/* Responsive layout spacing for hero/video/sidebar areas */
 @media (max-width: 1024px) {
     .sidebar {
         padding-top: 0.75rem;
@@ -375,7 +359,6 @@ main a:not(.header):not(.custom-footer a):focus-visible,
     }
 }
 
-/* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
