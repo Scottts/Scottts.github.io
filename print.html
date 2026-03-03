@@ -87,7 +87,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-a7399635.js";
+            window.path_to_searchindex_js = "searchindex-ad3c6000.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-ed54b17f.js"></script>
@@ -908,7 +908,8 @@
 <h1 id="tasks-hub-tasks"><a class="header" href="#tasks-hub-tasks">Tasks Hub (<code>tasks</code>)</a></h1>
 <p><code>tasks</code> displays all <strong>TODO</strong>, <strong>FIXME</strong>, <strong>HACK</strong>, and <strong>NOTE</strong> comments in an interactive Tasks widget.</p>
 <blockquote>
-<p>Screenshot placeholder: the Tasks widget UI<br><code>![Tasks Hub UI](task-hub.png)</code></p>
+<p>Screenshot placeholder: the Tasks widget UI
+<img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-hub.png" alt="Tasks Hub UI"></p>
 </blockquote>
 <hr>
 <h2 id="usage-1"><a class="header" href="#usage-1">Usage</a></h2>
@@ -932,7 +933,8 @@
 <li>A <strong>Jump To</strong> button that opens the script at that line</li>
 </ul>
 <blockquote>
-<p>Screenshot placeholder: a task card showing tag + message + <code>(Line X)</code> and the Jump button.</p>
+<p>Screenshot placeholder: a task card showing tag + message + <code>(Line X)</code> and the Jump button.
+<img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-card.png" alt="Task card and its contents"></p>
 </blockquote>
 <hr>
 <h2 id="scopes-local-vs-global"><a class="header" href="#scopes-local-vs-global">Scopes (Local vs Global)</a></h2>
@@ -968,7 +970,7 @@
 <li>script name</li>
 </ul>
 <blockquote>
-<p>Screenshot placeholder: filter dropdown open (showing TODO/FIXME/HACK/NOTE toggles).<br>GIF placeholder: typing in search to filter the list.</p>
+<p>Screenshot placeholder: filter dropdown open (showing TODO/FIXME/HACK/NOTE toggles).<br><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/filter-dropdown.gif" alt="Typing in search to filter the list"></p>
 </blockquote>
 <hr>
 <h2 id="what-gets-scanned"><a class="header" href="#what-gets-scanned">What gets scanned</a></h2>
@@ -989,7 +991,7 @@
 <hr>
 <h2 id="troubleshooting-2"><a class="header" href="#troubleshooting-2">Troubleshooting</a></h2>
 <h3 id="local-is-empty-but-i-see-todos"><a class="header" href="#local-is-empty-but-i-see-todos">“Local is empty but I see TODOs”</a></h3>
-<p>Local mode only shows tasks for the <strong>active script</strong>. Open the script that contains the TODOs, then run <code>tasks local</code>. 12</p>
+<p>Local mode only shows tasks for the <strong>active script</strong>. Open the script that contains the TODOs, then run <code>tasks local</code>.</p>
 <h3 id="jump-to-doesnt-open-the-right-spot"><a class="header" href="#jump-to-doesnt-open-the-right-spot">“Jump To doesn’t open the right spot”</a></h3>
 <p>Jump uses <code>plugin:OpenScript(script, line)</code>. If line numbers are off, it usually means the file changed since tasks were scanned—re-run <code>tasks</code> to refresh.</p>
 <div style="break-before: page; page-break-before: always;"></div>
@@ -999,10 +1001,10 @@
 <h1 id="history-history"><a class="header" href="#history-history">History (<code>history</code>)</a></h1>
 <p>View a script’s snapshot history as a clickable tree. Each entry can be opened in the snapshot viewer.</p>
 <blockquote>
-<p>Screenshot placeholder: terminal output of the tree (with branches + hashes)<br><code>![History tree](history-tree.png)</code></p>
+<p>Screenshot placeholder: terminal output of the tree (with branches + hashes)<br><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/history-tree.png" alt="History tree"></p>
 </blockquote>
 <blockquote>
-<p>Screenshot placeholder: snapshot viewer opened from a history entry<br><code>![Snapshot viewer](history-viewer.png)</code></p>
+<p>Screenshot placeholder: snapshot viewer opened from a history entry<br><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/history-viewer.png" alt="Snapshot viewer"></p>
 </blockquote>
 <hr>
 <h2 id="usage-2"><a class="header" href="#usage-2">Usage</a></h2>
@@ -1026,9 +1028,7 @@
 <li>the snapshot label/message</li>
 </ul>
 <p>Each entry is <strong>clickable</strong> — clicking opens that snapshot in the viewer.</p>
-<blockquote>
-<p>GIF placeholder: clicking an entry → viewer opens<br><code>![Click to open snapshot](history-click.gif)</code></p>
-</blockquote>
+<p><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/history-click.gif" alt="Click to open snapshot"></p>
 <hr>
 <h2 id="requirements"><a class="header" href="#requirements">Requirements</a></h2>
 <h3 id="you-must-select-a-script"><a class="header" href="#you-must-select-a-script">You must select a script</a></h3>
@@ -1065,10 +1065,7 @@
 <hr>
 <h1 id="diff-diff"><a class="header" href="#diff-diff">Diff (<code>diff</code>)</a></h1>
 <p>Compare a script with a historical snapshot using RichText coloring (additions are green, removals are red).</p>
-<blockquote>
-<p>Screenshot placeholder: diff output window (with green <code>+</code> and red <code>-</code> lines)
-<code>![Diff output](diff-example.png)</code></p>
-</blockquote>
+<p><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/diff-example.png" alt="Diff output"></p>
 <hr>
 <h2 id="usage-1-1"><a class="header" href="#usage-1-1">Usage</a></h2>
 <h3 id="option-a-compare-a-script-recommended"><a class="header" href="#option-a-compare-a-script-recommended">Option A: Compare a script (recommended)</a></h3>
@@ -1122,9 +1119,7 @@
 </ul>
 </li>
 </ul>
-<blockquote>
-<p>Screenshot placeholder: summary line showing “additions” and “removals”.</p>
-</blockquote>
+<p><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/diff-additions-removals.png" alt="Summary line of additions and removals"></p>
 <hr>
 <h2 id="requirements-1"><a class="header" href="#requirements-1">Requirements</a></h2>
 <h3 id="you-must-select-something"><a class="header" href="#you-must-select-something">You must select something</a></h3>
@@ -1169,7 +1164,7 @@
 <ul>
 <li><code>report</code></li>
 </ul>
-<p>Opens the Report window. 7</p>
+<p>Opens the Report window.</p>
 <h3 id="cli-mode-quick-draft"><a class="header" href="#cli-mode-quick-draft">CLI mode (quick draft)</a></h3>
 <ul>
 <li><code>report &lt;message&gt;</code></li>
@@ -1177,7 +1172,7 @@
 <li><code>report suggestion &lt;message&gt;</code></li>
 <li><code>report security &lt;message&gt;</code></li>
 </ul>
-<p>CLI mode creates a pending draft and asks for confirmation. 8</p>
+<p>CLI mode creates a pending draft and asks for confirmation.</p>
 <h3 id="aliases-3"><a class="header" href="#aliases-3">Aliases</a></h3>
 <ul>
 <li><code>feedback</code></li>
@@ -1220,7 +1215,7 @@
 </ul>
 <hr>
 <h2 id="include-context-optional"><a class="header" href="#include-context-optional">Include context (optional)</a></h2>
-<p>The report UI includes a toggle for sending a small context snapshot. When enabled, ScriptSense includes: 16</p>
+<p>The report UI includes a toggle for sending a small context snapshot. When enabled, ScriptSense includes:</p>
 <ul>
 <li>ScriptSense version</li>
 <li>macro count</li>
@@ -1287,9 +1282,7 @@
 <p>It is created in the <strong>same parent</strong> as your target module, and ScriptSense opens it automatically.</p>
 <p>If <code>&lt;TargetModuleName&gt;_Docs</code> already exists, <code>gendocs</code> overwrites its contents.</p>
 <p>The generated content is Markdown-like text wrapped inside a Lua block comment so it’s readable in Studio.</p>
-<blockquote>
-<p>Screenshot placeholder: show the generated <code>&lt;ModuleName&gt;_Docs</code> ModuleScript appearing next to the target.</p>
-</blockquote>
+<p><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/gen-docs.png" alt="Gendocs file next to target"></p>
 <hr>
 <h2 id="mode-1-proxy-typedef-mode"><a class="header" href="#mode-1-proxy-typedef-mode">Mode 1: Proxy (TypeDef) Mode</a></h2>
 <p>If your module has a child named <strong><code>TypeDef</code></strong> or <strong><code>Types</code></strong> (and it’s a LuaSourceContainer), <code>gendocs</code> parses that child’s <code>.Source</code> instead of the module’s source.</p>
@@ -1323,9 +1316,7 @@
 <li>It stops collecting comments when it hits a line containing <code>---</code>.</li>
 <li>If no description is found, it outputs: <code>No description provided.</code></li>
 </ul>
-<blockquote>
-<p>Screenshot placeholder: a function with <code>--</code> comments above it, and the corresponding generated entry.</p>
-</blockquote>
+<p><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/gendocs-example.png" alt="Function with ‘–’ comments above it and corresponding generated entry"></p>
 <hr>
 <h3 id="recommended-inline-doc-style"><a class="header" href="#recommended-inline-doc-style">Recommended inline doc style</a></h3>
 <p>Put <code>--</code> comments directly above the function:</p>

@@ -86,7 +86,7 @@
             const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../searchindex-a7399635.js";
+            window.path_to_searchindex_js = "../../searchindex-ad3c6000.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../toc-ed54b17f.js"></script>
@@ -252,9 +252,7 @@
 <p>It is created in the <strong>same parent</strong> as your target module, and ScriptSense opens it automatically.</p>
 <p>If <code>&lt;TargetModuleName&gt;_Docs</code> already exists, <code>gendocs</code> overwrites its contents.</p>
 <p>The generated content is Markdown-like text wrapped inside a Lua block comment so it’s readable in Studio.</p>
-<blockquote>
-<p>Screenshot placeholder: show the generated <code>&lt;ModuleName&gt;_Docs</code> ModuleScript appearing next to the target.</p>
-</blockquote>
+<p><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/gen-docs.png" alt="Gendocs file next to target"></p>
 <hr>
 <h2 id="mode-1-proxy-typedef-mode"><a class="header" href="#mode-1-proxy-typedef-mode">Mode 1: Proxy (TypeDef) Mode</a></h2>
 <p>If your module has a child named <strong><code>TypeDef</code></strong> or <strong><code>Types</code></strong> (and it’s a LuaSourceContainer), <code>gendocs</code> parses that child’s <code>.Source</code> instead of the module’s source.</p>
@@ -288,9 +286,7 @@
 <li>It stops collecting comments when it hits a line containing <code>---</code>.</li>
 <li>If no description is found, it outputs: <code>No description provided.</code></li>
 </ul>
-<blockquote>
-<p>Screenshot placeholder: a function with <code>--</code> comments above it, and the corresponding generated entry.</p>
-</blockquote>
+<p><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/gendocs-example.png" alt="Function with ‘–’ comments above it and corresponding generated entry"></p>
 <hr>
 <h3 id="recommended-inline-doc-style"><a class="header" href="#recommended-inline-doc-style">Recommended inline doc style</a></h3>
 <p>Put <code>--</code> comments directly above the function:</p>

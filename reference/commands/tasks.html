@@ -86,7 +86,7 @@
             const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../../searchindex-a7399635.js";
+            window.path_to_searchindex_js = "../../searchindex-ad3c6000.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../../toc-ed54b17f.js"></script>
@@ -228,7 +228,8 @@
                         <h1 id="tasks-hub-tasks"><a class="header" href="#tasks-hub-tasks">Tasks Hub (<code>tasks</code>)</a></h1>
 <p><code>tasks</code> displays all <strong>TODO</strong>, <strong>FIXME</strong>, <strong>HACK</strong>, and <strong>NOTE</strong> comments in an interactive Tasks widget.</p>
 <blockquote>
-<p>Screenshot placeholder: the Tasks widget UI<br><code>![Tasks Hub UI](task-hub.png)</code></p>
+<p>Screenshot placeholder: the Tasks widget UI
+<img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-hub.png" alt="Tasks Hub UI"></p>
 </blockquote>
 <hr>
 <h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
@@ -252,7 +253,8 @@
 <li>A <strong>Jump To</strong> button that opens the script at that line</li>
 </ul>
 <blockquote>
-<p>Screenshot placeholder: a task card showing tag + message + <code>(Line X)</code> and the Jump button.</p>
+<p>Screenshot placeholder: a task card showing tag + message + <code>(Line X)</code> and the Jump button.
+<img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/task-card.png" alt="Task card and its contents"></p>
 </blockquote>
 <hr>
 <h2 id="scopes-local-vs-global"><a class="header" href="#scopes-local-vs-global">Scopes (Local vs Global)</a></h2>
@@ -288,7 +290,7 @@
 <li>script name</li>
 </ul>
 <blockquote>
-<p>Screenshot placeholder: filter dropdown open (showing TODO/FIXME/HACK/NOTE toggles).<br>GIF placeholder: typing in search to filter the list.</p>
+<p>Screenshot placeholder: filter dropdown open (showing TODO/FIXME/HACK/NOTE toggles).<br><img src="https://raw.githubusercontent.com/Scottts/Scottts.github.io/main/src/assets/screenshots/filter-dropdown.gif" alt="Typing in search to filter the list"></p>
 </blockquote>
 <hr>
 <h2 id="what-gets-scanned"><a class="header" href="#what-gets-scanned">What gets scanned</a></h2>
@@ -309,7 +311,7 @@
 <hr>
 <h2 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h2>
 <h3 id="local-is-empty-but-i-see-todos"><a class="header" href="#local-is-empty-but-i-see-todos">“Local is empty but I see TODOs”</a></h3>
-<p>Local mode only shows tasks for the <strong>active script</strong>. Open the script that contains the TODOs, then run <code>tasks local</code>. 12</p>
+<p>Local mode only shows tasks for the <strong>active script</strong>. Open the script that contains the TODOs, then run <code>tasks local</code>.</p>
 <h3 id="jump-to-doesnt-open-the-right-spot"><a class="header" href="#jump-to-doesnt-open-the-right-spot">“Jump To doesn’t open the right spot”</a></h3>
 <p>Jump uses <code>plugin:OpenScript(script, line)</code>. If line numbers are off, it usually means the file changed since tasks were scanned—re-run <code>tasks</code> to refresh.</p>
 
